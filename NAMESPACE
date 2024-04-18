@@ -1,0 +1,7 @@
+useDynLib(tidyhydro, .registration=TRUE)
+importFrom(Rcpp, evalCpp)
+# exportPattern("^[[:alpha:]]+")
+
+S3method(nse,data.frame)
+export(nse)
+export(nse_vec)

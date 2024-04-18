@@ -1,0 +1,25 @@
+Package: tidyhydro
+Type: Package
+Title: Commonly Used Metrics In Hydrological Modelling
+Version: 0.0.1
+Date: 2024-04-18
+Authors@R: 
+    person("Anatoly", "Tsyplenkov", , "atsyplenkov@fastmail.com", role = c("cre", "aut"),
+           comment = c(ORCID = "0000-0003-4144-8402"))
+Maintainer: Anatoly Tsyplenkov <atsyplenkov@fastmail.com>
+Description: One paragraph description of what the package does as one or
+        more full sentences.
+License: MIT + file LICENSE
+Imports: 
+    Rcpp (>= 1.0.12),
+    rlang (>= 1.1.0),
+    yardstick (>= 1.3.1)
+LinkingTo: Rcpp
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
+Encoding: UTF-8
+Language: en-US
+Suggests: 
+    hydroGOF,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
