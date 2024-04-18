@@ -1,14 +1,14 @@
 Package: tidyhydro
 Type: Package
-Title: Commonly Used Metrics In Hydrological Modelling
+Title: Tidy Metrics For Hydrological Modelling Quality Assessment
 Version: 0.0.1
 Date: 2024-04-18
 Authors@R: 
     person("Anatoly", "Tsyplenkov", , "atsyplenkov@fastmail.com", role = c("cre", "aut"),
            comment = c(ORCID = "0000-0003-4144-8402"))
 Maintainer: Anatoly Tsyplenkov <atsyplenkov@fastmail.com>
-Description: One paragraph description of what the package does as one or
-        more full sentences.
+Description: Tidy tools for comparison of simulated and observed hydrological time series:
+		goodness-of-fit criteria such as NSE, KGE, pBIAS, etc.
 License: MIT + file LICENSE
 Imports: 
     Rcpp (>= 1.0.12),
@@ -20,6 +20,7 @@ RoxygenNote: 7.3.1
 Encoding: UTF-8
 Language: en-US
 Suggests: 
+    bench,
     dplyr,
     hydroGOF,
     testthat (>= 3.0.0)
