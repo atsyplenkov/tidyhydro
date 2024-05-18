@@ -57,6 +57,7 @@ nse(solubility_test, solubility, prediction)
 #>   .metric .estimator .estimate
 #>   <chr>   <chr>          <dbl>
 #> 1 nse     standard       0.879
+
 pbias(solubility_test, solubility, prediction)
 #> # A tibble: 1 × 3
 #>   .metric .estimator .estimate
@@ -115,6 +116,6 @@ bench::mark(
 #> # A tibble: 2 × 6
 #>   expression   min median `itr/sec` mem_alloc `gc/sec`
 #>   <bch:expr> <dbl>  <dbl>     <dbl>     <dbl>    <dbl>
-#> 1 tidyhydro   1      1         1.74       1       1   
-#> 2 hydroGOF    2.08   1.96      1         16.0     3.45
+#> 1 tidyhydro   1      1         1.59       1       1   
+#> 2 hydroGOF    2.09   1.95      1         16.0     3.78
 ```

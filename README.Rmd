@@ -51,6 +51,7 @@ library(tidyhydro)
 data(solubility_test)
 
 nse(solubility_test, solubility, prediction)
+
 pbias(solubility_test, solubility, prediction)
 ```
 
