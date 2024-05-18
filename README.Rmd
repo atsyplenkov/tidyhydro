@@ -1,5 +1,7 @@
 ---
-output: github_document
+output:
+  github_document:
+    html_preview: false
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -85,3 +87,7 @@ bench::mark(
   relative = TRUE
 )
 ```
+
+## Alternatives
+- R
+	- [`hydroGOF`](https://github.com/hzambran/hydroGOF) - Goodness-of-fit functions for comparison of simulated and observed hydrological time series

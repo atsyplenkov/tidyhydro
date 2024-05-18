@@ -90,7 +90,7 @@ al. ([2015](https://swat.tamu.edu/media/1312/moriasimodeleval.pdf)).
 hydro_metrics(solubility_test, solubility, prediction, performance = TRUE)
 #> # A tibble: 2 × 3
 #>   .metric .estimator .estimate
-#>   <chr>   <chr>      <chr>    
+#>   <chr>   <chr>      <chr>
 #> 1 nse     standard   Excellent
 #> 2 pbias   standard   Excellent
 ```
@@ -116,6 +116,13 @@ bench::mark(
 #> # A tibble: 2 × 6
 #>   expression   min median `itr/sec` mem_alloc `gc/sec`
 #>   <bch:expr> <dbl>  <dbl>     <dbl>     <dbl>    <dbl>
-#> 1 tidyhydro   1      1         1.59       1       1   
-#> 2 hydroGOF    2.09   1.95      1         16.0     3.78
+#> 1 tidyhydro   1      1         1.76       1       1
+#> 2 hydroGOF    2.06   1.94      1         16.0     3.40
 ```
+
+## Alternatives
+
+  - R
+      - [`hydroGOF`](https://github.com/hzambran/hydroGOF) -
+        Goodness-of-fit functions for comparison of simulated and
+        observed hydrological time series
