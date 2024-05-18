@@ -30,14 +30,20 @@ The `tidyhydro` package provides a set of commonly used metrics in hydrology (su
 
 ## Installation
 
-You can install the development version of `tidyhydro` from [GitHub](https://github.com/) with:
+You can install the development version of `tidyhydro` from [GitHub](https://github.com/atsyplenkov/tidyhydro) with:
 
 ``` r
 # install.packages("devtools")
 devtools::install_github("atsyplenkov/tidyhydro")
+
+# OR
+
+# install.packages("pak")
+pak::pak("atsyplenkov/tidyhydro")
 ```
 
 ## Example
+The `tidyhydro` package follows the philosophy of [`yardstick`](https://github.com/tidymodels/yardstick/tree/main) and provides S3 class methods for vectors and data frames. For example, one can estimate `NSE` and `pBIAS` for a data frame like this:
 
 ```{r example}
 library(yardstick)
@@ -45,10 +51,25 @@ library(tidyhydro)
 data(solubility_test)
 
 nse(solubility_test, solubility, prediction)
+pbias(solubility_test, solubility, prediction)
+```
+
+or create a [`metric_set`](https://yardstick.tidymodels.org/reference/metric_set.html) and estimate several parameters at once like this:
+
+```{r metricset}
+hydro_metrics <- yardstick::metric_set(nse, pbias)
+
+hydro_metrics(solubility_test, solubility, prediction)
+```
+
+We do understand that sometimes one needs a qualitative interpretation of the model; therefore, we populated every function with a `performance` argument. When `performance = TRUE`, the metric interpretation will be returned according to Moriasi et al. ([2015](https://swat.tamu.edu/media/1312/moriasimodeleval.pdf)).
+
+```{r interpretation}
+hydro_metrics(solubility_test, solubility, prediction, performance = TRUE)
 ```
 
 ## Benchmarking
-
+Since the package uses `Rcpp` in the background, it performs slightly faster than its ancestors:
 ```{r benchmarking}
 bench::mark(
   tidyhydro = tidyhydro::nse_vec(
@@ -62,5 +83,4 @@ bench::mark(
   check = TRUE,
   relative = TRUE
 )
-
 ```

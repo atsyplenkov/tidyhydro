@@ -3,5 +3,8 @@ importFrom(Rcpp, evalCpp)
 # exportPattern("^[[:alpha:]]+")
 
 S3method(nse,data.frame)
+S3method(pbias,data.frame)
 export(nse)
+export(pbias)
 export(nse_vec)
+export(pbias_vec)
