@@ -84,13 +84,13 @@ We do understand that sometimes one needs a qualitative interpretation
 of the model; therefore, we populated every function with a
 `performance` argument. When `performance = TRUE`, the metric
 interpretation will be returned according to Moriasi et
-al. ([2015](https://swat.tamu.edu/media/1312/moriasimodeleval.pdf)).
+al. ([2015](https://elibrary.asabe.org/abstract.asp?aid=46548&t=3&dabs=Y&redir=&redirType=)).
 
 ``` r
 hydro_metrics(solubility_test, solubility, prediction, performance = TRUE)
 #> # A tibble: 2 × 3
 #>   .metric .estimator .estimate
-#>   <chr>   <chr>      <chr>
+#>   <chr>   <chr>      <chr>    
 #> 1 nse     standard   Excellent
 #> 2 pbias   standard   Excellent
 ```
@@ -116,8 +116,8 @@ bench::mark(
 #> # A tibble: 2 × 6
 #>   expression   min median `itr/sec` mem_alloc `gc/sec`
 #>   <bch:expr> <dbl>  <dbl>     <dbl>     <dbl>    <dbl>
-#> 1 tidyhydro   1      1         1.76       1       1
-#> 2 hydroGOF    2.06   1.94      1         16.0     3.40
+#> 1 tidyhydro   1      1         1.71       1       1   
+#> 2 hydroGOF    2.05   1.94      1         16.0     3.51
 ```
 
 ## Alternatives

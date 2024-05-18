@@ -65,7 +65,7 @@ hydro_metrics <- yardstick::metric_set(nse, pbias)
 hydro_metrics(solubility_test, solubility, prediction)
 ```
 
-We do understand that sometimes one needs a qualitative interpretation of the model; therefore, we populated every function with a `performance` argument. When `performance = TRUE`, the metric interpretation will be returned according to Moriasi et al. ([2015](https://swat.tamu.edu/media/1312/moriasimodeleval.pdf)).
+We do understand that sometimes one needs a qualitative interpretation of the model; therefore, we populated every function with a `performance` argument. When `performance = TRUE`, the metric interpretation will be returned according to Moriasi et al. ([2015](https://elibrary.asabe.org/abstract.asp?aid=46548&t=3&dabs=Y&redir=&redirType=)).
 
 ```{r interpretation}
 hydro_metrics(solubility_test, solubility, prediction, performance = TRUE)
