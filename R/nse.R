@@ -1,16 +1,16 @@
 #' Nash-Sutcliffe efficiency (NSE)
 #'
 #' @description
-#' Calculate the Nash-Sutcliffe efficiency (Nash & Sutcliffe, 1970). 
+#' Calculate the Nash-Sutcliffe efficiency (Nash & Sutcliffe, 1970).
 #' Dimensionless (from -∞ to 1). `nse()` indicates how well the plot of observed
-#' versus simulated data fits the 1:1 line. 
-#' 
+#' versus simulated data fits the 1:1 line.
+#'
 #' @details
 #' The Nash-Sutcliffe efficiency is a normalized statistic that determines
 #' the relative magnitude of the residual variance (“noise”) compared to the
 #' measured data variance (“information”; Nash and Sutcliffe, 1970). According
 #' to Moriasi et al. (2015) the metric interpretation can be as follows:
-#' 
+#'
 #' - **Excellent**/**Very Good** -- `nse()` > 0.8
 #' - **Good** -- 0.6 <= `nse()` <= 0.8
 #' - **Satisfactory** -- 0.5 < `nse()` < 0.6
@@ -44,13 +44,13 @@
 #' @param ... Not currently used.
 #'
 #' @references
-#' Nash, J. E., & Sutcliffe, J. V. (1970). River flow forecasting through 
-#' conceptual models part I — A discussion of principles. Journal of Hydrology, 
+#' Nash, J. E., & Sutcliffe, J. V. (1970). River flow forecasting through
+#' conceptual models part I — A discussion of principles. Journal of Hydrology,
 #' 10(3), 282–290. https://doi.org/10.1016/0022-1694(70)90255-6
-#' 
+#'
 #' Moriasi, D. N., Gitau, M. W., Pai, N., & Daggupati, P. (2015). Hydrologic
-#'  and Water Quality Models: Performance Measures and Evaluation Criteria. 
-#'  Transactions of the ASABE, 58(6), 1763–1785. 
+#'  and Water Quality Models: Performance Measures and Evaluation Criteria.
+#'  Transactions of the ASABE, 58(6), 1763–1785.
 #'  https://doi.org/10.13031/trans.58.10715
 #'
 #' @author Anatolii Tsyplenkov
@@ -70,32 +70,35 @@ nse <- yardstick::new_numeric_metric(
 
 #' @rdname nse
 #' @export
-nse.data.frame <- function(data,
-                           truth,
-                           estimate,
-                           na_rm = TRUE,
-                           performance = FALSE,
-                           ...) {
-    yardstick::numeric_metric_summarizer(
-      name = "nse",
-      fn = nse_vec,
-      data = data,
-      truth = !!rlang::enquo(truth),
-      estimate = !!rlang::enquo(estimate),
-      na_rm = na_rm,
-      fn_options = list(performance = performance)
-    )
-
+nse.data.frame <- function(
+  data,
+  truth,
+  estimate,
+  na_rm = TRUE,
+  performance = FALSE,
+  ...
+) {
+  yardstick::numeric_metric_summarizer(
+    name = "nse",
+    fn = nse_vec,
+    data = data,
+    truth = !!rlang::enquo(truth),
+    estimate = !!rlang::enquo(estimate),
+    na_rm = na_rm,
+    fn_options = list(performance = performance)
+  )
 }
 
 #' @rdname nse
 #' @export
-nse_vec <- function(truth,
-                    estimate,
-                    na_rm = TRUE,
-                    performance = FALSE,
-                    ...) {
+nse_vec <- function(
+  truth,
+  estimate,
+  na_rm = TRUE,
+  performance = FALSE,
+  ...
+) {
   yardstick::check_numeric_metric(truth, estimate, case_weights = NULL)
-  
+
   nse_cpp(truth, estimate, na_rm = na_rm, performance = performance)
 }
