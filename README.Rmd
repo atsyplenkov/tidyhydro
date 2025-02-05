@@ -24,7 +24,6 @@ requireNamespace("bench", quietly = TRUE)
 [![R-CMD-check](https://github.com/atsyplenkov/tidyhydro/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/atsyplenkov/tidyhydro/actions/workflows/R-CMD-check.yaml)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![CRAN status](https://www.r-pkg.org/badges/version/tidyhydro)](https://CRAN.R-project.org/package=tidyhydro)
-![GitHub R package version](https://img.shields.io/github/r-package/v/atsyplenkov/tidyhydro?label=github)
 ![GitHub last commit](https://img.shields.io/github/last-commit/atsyplenkov/tidyhydro)
 <!-- badges: end -->
 
@@ -84,7 +83,8 @@ bench::mark(
     obs = solubility_test$solubility
   ),
   check = TRUE,
-  relative = TRUE
+  relative = FALSE,
+  iterations = 100L
 )
 ```
 

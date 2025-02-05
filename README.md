@@ -10,8 +10,6 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/tidyhydro)](https://CRAN.R-project.org/package=tidyhydro)
-![GitHub R package
-version](https://img.shields.io/github/r-package/v/atsyplenkov/tidyhydro?label=github)
 ![GitHub last
 commit](https://img.shields.io/github/last-commit/atsyplenkov/tidyhydro)
 <!-- badges: end -->
@@ -111,18 +109,19 @@ bench::mark(
     obs = solubility_test$solubility
   ),
   check = TRUE,
-  relative = TRUE
+  relative = FALSE,
+  iterations = 100L
 )
 #> # A tibble: 2 × 6
-#>   expression   min median `itr/sec` mem_alloc `gc/sec`
-#>   <bch:expr> <dbl>  <dbl>     <dbl>     <dbl>    <dbl>
-#> 1 tidyhydro   1      1         1.71       1       1   
-#> 2 hydroGOF    2.05   1.94      1         16.0     3.51
+#>   expression      min   median `itr/sec` mem_alloc `gc/sec`
+#>   <bch:expr> <bch:tm> <bch:tm>     <dbl> <bch:byt>    <dbl>
+#> 1 tidyhydro    10.8µs   13.2µs    58477.    5.03KB        0
+#> 2 hydroGOF     23.1µs   27.4µs    29074.   80.72KB        0
 ```
 
 ## Alternatives
 
-  - R
-      - [`hydroGOF`](https://github.com/hzambran/hydroGOF) -
+-   R
+    -   [`hydroGOF`](https://github.com/hzambran/hydroGOF) -
         Goodness-of-fit functions for comparison of simulated and
         observed hydrological time series

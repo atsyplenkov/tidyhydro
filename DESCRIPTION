@@ -1,14 +1,13 @@
 Package: tidyhydro
 Type: Package
 Title: Tidy Metrics For Hydrological Modelling Quality Assessment
-Version: 0.0.2
-Date: 2024-04-18
+Version: 0.0.3
+Date: 2025-02-25
 Authors@R:
     person("Anatoly", "Tsyplenkov", , "atsyplenkov@fastmail.com", role = c("cre", "aut"),
            comment = c(ORCID = "0000-0003-4144-8402"))
 Maintainer: Anatoly Tsyplenkov <atsyplenkov@fastmail.com>
-Description: Tidy tools for comparison of simulated and observed hydrological time series:
-		goodness-of-fit criteria such as NSE, KGE, pBIAS, etc.
+Description: Tidy tools for comparison of simulated and observed hydrological time series: goodness-of-fit criteria such as NSE, KGE, pBIAS, etc.
 License: MIT + file LICENSE
 Imports:
     Rcpp (>= 1.0.12),
