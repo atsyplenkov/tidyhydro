@@ -1,85 +1,56 @@
 #include <Rcpp.h>
+// [[Rcpp::plugins(openmp)]]
+#ifdef _OPENMP
+#include <omp.h>
+#endif
 using namespace Rcpp;
 
 // [[Rcpp::export]]
 SEXP pbias_cpp(NumericVector truth, NumericVector estimate, bool performance = false, bool na_rm = true)
 {
-
-  // Removing NA values if na_rm is TRUE
-  if (na_rm)
-  {
-
-    std::vector<int> naIndices;
-
-    // Check for NaN in 'truth'
-    for (size_t i = 0; i < static_cast<size_t>(truth.size()); ++i)
-    {
-      if (std::isnan(truth[i]))
-      {
-        naIndices.push_back(i);
-      }
-    }
-
-    // Check for NaN in 'estimate'
-    for (size_t i = 0; i < static_cast<size_t>(estimate.size()); ++i)
-    {
-      if (std::isnan(estimate[i]))
-      {
-        naIndices.push_back(i);
-      }
-    }
-
-    // Sort the indices
-    std::sort(naIndices.begin(), naIndices.end());
-
-    // Remove duplicates
-    auto last = std::unique(naIndices.begin(), naIndices.end());
-    naIndices.erase(last, naIndices.end());
-
-    // Create new vectors without NA elements
-    NumericVector cleaned_truth(truth.size() - naIndices.size());
-    NumericVector cleaned_estimate(estimate.size() - naIndices.size());
-
-    int index = 0;
-    for (int i = 0; i < truth.size(); ++i)
-    {
-      if (!std::binary_search(naIndices.begin(), naIndices.end(), i))
-      {
-        cleaned_truth[index] = truth[i];
-        cleaned_estimate[index] = estimate[i];
-        index++;
-      }
-    }
-
-    truth = cleaned_truth;
-    estimate = cleaned_estimate;
+  if (truth.size() != estimate.size()) {
+    stop("'truth' and 'estimate' must have the same length");
   }
 
-  double metric = 100 * (sum(estimate - truth) / sum(truth));
+  const int n = truth.length();
+  const double* t = REAL(truth);
+  const double* e = REAL(estimate);
+  double num = 0.0;  // sum(estimate - truth)
+  double den = 0.0;  // sum(truth)
 
-  if (!performance)
-  {
+  if (na_rm) {
+    #pragma omp parallel for reduction(+:num,den) schedule(static) if(n > 1000)
+    for (int i = 0; i < n; i++) {
+      if (!ISNAN(t[i]) && !ISNAN(e[i])) {
+        num += e[i] - t[i];
+        den += t[i];
+      }
+    }
+  } else {
+    #pragma omp parallel for simd reduction(+:num,den) schedule(static) if(n > 1000)
+    for (int i = 0; i < n; i++) {
+      num += e[i] - t[i];
+      den += t[i];
+    }
+  }
+
+  double metric = 100.0 * (num / den);
+
+  if (!performance) {
     return wrap(metric);
-  }
-  else
-  {
+  } else {
     CharacterVector metric_values = CharacterVector::create("Poor", "Satisfactory", "Good", "Excellent");
     CharacterVector result(1);
-
-    if (abs(metric) >= 15)
-    {
+    
+    const double abs_metric = std::abs(metric);
+    
+    if (abs_metric >= 15.0) {
       result[0] = metric_values[0];
-    }
-    else if (abs(metric) >= 10 && abs(metric) < 15)
-    {
+    } else if (abs_metric >= 10.0) {
       result[0] = metric_values[1];
-    }
-    else if (abs(metric) >= 5 && abs(metric) < 10)
-    {
+    } else if (abs_metric >= 5.0) {
       result[0] = metric_values[2];
-    }
-    else
-    {
+    } else {
       result[0] = metric_values[3];
     }
 

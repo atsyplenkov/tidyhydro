@@ -9,3 +9,7 @@ pbias_cpp <- function(truth, estimate, performance = FALSE, na_rm = TRUE) {
     .Call(`_tidyhydro_pbias_cpp`, truth, estimate, performance, na_rm)
 }
 
+press_cpp <- function(truth, estimate, na_rm = TRUE) {
+    .Call(`_tidyhydro_press_cpp`, truth, estimate, na_rm)
+}
+

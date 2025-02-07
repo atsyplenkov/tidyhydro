@@ -10,8 +10,6 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/tidyhydro)](https://CRAN.R-project.org/package=tidyhydro)
-![GitHub R package
-version](https://img.shields.io/github/r-package/v/atsyplenkov/tidyhydro?label=github)
 ![GitHub last
 commit](https://img.shields.io/github/last-commit/atsyplenkov/tidyhydro)
 <!-- badges: end -->
@@ -98,31 +96,35 @@ hydro_metrics(solubility_test, solubility, prediction, performance = TRUE)
 ## Benchmarking
 
 Since the package uses `Rcpp` in the background, it performs slightly
-faster than its ancestors:
+faster than base R and other R packages:
 
 ``` r
+x <- runif(10^5)
+y <- runif(10^5)
+
+nse <- function(truth, estimate, na_rm = TRUE) {
+  1 - (sum((truth - estimate)^2, na.rm = na_rm) /
+        sum((truth - mean(truth, na.rm = na_rm))^2, na.rm = na_rm))
+}
+
 bench::mark(
-  tidyhydro = tidyhydro::nse_vec(
-    solubility_test$solubility,
-    solubility_test$prediction
-  ),
-  hydroGOF = hydroGOF::NSE(
-    sim = solubility_test$prediction,
-    obs = solubility_test$solubility
-  ),
+  tidyhydro = tidyhydro::nse_vec(truth = x, estimate = y),
+  hydroGOF = hydroGOF::NSE(sim = y, obs = x),
+  baseR = nse(truth = x, estimate = y),
   check = TRUE,
-  relative = TRUE
+  relative = TRUE,
+  iterations = 100L
 )
-#> # A tibble: 2 × 6
+#> # A tibble: 3 × 6
 #>   expression   min median `itr/sec` mem_alloc `gc/sec`
 #>   <bch:expr> <dbl>  <dbl>     <dbl>     <dbl>    <dbl>
-#> 1 tidyhydro   1      1         1.71       1       1   
-#> 2 hydroGOF    2.05   1.94      1         16.0     3.51
+#> 1 tidyhydro   1      1        11.7        NaN      NaN
+#> 2 hydroGOF   12.3   12.6       1          Inf      Inf
+#> 3 baseR       7.57   7.65      1.78       Inf      Inf
 ```
 
-## Alternatives
+## See also
 
-  - R
-      - [`hydroGOF`](https://github.com/hzambran/hydroGOF) -
-        Goodness-of-fit functions for comparison of simulated and
-        observed hydrological time series
+-   [`hydroGOF`](https://github.com/hzambran/hydroGOF) - Goodness-of-fit
+    functions for comparison of simulated and observed hydrological time
+    series

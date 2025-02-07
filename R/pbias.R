@@ -68,12 +68,14 @@ pbias <- yardstick::new_numeric_metric(
 
 #' @rdname pbias
 #' @export
-pbias.data.frame <- function(data,
-                             truth,
-                             estimate,
-                             na_rm = TRUE,
-                             performance = FALSE,
-                             ...) {
+pbias.data.frame <- function(
+  data,
+  truth,
+  estimate,
+  na_rm = TRUE,
+  performance = FALSE,
+  ...
+) {
   yardstick::numeric_metric_summarizer(
     name = "pbias",
     fn = pbias_vec,
@@ -87,11 +89,13 @@ pbias.data.frame <- function(data,
 
 #' @rdname pbias
 #' @export
-pbias_vec <- function(truth,
-                      estimate,
-                      na_rm = TRUE,
-                      performance = FALSE,
-                      ...) {
+pbias_vec <- function(
+  truth,
+  estimate,
+  na_rm = TRUE,
+  performance = FALSE,
+  ...
+) {
   yardstick::check_numeric_metric(truth, estimate, case_weights = NULL)
 
   pbias_cpp(truth, estimate, na_rm = na_rm, performance = performance)

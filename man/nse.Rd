@@ -107,10 +107,12 @@ https://doi.org/10.13031/trans.58.10715
 }
 \seealso{
 Other numeric metrics: 
-\code{\link{pbias}()}
+\code{\link{pbias}()},
+\code{\link{press}()}
 
 Other accuracy metrics: 
-\code{\link{pbias}()}
+\code{\link{pbias}()},
+\code{\link{press}()}
 }
 \author{
 Anatolii Tsyplenkov

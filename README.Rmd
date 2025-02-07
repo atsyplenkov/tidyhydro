@@ -24,7 +24,6 @@ requireNamespace("bench", quietly = TRUE)
 [![R-CMD-check](https://github.com/atsyplenkov/tidyhydro/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/atsyplenkov/tidyhydro/actions/workflows/R-CMD-check.yaml)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![CRAN status](https://www.r-pkg.org/badges/version/tidyhydro)](https://CRAN.R-project.org/package=tidyhydro)
-![GitHub R package version](https://img.shields.io/github/r-package/v/atsyplenkov/tidyhydro?label=github)
 ![GitHub last commit](https://img.shields.io/github/last-commit/atsyplenkov/tidyhydro)
 <!-- badges: end -->
 
@@ -72,22 +71,25 @@ hydro_metrics(solubility_test, solubility, prediction, performance = TRUE)
 ```
 
 ## Benchmarking
-Since the package uses `Rcpp` in the background, it performs slightly faster than its ancestors:
+Since the package uses `Rcpp` in the background, it performs slightly faster than base R and other R packages:
 ```{r benchmarking}
+x <- runif(10^5)
+y <- runif(10^5)
+
+nse <- function(truth, estimate, na_rm = TRUE) {
+  1 - (sum((truth - estimate)^2, na.rm = na_rm) /
+        sum((truth - mean(truth, na.rm = na_rm))^2, na.rm = na_rm))
+}
+
 bench::mark(
-  tidyhydro = tidyhydro::nse_vec(
-    solubility_test$solubility,
-    solubility_test$prediction
-  ),
-  hydroGOF = hydroGOF::NSE(
-    sim = solubility_test$prediction,
-    obs = solubility_test$solubility
-  ),
+  tidyhydro = tidyhydro::nse_vec(truth = x, estimate = y),
+  hydroGOF = hydroGOF::NSE(sim = y, obs = x),
+  baseR = nse(truth = x, estimate = y),
   check = TRUE,
-  relative = TRUE
+  relative = TRUE,
+  iterations = 100L
 )
 ```
 
-## Alternatives
-- R
-	- [`hydroGOF`](https://github.com/hzambran/hydroGOF) - Goodness-of-fit functions for comparison of simulated and observed hydrological time series
+## See also
+- [`hydroGOF`](https://github.com/hzambran/hydroGOF) - Goodness-of-fit functions for comparison of simulated and observed hydrological time series
