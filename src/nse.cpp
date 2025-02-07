@@ -1,53 +1,67 @@
 #include <Rcpp.h>
+// [[Rcpp::plugins(openmp)]]
+#ifdef _OPENMP
+#include <omp.h>
+#endif
 using namespace Rcpp;
 
 // [[Rcpp::export]]
 SEXP nse_cpp(NumericVector truth, NumericVector estimate, bool performance = false, bool na_rm = true) {
-  
-  // Removing NA values if na_rm is TRUE
-  if (na_rm) {
-    
-    std::vector<int> naIndices;
-    
-    // Check for NaN in 'truth'
-    for (size_t i = 0; i < static_cast<size_t>(truth.size()); ++i) {
-      if (std::isnan(truth[i])) {
-        naIndices.push_back(i);
-      }
-    }
-    
-    // Check for NaN in 'estimate'
-    for (size_t i = 0; i < static_cast<size_t>(estimate.size()); ++i) {
-      if (std::isnan(estimate[i])) {
-        naIndices.push_back(i);
-      }
-    }
-    
-    // Sort the indices
-    std::sort(naIndices.begin(), naIndices.end());
-    
-    // Remove duplicates
-    auto last = std::unique(naIndices.begin(), naIndices.end());
-    naIndices.erase(last, naIndices.end());
-    
-    // Create new vectors without NA elements
-    NumericVector cleaned_truth(truth.size() - naIndices.size());
-    NumericVector cleaned_estimate(estimate.size() - naIndices.size());
-    
-    int index = 0;
-    for (int i = 0; i < truth.size(); ++i) {
-      if (!std::binary_search(naIndices.begin(), naIndices.end(), i)) {
-        cleaned_truth[index] = truth[i];
-        cleaned_estimate[index] = estimate[i];
-        index++;
-      }
-    }
-    
-    truth = cleaned_truth;
-    estimate = cleaned_estimate;
+  if (truth.size() != estimate.size()) {
+    stop("'truth' and 'estimate' must have the same length");
   }
   
-  double metric = 1 - (sum(pow(truth - estimate, 2)) / sum(pow(truth - mean(truth), 2)));
+  const int n = truth.length();
+  const double* t = REAL(truth);
+  const double* e = REAL(estimate);
+  double num = 0.0;  // numerator
+  double den = 0.0;  // denominator
+  double t_mean = 0.0; // mean of truth
+  
+  // First pass: calculate mean and handle NAs
+  if (na_rm) {
+    double sum = 0.0;
+    int count = 0;
+    
+    #pragma omp parallel for reduction(+:sum,count) schedule(static) if(n > 1000)
+    for (int i = 0; i < n; i++) {
+      if (!ISNAN(t[i])) {
+        sum += t[i];
+        count++;
+      }
+    }
+    
+    t_mean = sum / count;
+  } else {
+    #pragma omp parallel for reduction(+:t_mean) schedule(static) if(n > 1000)
+    for (int i = 0; i < n; i++) {
+      t_mean += t[i];
+    }
+    t_mean /= n;
+  }
+  
+  // Second pass: calculate numerator and denominator
+  if (na_rm) {
+    #pragma omp parallel for reduction(+:num,den) schedule(static) if(n > 1000)
+    for (int i = 0; i < n; i++) {
+      if (!ISNAN(t[i]) && !ISNAN(e[i])) {
+        const double diff1 = t[i] - e[i];
+        const double diff2 = t[i] - t_mean;
+        num += diff1 * diff1;
+        den += diff2 * diff2;
+      }
+    }
+  } else {
+    #pragma omp parallel for simd reduction(+:num,den) schedule(static) if(n > 1000)
+    for (int i = 0; i < n; i++) {
+      const double diff1 = t[i] - e[i];
+      const double diff2 = t[i] - t_mean;
+      num += diff1 * diff1;
+      den += diff2 * diff2;
+    }
+  }
+  
+  double metric = 1.0 - (num / den);
   
   if (!performance) {
     return wrap(metric);

@@ -96,27 +96,34 @@ hydro_metrics(solubility_test, solubility, prediction, performance = TRUE)
 ## Benchmarking
 
 Since the package uses `Rcpp` in the background, it performs slightly
-faster than its ancestors:
+faster than base R and other R packages:
 
 ``` r
+x <- runif(10^5)
+y <- runif(10^5)
+
+nse <- function(truth, estimate, na_rm = TRUE) {
+  1 -
+    (
+      sum((truth - estimate)^2, na.rm = na_rm) /
+        sum((truth - mean(truth, na.rm = na_rm))^2, na.rm = na_rm)
+    )
+}
+
 bench::mark(
-  tidyhydro = tidyhydro::nse_vec(
-    solubility_test$solubility,
-    solubility_test$prediction
-  ),
-  hydroGOF = hydroGOF::NSE(
-    sim = solubility_test$prediction,
-    obs = solubility_test$solubility
-  ),
+  tidyhydro = tidyhydro::nse_vec(truth = x, estimate = y),
+  hydroGOF = hydroGOF::NSE(sim = y, obs = x),
+  baseR = nse(truth = x, estimate = y),
   check = TRUE,
-  relative = FALSE,
+  relative = TRUE,
   iterations = 100L
 )
-#> # A tibble: 2 × 6
-#>   expression      min   median `itr/sec` mem_alloc `gc/sec`
-#>   <bch:expr> <bch:tm> <bch:tm>     <dbl> <bch:byt>    <dbl>
-#> 1 tidyhydro    10.8µs   13.2µs    58477.    5.03KB        0
-#> 2 hydroGOF     23.1µs   27.4µs    29074.   80.72KB        0
+#> # A tibble: 3 × 6
+#>   expression   min median `itr/sec` mem_alloc `gc/sec`
+#>   <bch:expr> <dbl>  <dbl>     <dbl>     <dbl>    <dbl>
+#> 1 tidyhydro   1      1        14.0        NaN      NaN
+#> 2 hydroGOF   12.6   12.8       1          Inf      Inf
+#> 3 baseR       7.70   7.92      1.86       Inf      Inf
 ```
 
 ## Alternatives
