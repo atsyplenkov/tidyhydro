@@ -15,7 +15,7 @@ commit](https://img.shields.io/github/last-commit/atsyplenkov/tidyhydro)
 <!-- badges: end -->
 
 The `tidyhydro` package provides a set of commonly used metrics in
-hydrology (such as NSE, KGE, pBIAS) for use within a
+hydrology (such as *NSE*, *KGE*, *pBIAS*) for use within a
 [`tidymodels`](https://www.tidymodels.org/) infrastructure. Originally
 inspired by the
 [`yardstick`](https://github.com/tidymodels/yardstick/tree/main)and
@@ -23,20 +23,16 @@ inspired by the
 library is mainly written in C++ and provides a very quick estimation of
 desired goodness-of-fit criteria.
 
-## Installation
-
-You can install the development version of `tidyhydro` from
-[GitHub](https://github.com/atsyplenkov/tidyhydro) with:
-
-``` r
-# install.packages("devtools")
-devtools::install_github("atsyplenkov/tidyhydro")
-
-# OR
-
-# install.packages("pak")
-pak::pak("atsyplenkov/tidyhydro")
-```
+Additionally, you’ll find here a C++ implementation of lesser-known yet
+powerful metrics used in reports from the United States Geological
+Survey (USGS) and the National Environmental Monitoring Standards (NEMS)
+guidelines. Examples include *PRESS* (Prediction Error Sum of Squares),
+*SFE* (Standard Factorial Error), and *MSPE* (Model Standard Percentage
+Error) and others. Based on the equations from *Helsel et al.*
+([2020](http://pubs.er.usgs.gov/publication/tm4A3)), *Rasmunsen et al.*
+([2008](https://pubs.usgs.gov/tm/tm3c4/)), *Hicks et al.*
+([2020](https://www.nems.org.nz/documents/suspended-sediment)) and etc.
+(see functions documentation for details).
 
 ## Example
 
@@ -93,6 +89,21 @@ hydro_metrics(solubility_test, solubility, prediction, performance = TRUE)
 #> 2 pbias   standard   Excellent
 ```
 
+## Installation
+
+You can install the development version of `tidyhydro` from
+[GitHub](https://github.com/atsyplenkov/tidyhydro) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("atsyplenkov/tidyhydro")
+
+# OR
+
+# install.packages("pak")
+pak::pak("atsyplenkov/tidyhydro")
+```
+
 ## Benchmarking
 
 Since the package uses `Rcpp` in the background, it performs slightly
@@ -103,8 +114,11 @@ x <- runif(10^5)
 y <- runif(10^5)
 
 nse <- function(truth, estimate, na_rm = TRUE) {
-  1 - (sum((truth - estimate)^2, na.rm = na_rm) /
-        sum((truth - mean(truth, na.rm = na_rm))^2, na.rm = na_rm))
+  1 -
+    (
+      sum((truth - estimate)^2, na.rm = na_rm) /
+        sum((truth - mean(truth, na.rm = na_rm))^2, na.rm = na_rm)
+    )
 }
 
 bench::mark(
@@ -118,9 +132,9 @@ bench::mark(
 #> # A tibble: 3 × 6
 #>   expression   min median `itr/sec` mem_alloc `gc/sec`
 #>   <bch:expr> <dbl>  <dbl>     <dbl>     <dbl>    <dbl>
-#> 1 tidyhydro   1      1        11.7        NaN      NaN
-#> 2 hydroGOF   12.3   12.6       1          Inf      Inf
-#> 3 baseR       7.57   7.65      1.78       Inf      Inf
+#> 1 tidyhydro   1      1        10.9        NaN      NaN
+#> 2 hydroGOF   10.3   10.4       1          Inf      Inf
+#> 3 baseR       6.44   6.51      1.77       Inf      Inf
 ```
 
 ## See also
