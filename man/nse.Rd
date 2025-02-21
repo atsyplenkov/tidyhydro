@@ -108,11 +108,13 @@ https://doi.org/10.13031/trans.58.10715
 \seealso{
 Other numeric metrics: 
 \code{\link{pbias}()},
-\code{\link{press}()}
+\code{\link{press}()},
+\code{\link{sfe}()}
 
 Other accuracy metrics: 
 \code{\link{pbias}()},
-\code{\link{press}()}
+\code{\link{press}()},
+\code{\link{sfe}()}
 }
 \author{
 Anatolii Tsyplenkov

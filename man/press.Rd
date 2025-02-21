@@ -42,7 +42,22 @@ the number of groups.
 For \code{press_vec()}, a single \code{numeric} value (or \code{NA}).
 }
 \description{
-PRediction Error Sum of Squares (PRESS)
+PRESS is a measure of the quality of a regression model using residuals.
+PRESS is a validation-type estimator of error that uses the deleted
+residuals to provide an estimate of the prediction error. When comparing
+alternate regression models, selecting the model with the lowest value
+of the PRESS statistic is a good approach because it means that the
+equation produces the least error when making new predictions
+(see \emph{Helsel et al., 2020}).
+
+It is particularly valuable in assessing multiple forms of multiple
+linear regressions, but it is also useful for
+simply comparing different options for a single explanatory variable in
+single-variable regression models.
+}
+\details{
+The PRESS is only relevant for comparisons to other regression models
+with the same response variable units (\emph{Rasmunsen et al., 2009}).
 }
 \examples{
 library(yardstick)
@@ -78,14 +93,27 @@ metric_results
 metric_results |> 
   summarise(avg_estimate = mean(.estimate))
 }
+\references{
+Rasmussen, P. P., Gray, J. R., Glysson, G. D. & Ziegler, A. C.
+Guidelines and procedures for computing time-series suspended-sediment
+concentrations and loads from in-stream turbidity-sensor and streamflow
+data. in U.S. Geological Survey Techniques and Methods book 3, chap.
+C4 53 (2009).
+
+Helsel, D. R., Hirsch, R. M., Ryberg, K. R., Archfield, S. A. &
+Gilroy, E. J. Statistical Methods in Water Resources. 484
+http://pubs.er.usgs.gov/publication/tm4A3 (2020) doi:10.3133/tm4A3.
+}
 \seealso{
 Other numeric metrics: 
 \code{\link{nse}()},
-\code{\link{pbias}()}
+\code{\link{pbias}()},
+\code{\link{sfe}()}
 
 Other accuracy metrics: 
 \code{\link{nse}()},
-\code{\link{pbias}()}
+\code{\link{pbias}()},
+\code{\link{sfe}()}
 }
 \author{
 Anatolii Tsyplenkov
