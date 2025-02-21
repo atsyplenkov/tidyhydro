@@ -7,7 +7,7 @@ test_that("press", {
       ex_dat,
       truth = "obs",
       estimate = "pred",
-      na.rm = FALSE
+      na_rm = FALSE
     )[[".estimate"]],
     sum((ex_dat$obs - ex_dat$pred)^2)
   )

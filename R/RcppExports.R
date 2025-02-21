@@ -13,3 +13,7 @@ press_cpp <- function(truth, estimate, na_rm = TRUE) {
     .Call(`_tidyhydro_press_cpp`, truth, estimate, na_rm)
 }
 
+sfe_cpp <- function(truth, estimate, na_rm = TRUE) {
+    .Call(`_tidyhydro_sfe_cpp`, truth, estimate, na_rm)
+}
+

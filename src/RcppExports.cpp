@@ -51,11 +51,25 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// sfe_cpp
+SEXP sfe_cpp(NumericVector truth, NumericVector estimate, bool na_rm);
+RcppExport SEXP _tidyhydro_sfe_cpp(SEXP truthSEXP, SEXP estimateSEXP, SEXP na_rmSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type truth(truthSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type estimate(estimateSEXP);
+    Rcpp::traits::input_parameter< bool >::type na_rm(na_rmSEXP);
+    rcpp_result_gen = Rcpp::wrap(sfe_cpp(truth, estimate, na_rm));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_tidyhydro_nse_cpp", (DL_FUNC) &_tidyhydro_nse_cpp, 4},
     {"_tidyhydro_pbias_cpp", (DL_FUNC) &_tidyhydro_pbias_cpp, 4},
     {"_tidyhydro_press_cpp", (DL_FUNC) &_tidyhydro_press_cpp, 3},
+    {"_tidyhydro_sfe_cpp", (DL_FUNC) &_tidyhydro_sfe_cpp, 3},
     {NULL, NULL, 0}
 };
 
