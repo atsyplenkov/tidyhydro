@@ -106,11 +106,13 @@ http://pubs.er.usgs.gov/publication/tm4A3 (2020) doi:10.3133/tm4A3.
 }
 \seealso{
 Other numeric metrics: 
+\code{\link{kge}()},
 \code{\link{nse}()},
 \code{\link{pbias}()},
 \code{\link{sfe}()}
 
 Other accuracy metrics: 
+\code{\link{kge}()},
 \code{\link{nse}()},
 \code{\link{pbias}()},
 \code{\link{sfe}()}
