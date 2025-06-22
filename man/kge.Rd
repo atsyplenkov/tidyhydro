@@ -8,7 +8,7 @@
 \usage{
 kge(data, ...)
 
-\method{kge}{data.frame}(data, truth, estimate, na_rm = TRUE, performance = FALSE, ...)
+\method{kge}{data.frame}(data, truth, estimate, na_rm = TRUE, ...)
 
 kge_vec(truth, estimate, na_rm = TRUE, ...)
 }
