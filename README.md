@@ -18,7 +18,7 @@ The `tidyhydro` package provides a set of commonly used metrics in
 hydrology (such as *NSE*, *KGE*, *pBIAS*) for use within a
 [`tidymodels`](https://www.tidymodels.org/) infrastructure. Originally
 inspired by the
-[`yardstick`](https://github.com/tidymodels/yardstick/tree/main)and
+[`yardstick`](https://github.com/tidymodels/yardstick/tree/main) and
 [`hydroGOF`](https://github.com/hzambran/hydroGOF) packages, this
 library is mainly written in C++ and provides a very quick estimation of
 desired goodness-of-fit criteria.
@@ -75,7 +75,7 @@ hydro_metrics(solubility_test, solubility, prediction)
 ```
 
 We do understand that sometimes one needs a qualitative interpretation
-of the model; therefore, we populated every function with a
+of the model. Therefore, we populated some functions with a
 `performance` argument. When `performance = TRUE`, the metric
 interpretation will be returned according to Moriasi et
 al. ([2015](https://elibrary.asabe.org/abstract.asp?aid=46548&t=3&dabs=Y&redir=&redirType=)).
@@ -125,13 +125,13 @@ bench::mark(
 #> # A tibble: 3 × 6
 #>   expression   min median `itr/sec` mem_alloc `gc/sec`
 #>   <bch:expr> <dbl>  <dbl>     <dbl>     <dbl>    <dbl>
-#> 1 tidyhydro   1      1        10.9        NaN      NaN
-#> 2 hydroGOF    8.65  11.9       1          Inf      Inf
-#> 3 baseR       6.39   7.80      1.48       Inf      Inf
+#> 1 tidyhydro   1      1        10.5        NaN      NaN
+#> 2 hydroGOF    8.13  11.1       1          Inf      Inf
+#> 3 baseR       5.60   7.09      1.53       Inf      Inf
 ```
 
 ## See also
 
-- [`hydroGOF`](https://github.com/hzambran/hydroGOF) - Goodness-of-fit
-  functions for comparison of simulated and observed hydrological time
-  series
+- [`hydroGOF`](https://github.com/hzambran/hydroGOF%3E) -
+  Goodness-of-fit functions for comparison of simulated and observed
+  hydrological time series.
