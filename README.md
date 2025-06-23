@@ -5,13 +5,18 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/atsyplenkov/tidyhydro/actions/workflows/check-r-pkg.yaml/badge.svg)](https://github.com/atsyplenkov/tidyhydro/actions/workflows/check-r-pkg.yaml)
-[![Codecov test
-coverage](https://codecov.io/gh/atsyplenkov/tidyhydro/graph/badge.svg)](https://app.codecov.io/gh/atsyplenkov/tidyhydro)
-[![CRAN
-status](https://www.r-pkg.org/badges/version/tidyhydro)](https://CRAN.R-project.org/package=tidyhydro)
-![GitHub last
-commit](https://img.shields.io/github/last-commit/atsyplenkov/tidyhydro)
+<p align="center">
+
+<a href="https://github.com/atsyplenkov/tidyhydro/releases">
+<img src="https://img.shields.io/github/v/release/atsyplenkov/tidyhydro?style=flat&labelColor=1C2C2E&color=256bc0&logo=GitHub&logoColor=white"></a>
+<a href="https://cran.r-project.org/package=tidyhydro">
+<img src="https://img.shields.io/cran/v/tidyhydro?style=flat&labelColor=1C2C2E&color=276DC3&logo=R&logoColor=white"></a>
+<a href="https://codecov.io/gh/atsyplenkov/tidyhydro">
+<img src="https://img.shields.io/codecov/c/gh/atsyplenkov/tidyhydro?style=flat&labelColor=1C2C2E&color=256bc0&logo=Codecov&logoColor=white"></a>
+<a href="https://github.com/atsyplenkov/tidyhydro/actions/workflows/check-r-pkg.yaml">
+<img src="https://img.shields.io/github/actions/workflow/status/atsyplenkov/tidyhydro/check-r-pkg.yaml?style=flat&labelColor=1C2C2E&color=256bc0&logo=GitHub%20Actions&logoColor=white"></a>
+</p>
+
 <!-- badges: end -->
 
 The `tidyhydro` package provides a set of commonly used metrics in
@@ -125,9 +130,9 @@ bench::mark(
 #> # A tibble: 3 × 6
 #>   expression   min median `itr/sec` mem_alloc `gc/sec`
 #>   <bch:expr> <dbl>  <dbl>     <dbl>     <dbl>    <dbl>
-#> 1 tidyhydro   1      1        10.5        NaN      NaN
-#> 2 hydroGOF    8.13  11.1       1          Inf      Inf
-#> 3 baseR       5.60   7.09      1.53       Inf      Inf
+#> 1 tidyhydro   1      1         8.59       NaN      NaN
+#> 2 hydroGOF    7.73   8.98      1          Inf      Inf
+#> 3 baseR       5.04   5.54      1.66       Inf      Inf
 ```
 
 ## See also
