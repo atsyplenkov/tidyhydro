@@ -8,9 +8,9 @@
 <p align="center">
 
 <a href="https://github.com/atsyplenkov/tidyhydro/releases">
-<img src="https://img.shields.io/github/v/release/atsyplenkov/tidyhydro?style=flat&labelColor=1C2C2E&color=256bc0&logo=GitHub&logoColor=white"></a>
+<img src="https://img.shields.io/github/v/release/atsyplenkov/tidyhydro?style=flat&labelColor=1C2C2E&color=198ce7&logo=GitHub&logoColor=white"></a>
 <a href="https://cran.r-project.org/package=tidyhydro">
-<img src="https://img.shields.io/cran/v/tidyhydro?style=flat&labelColor=1C2C2E&color=276DC3&logo=R&logoColor=white"></a>
+<img src="https://img.shields.io/cran/v/tidyhydro?style=flat&labelColor=1C2C2E&color=198ce7&logo=R&logoColor=white"></a>
 <a href="https://codecov.io/gh/atsyplenkov/tidyhydro">
 <img src="https://img.shields.io/codecov/c/gh/atsyplenkov/tidyhydro?style=flat&labelColor=1C2C2E&color=256bc0&logo=Codecov&logoColor=white"></a>
 <a href="https://github.com/atsyplenkov/tidyhydro/actions/workflows/check-r-pkg.yaml">
@@ -130,9 +130,9 @@ bench::mark(
 #> # A tibble: 3 × 6
 #>   expression   min median `itr/sec` mem_alloc `gc/sec`
 #>   <bch:expr> <dbl>  <dbl>     <dbl>     <dbl>    <dbl>
-#> 1 tidyhydro   1      1         8.59       NaN      NaN
-#> 2 hydroGOF    7.73   8.98      1          Inf      Inf
-#> 3 baseR       5.04   5.54      1.66       Inf      Inf
+#> 1 tidyhydro   1      1        10.0        NaN      NaN
+#> 2 hydroGOF    8.55  11.1       1          Inf      Inf
+#> 3 baseR       5.77   7.49      1.49       Inf      Inf
 ```
 
 ## See also
