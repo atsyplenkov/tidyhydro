@@ -2,7 +2,7 @@
 #'
 #' @description
 #' Calculate the Nash-Sutcliffe efficiency (Nash & Sutcliffe, 1970).
-#' Dimensionless (from -∞ to 1). `nse()` indicates how well the plot of observed
+#' Dimensionless (from \eqn{-\infty} to 1). `nse()` indicates how well the plot of observed
 #' versus simulated data fits the 1:1 line.
 #'
 #' @details
@@ -45,8 +45,8 @@
 #'
 #' @references
 #' Nash, J. E., & Sutcliffe, J. V. (1970). River flow forecasting through
-#' conceptual models part I — A discussion of principles. Journal of Hydrology,
-#' 10(3), 282–290. \url{https://doi.org/10.1016/0022-1694(70)90255-6}
+#'  conceptual models part I — A discussion of principles. Journal of Hydrology,
+#'  10(3), 282–290. \url{https://doi.org/10.1016/0022-1694(70)90255-6}
 #'
 #' Moriasi, D. N., Gitau, M. W., Pai, N., & Daggupati, P. (2015). Hydrologic
 #'  and Water Quality Models: Performance Measures and Evaluation Criteria.

@@ -84,12 +84,14 @@ Gilroy, E. J. Statistical Methods in Water Resources. 484
 \seealso{
 Other numeric metrics: 
 \code{\link{kge}()},
+\code{\link{mse}()},
 \code{\link{nse}()},
 \code{\link{pbias}()},
 \code{\link{sfe}()}
 
 Other accuracy metrics: 
 \code{\link{kge}()},
+\code{\link{mse}()},
 \code{\link{nse}()},
 \code{\link{pbias}()},
 \code{\link{sfe}()}

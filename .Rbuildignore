@@ -5,3 +5,4 @@
 ^README\.Rmd$
 ^PLAYGROUND.R$
 ^man-roxygen$
+^BENCHMARKS.R$

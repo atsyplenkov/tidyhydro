@@ -46,7 +46,7 @@ For \code{nse_vec()}, a single \code{numeric} value (or \code{NA}).
 }
 \description{
 Calculate the Nash-Sutcliffe efficiency (Nash & Sutcliffe, 1970).
-Dimensionless (from -∞ to 1). \code{nse()} indicates how well the plot of observed
+Dimensionless (from \eqn{-\infty} to 1). \code{nse()} indicates how well the plot of observed
 versus simulated data fits the 1:1 line.
 }
 \details{
@@ -84,12 +84,14 @@ Transactions of the ASABE, 58(6), 1763–1785.
 \seealso{
 Other numeric metrics: 
 \code{\link{kge}()},
+\code{\link{mse}()},
 \code{\link{pbias}()},
 \code{\link{press}()},
 \code{\link{sfe}()}
 
 Other accuracy metrics: 
 \code{\link{kge}()},
+\code{\link{mse}()},
 \code{\link{pbias}()},
 \code{\link{press}()},
 \code{\link{sfe}()}

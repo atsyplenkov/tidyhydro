@@ -85,12 +85,14 @@ multilevel expert calibration. J. Hydrologic Eng. 4(2): 135-143
 \seealso{
 Other numeric metrics: 
 \code{\link{kge}()},
+\code{\link{mse}()},
 \code{\link{nse}()},
 \code{\link{press}()},
 \code{\link{sfe}()}
 
 Other accuracy metrics: 
 \code{\link{kge}()},
+\code{\link{mse}()},
 \code{\link{nse}()},
 \code{\link{press}()},
 \code{\link{sfe}()}

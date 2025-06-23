@@ -84,3 +84,29 @@ test_that("pbias", {
     }
   )
 })
+
+test_that("mse", {
+  skip_if_not_installed("quickcheck")
+  skip_if_not_installed("hydroGOF")
+
+  quickcheck::for_all(
+    obs = quickcheck::double_bounded(
+      left = -1000,
+      right = 1000,
+      len = 50,
+      any_na = TRUE
+    ),
+    sim = quickcheck::double_bounded(
+      left = -1000,
+      right = 1000,
+      len = 50,
+      any_na = TRUE
+    ),
+    property = function(obs, sim) {
+      new <- mse_vec(truth = obs, estimate = sim, na_rm = TRUE)
+      old <- hydroGOF::mse(sim = sim, obs = obs, na.rm = TRUE)
+
+      expect_equal(new, old)
+    }
+  )
+})
