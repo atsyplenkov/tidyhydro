@@ -114,11 +114,9 @@ x <- runif(10^5)
 y <- runif(10^5)
 
 nse <- function(truth, estimate, na_rm = TRUE) {
-  1 -
-    (
-      sum((truth - estimate)^2, na.rm = na_rm) /
-        sum((truth - mean(truth, na.rm = na_rm))^2, na.rm = na_rm)
-    )
+  #fmt: skip
+  1 - (sum((truth - estimate)^2, na.rm = na_rm) /
+        sum((truth - mean(truth, na.rm = na_rm))^2, na.rm = na_rm))
 }
 
 bench::mark(
@@ -132,13 +130,13 @@ bench::mark(
 #> # A tibble: 3 × 6
 #>   expression   min median `itr/sec` mem_alloc `gc/sec`
 #>   <bch:expr> <dbl>  <dbl>     <dbl>     <dbl>    <dbl>
-#> 1 tidyhydro   1      1        10.9        NaN      NaN
-#> 2 hydroGOF   10.3   10.4       1          Inf      Inf
-#> 3 baseR       6.44   6.51      1.77       Inf      Inf
+#> 1 tidyhydro   1      1         8.95       NaN      NaN
+#> 2 hydroGOF    8.13   9.67      1          Inf      Inf
+#> 3 baseR       5.80   6.42      1.55       Inf      Inf
 ```
 
 ## See also
 
--   [`hydroGOF`](https://github.com/hzambran/hydroGOF) - Goodness-of-fit
-    functions for comparison of simulated and observed hydrological time
-    series
+- [`hydroGOF`](https://github.com/hzambran/hydroGOF) - Goodness-of-fit
+  functions for comparison of simulated and observed hydrological time
+  series

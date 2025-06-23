@@ -26,7 +26,9 @@ test_that("na_rm works as expected", {
   # Missing data is present, na.rm = TRUE
   expect_equal(
     nse(ex_dat, truth = obs, estimate = pred_na, na_rm = TRUE)[[".estimate"]],
-    hydroGOF::NSE(sim = ex_dat$pred_na, obs = ex_dat$obs, na.rm = TRUE),
+    #fmt:skip
+    1 - (sum((ex_dat$obs[not_na] - ex_dat$pred[not_na])^2) /
+          sum((ex_dat$obs[not_na] - mean(ex_dat$obs[not_na]))^2)),
     tolerance = 0.0001
   )
 })
@@ -37,9 +39,9 @@ test_that("Integer columns are allowed", {
 
   expect_equal(
     nse(ex_dat, truth = "obs", estimate = "pred", na_rm = FALSE)[[".estimate"]],
-    1 -
-      (sum((ex_dat$obs - ex_dat$pred)^2) /
-        sum((ex_dat$obs - mean(ex_dat$obs))^2))
+    #fmt:skip
+    1 - (sum((ex_dat$obs - ex_dat$pred)^2) /
+          sum((ex_dat$obs - mean(ex_dat$obs))^2))
   )
 })
 
@@ -57,9 +59,7 @@ test_that("Result similar to {hydroGOF} package", {
 
   # With missing data
   expect_equal(
-    nse(ex_dat, truth = "obs", estimate = "pred_na", na_rm = TRUE)[[
-      ".estimate"
-    ]],
+    nse_vec(truth = ex_dat$obs, estimate = ex_dat$pred_na, na_rm = TRUE),
     hydroGOF::NSE(obs = ex_dat$obs, sim = ex_dat$pred_na, na.rm = TRUE),
     tolerance = 0.0001
   )
@@ -69,9 +69,7 @@ test_that("Result interpretation is returned", {
   ex_dat <- generate_numeric_test_data()
 
   expect_equal(
-    nse(ex_dat, truth = "obs", estimate = "pred", performance = TRUE)[[
-      ".estimate"
-    ]],
+    nse_vec(truth = ex_dat$obs, estimate = ex_dat$pred, performance = TRUE),
     "Good"
   )
 })
