@@ -5,9 +5,9 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/atsyplenkov/tidyhydro/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/atsyplenkov/tidyhydro/actions/workflows/R-CMD-check.yaml)
-[![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![R-CMD-check](https://github.com/atsyplenkov/tidyhydro/actions/workflows/check-r-pkg.yaml/badge.svg)](https://github.com/atsyplenkov/tidyhydro/actions/workflows/check-r-pkg.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/atsyplenkov/tidyhydro/graph/badge.svg)](https://app.codecov.io/gh/atsyplenkov/tidyhydro)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/tidyhydro)](https://CRAN.R-project.org/package=tidyhydro)
 ![GitHub last
@@ -29,7 +29,7 @@ Survey (USGS) and the National Environmental Monitoring Standards (NEMS)
 guidelines. Examples include *PRESS* (Prediction Error Sum of Squares),
 *SFE* (Standard Factorial Error), and *MSPE* (Model Standard Percentage
 Error) and others. Based on the equations from *Helsel et al.*
-([2020](http://pubs.er.usgs.gov/publication/tm4A3)), *Rasmunsen et al.*
+([2020](https://pubs.usgs.gov/publication/tm4A3)), *Rasmunsen et al.*
 ([2008](https://pubs.usgs.gov/tm/tm3c4/)), *Hicks et al.*
 ([2020](https://www.nems.org.nz/documents/suspended-sediment)) and etc.
 (see functions documentation for details).
@@ -95,11 +95,6 @@ You can install the development version of `tidyhydro` from
 [GitHub](https://github.com/atsyplenkov/tidyhydro) with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("atsyplenkov/tidyhydro")
-
-# OR
-
 # install.packages("pak")
 pak::pak("atsyplenkov/tidyhydro")
 ```
@@ -130,9 +125,9 @@ bench::mark(
 #> # A tibble: 3 × 6
 #>   expression   min median `itr/sec` mem_alloc `gc/sec`
 #>   <bch:expr> <dbl>  <dbl>     <dbl>     <dbl>    <dbl>
-#> 1 tidyhydro   1      1         8.95       NaN      NaN
-#> 2 hydroGOF    8.13   9.67      1          Inf      Inf
-#> 3 baseR       5.80   6.42      1.55       Inf      Inf
+#> 1 tidyhydro   1      1        10.9        NaN      NaN
+#> 2 hydroGOF    8.65  11.9       1          Inf      Inf
+#> 3 baseR       6.39   7.80      1.48       Inf      Inf
 ```
 
 ## See also

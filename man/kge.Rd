@@ -88,43 +88,19 @@ data(solubility_test)
 # Supply truth and predictions as bare column names
 kge(solubility_test, solubility, prediction)
 
-library(dplyr)
-
-set.seed(1234)
-size <- 100
-times <- 10
-
-# create 10 resamples
-solubility_resampled <- bind_rows(
-  replicate(
-    n = times,
-    expr = sample_n(solubility_test, size, replace = TRUE),
-    simplify = FALSE
-  ),
-  .id = "resample"
-)
-
-# Compute the metric by group
-metric_results <- solubility_resampled |> 
-  group_by(resample) |> 
-  kge(solubility, prediction)
-
-metric_results
-
-# Resampled mean estimate
-metric_results |> 
-  summarise(avg_estimate = mean(.estimate))
+# Or as numeric vectors
+kge_vec(solubility_test$solubility, solubility_test$prediction)
 }
 \references{
 Gupta, H.V.; Kling, H.; Yilmaz, K.K.; Martinez, G.F. (2009).
 Decomposition of the mean squared error and kge performance criteria:
 Implications for improving hydrological modelling. Journal of Hydrology,
-377(1-2), 80-91. doi:10.1016/j.jhydrol.2009.08.003
+377(1-2), 80-91. \url{https://doi.org/10.1016/j.jhydrol.2009.08.003}
 
 Knoben, W. J. M., Freer, J. E., & Woods, R. A. (2019).
 Technical note: Inherent benchmark or not? Comparing Nash–Sutcliffe and
 Kling–Gupta efficiency scores. Hydrology and Earth System Sciences, 23,
-4323–4331. doi:10.5194/hess-23-4323-2019
+4323–4331. \url{https://doi.org/10.5194/hess-23-4323-2019}
 }
 \seealso{
 Other numeric metrics: 

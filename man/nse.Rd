@@ -68,42 +68,18 @@ data(solubility_test)
 # Supply truth and predictions as bare column names
 nse(solubility_test, solubility, prediction)
 
-library(dplyr)
-
-set.seed(1234)
-size <- 100
-times <- 10
-
-# create 10 resamples
-solubility_resampled <- bind_rows(
-  replicate(
-    n = times,
-    expr = sample_n(solubility_test, size, replace = TRUE),
-    simplify = FALSE
-  ),
-  .id = "resample"
-)
-
-# Compute the metric by group
-metric_results <- solubility_resampled |> 
-  group_by(resample) |> 
-  nse(solubility, prediction)
-
-metric_results
-
-# Resampled mean estimate
-metric_results |> 
-  summarise(avg_estimate = mean(.estimate))
+# Or as numeric vectors
+nse_vec(solubility_test$solubility, solubility_test$prediction)
 }
 \references{
 Nash, J. E., & Sutcliffe, J. V. (1970). River flow forecasting through
 conceptual models part I — A discussion of principles. Journal of Hydrology,
-10(3), 282–290. https://doi.org/10.1016/0022-1694(70)90255-6
+10(3), 282–290. \url{https://doi.org/10.1016/0022-1694(70)90255-6}
 
 Moriasi, D. N., Gitau, M. W., Pai, N., & Daggupati, P. (2015). Hydrologic
 and Water Quality Models: Performance Measures and Evaluation Criteria.
 Transactions of the ASABE, 58(6), 1763–1785.
-https://doi.org/10.13031/trans.58.10715
+\url{https://doi.org/10.13031/trans.58.10715}
 }
 \seealso{
 Other numeric metrics: 

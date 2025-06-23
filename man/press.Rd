@@ -66,43 +66,20 @@ data(solubility_test)
 # Supply truth and predictions as bare column names
 press(solubility_test, solubility, prediction)
 
-library(dplyr)
-
-set.seed(1234)
-size <- 100
-times <- 10
-
-# create 10 resamples
-solubility_resampled <- bind_rows(
-  replicate(
-    n = times,
-    expr = sample_n(solubility_test, size, replace = TRUE),
-    simplify = FALSE
-  ),
-  .id = "resample"
-)
-
-# Compute the metric by group
-metric_results <- solubility_resampled |> 
-  group_by(resample) |> 
-  press(solubility, prediction)
-
-metric_results
-
-# Resampled mean estimate
-metric_results |> 
-  summarise(avg_estimate = mean(.estimate))
+# Or as numeric vectors
+press_vec(solubility_test$solubility, solubility_test$prediction)
 }
 \references{
 Rasmussen, P. P., Gray, J. R., Glysson, G. D. & Ziegler, A. C.
 Guidelines and procedures for computing time-series suspended-sediment
 concentrations and loads from in-stream turbidity-sensor and streamflow
 data. in U.S. Geological Survey Techniques and Methods book 3, chap.
-C4 53 (2009).
+C4 53 (2009) \url{https://pubs.usgs.gov/tm/tm3c4/}.
 
 Helsel, D. R., Hirsch, R. M., Ryberg, K. R., Archfield, S. A. &
 Gilroy, E. J. Statistical Methods in Water Resources. 484
-http://pubs.er.usgs.gov/publication/tm4A3 (2020) doi:10.3133/tm4A3.
+\url{https://pubs.er.usgs.gov/publication/tm4A3} (2020)
+\url{https://doi.org/10.3133/tm4A3}.
 }
 \seealso{
 Other numeric metrics: 
