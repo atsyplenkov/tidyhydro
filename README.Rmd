@@ -21,7 +21,7 @@ requireNamespace("microbenchmark", quietly = TRUE)
 # tidyhydro
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/atsyplenkov/tidyhydro/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/atsyplenkov/tidyhydro/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/atsyplenkov/tidyhydro/actions/workflows/check-r-pkg.yaml/badge.svg)](https://github.com/atsyplenkov/tidyhydro/actions/workflows/check-r-pkg.yaml)
 [![Codecov test coverage](https://codecov.io/gh/atsyplenkov/tidyhydro/graph/badge.svg)](https://app.codecov.io/gh/atsyplenkov/tidyhydro)
 [![CRAN status](https://www.r-pkg.org/badges/version/tidyhydro)](https://CRAN.R-project.org/package=tidyhydro)
 ![GitHub last commit](https://img.shields.io/github/last-commit/atsyplenkov/tidyhydro)

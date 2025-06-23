@@ -5,7 +5,7 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/atsyplenkov/tidyhydro/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/atsyplenkov/tidyhydro/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/atsyplenkov/tidyhydro/actions/workflows/check-r-pkg.yaml/badge.svg)](https://github.com/atsyplenkov/tidyhydro/actions/workflows/check-r-pkg.yaml)
 [![Codecov test
 coverage](https://codecov.io/gh/atsyplenkov/tidyhydro/graph/badge.svg)](https://app.codecov.io/gh/atsyplenkov/tidyhydro)
 [![CRAN
@@ -128,10 +128,10 @@ microbenchmark::microbenchmark(
   times = 100L
 )
 #> Unit: relative
-#>       expr      min       lq     mean   median       uq      max neval
-#>  tidyhydro 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000   100
-#>   hydroGOF 8.354683 6.786902 5.308912 4.476011 3.900367 1.673130   100
-#>      baseR 5.491891 4.362061 3.431113 2.982940 2.608239 1.874348   100
+#>       expr      min       lq     mean   median       uq       max neval
+#>  tidyhydro 1.000000 1.000000 1.000000 1.000000 1.000000  1.000000   100
+#>   hydroGOF 7.902292 5.865154 5.468857 4.189713 3.952819 10.442971   100
+#>      baseR 5.391897 3.750146 3.547461 2.721732 2.453966  7.691625   100
 ```
 
 ## See also
