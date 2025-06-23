@@ -28,8 +28,7 @@ test_that("na_rm works as expected", {
     nse(ex_dat, truth = obs, estimate = pred_na, na_rm = TRUE)[[".estimate"]],
     #fmt:skip
     1 - (sum((ex_dat$obs[not_na] - ex_dat$pred[not_na])^2) /
-          sum((ex_dat$obs[not_na] - mean(ex_dat$obs[not_na]))^2)),
-    tolerance = 0.0001
+          sum((ex_dat$obs[not_na] - mean(ex_dat$obs[not_na]))^2))
   )
 })
 
@@ -60,8 +59,7 @@ test_that("Result similar to {hydroGOF} package", {
   # With missing data
   expect_equal(
     nse_vec(truth = ex_dat$obs, estimate = ex_dat$pred_na, na_rm = TRUE),
-    hydroGOF::NSE(obs = ex_dat$obs, sim = ex_dat$pred_na, na.rm = TRUE),
-    tolerance = 0.0001
+    hydroGOF::NSE(obs = ex_dat$obs, sim = ex_dat$pred_na, na.rm = TRUE)
   )
 })
 

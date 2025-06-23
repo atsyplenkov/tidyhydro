@@ -25,7 +25,7 @@ SEXP nse_cpp(NumericVector truth, NumericVector estimate, bool performance = fal
     
     #pragma omp parallel for reduction(+:sum,count) schedule(static) if(n > 1000)
     for (int i = 0; i < n; i++) {
-      if (!ISNAN(t[i])) {
+      if (!ISNAN(t[i]) && !ISNAN(e[i])) {
         sum += t[i];
         count++;
       }
