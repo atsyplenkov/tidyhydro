@@ -19,7 +19,6 @@ RoxygenNote: 7.3.2
 Encoding: UTF-8
 Language: en-US
 Suggests:
-    microbenchmark,
     hydroGOF,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

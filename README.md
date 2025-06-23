@@ -95,11 +95,6 @@ You can install the development version of `tidyhydro` from
 [GitHub](https://github.com/atsyplenkov/tidyhydro) with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("atsyplenkov/tidyhydro")
-
-# OR
-
 # install.packages("pak")
 pak::pak("atsyplenkov/tidyhydro")
 ```
@@ -119,19 +114,20 @@ nse <- function(truth, estimate, na_rm = TRUE) {
         sum((truth - mean(truth, na.rm = na_rm))^2, na.rm = na_rm))
 }
 
-microbenchmark::microbenchmark(
+bench::mark(
   tidyhydro = tidyhydro::nse_vec(truth = x, estimate = y),
   hydroGOF = hydroGOF::NSE(sim = y, obs = x),
   baseR = nse(truth = x, estimate = y),
-  check = "equal",
-  unit = "relative",
-  times = 100L
+  check = TRUE,
+  relative = TRUE,
+  iterations = 100L
 )
-#> Unit: relative
-#>       expr      min       lq     mean   median       uq       max neval
-#>  tidyhydro 1.000000 1.000000 1.000000 1.000000 1.000000  1.000000   100
-#>   hydroGOF 7.902292 5.865154 5.468857 4.189713 3.952819 10.442971   100
-#>      baseR 5.391897 3.750146 3.547461 2.721732 2.453966  7.691625   100
+#> # A tibble: 3 × 6
+#>   expression   min median `itr/sec` mem_alloc `gc/sec`
+#>   <bch:expr> <dbl>  <dbl>     <dbl>     <dbl>    <dbl>
+#> 1 tidyhydro   1      1         9.57       NaN      NaN
+#> 2 hydroGOF    7.76  10.6       1          Inf      Inf
+#> 3 baseR       5.86   7.47      1.43       Inf      Inf
 ```
 
 ## See also

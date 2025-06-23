@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 )
 
 requireNamespace("hydroGOF", quietly = TRUE)
-requireNamespace("microbenchmark", quietly = TRUE)
+requireNamespace("bench", quietly = TRUE)
 ```
 
 # tidyhydro
@@ -63,11 +63,6 @@ hydro_metrics(solubility_test, solubility, prediction, performance = TRUE)
 You can install the development version of `tidyhydro` from [GitHub](https://github.com/atsyplenkov/tidyhydro) with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("atsyplenkov/tidyhydro")
-
-# OR
-
 # install.packages("pak")
 pak::pak("atsyplenkov/tidyhydro")
 ```
@@ -84,13 +79,13 @@ nse <- function(truth, estimate, na_rm = TRUE) {
         sum((truth - mean(truth, na.rm = na_rm))^2, na.rm = na_rm))
 }
 
-microbenchmark::microbenchmark(
+bench::mark(
   tidyhydro = tidyhydro::nse_vec(truth = x, estimate = y),
   hydroGOF = hydroGOF::NSE(sim = y, obs = x),
   baseR = nse(truth = x, estimate = y),
-  check = "equal",
-  unit = "relative",
-  times = 100L
+  check = TRUE,
+  relative = TRUE,
+  iterations = 100L
 )
 ```
 
