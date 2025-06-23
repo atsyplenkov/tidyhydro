@@ -86,11 +86,13 @@ Hydrometry - principles and practices. John Wiley and Sons, Chichester,
 }
 \seealso{
 Other numeric metrics: 
+\code{\link{kge}()},
 \code{\link{nse}()},
 \code{\link{pbias}()},
 \code{\link{press}()}
 
 Other accuracy metrics: 
+\code{\link{kge}()},
 \code{\link{nse}()},
 \code{\link{pbias}()},
 \code{\link{press}()}

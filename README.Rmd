@@ -79,11 +79,9 @@ x <- runif(10^5)
 y <- runif(10^5)
 
 nse <- function(truth, estimate, na_rm = TRUE) {
-  1 -
-    (
-      sum((truth - estimate)^2, na.rm = na_rm) /
-        sum((truth - mean(truth, na.rm = na_rm))^2, na.rm = na_rm)
-    )
+  #fmt: skip
+  1 - (sum((truth - estimate)^2, na.rm = na_rm) /
+        sum((truth - mean(truth, na.rm = na_rm))^2, na.rm = na_rm))
 }
 
 bench::mark(
