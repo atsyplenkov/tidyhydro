@@ -4,9 +4,9 @@
 \name{tidyhydro-package}
 \alias{tidyhydro}
 \alias{tidyhydro-package}
-\title{tidyhydro: Tidy Metrics For Hydrological Modelling Quality Assessment}
+\title{tidyhydro: Tidy Metrics for Assessing Hydrological Models Performance}
 \description{
-Tidy tools for the comparison of simulated and observed hydrological time series. 'yardstick' package compatible goodness-of-fit criteria such as NSE, KGE, pBIAS, etc.
+Provides tidy tools for comparing simulated and observed hydrological time series. Includes compatibility with the 'yardstick' package for model performance evaluation using commonly used metrics such as the Nash–Sutcliffe Efficiency (NSE), Kling–Gupta Efficiency (KGE), percent bias (pBIAS) and etc.
 }
 \seealso{
 Useful links:

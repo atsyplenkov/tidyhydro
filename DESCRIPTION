@@ -1,12 +1,12 @@
 Package: tidyhydro
 Type: Package
-Title: Tidy Metrics For Hydrological Modelling Quality Assessment
+Title: Tidy Metrics for Assessing Hydrological Models Performance
 Version: 0.0.5
 Date: 2025-06-23
 Authors@R:
-    person(given = "Anatoly", family = "Tsyplenkov", , "atsyplenkov@fastmail.com", role = c("cre", "aut", "cph"), comment = c(ORCID = "0000-0003-4144-8402"))
+    person(given = "Anatoly", family = "Tsyplenkov", email = "atsyplenkov@fastmail.com", role = c("cre", "aut", "cph"), comment = c(ORCID = "0000-0003-4144-8402"))
 Maintainer: Anatoly Tsyplenkov <atsyplenkov@fastmail.com>
-Description: Tidy tools for the comparison of simulated and observed hydrological time series. 'yardstick' package compatible goodness-of-fit criteria such as NSE, KGE, pBIAS, etc.
+Description: Provides tidy tools for comparing simulated and observed hydrological time series. Includes compatibility with the 'yardstick' package for model performance evaluation using commonly used metrics such as the Nash–Sutcliffe Efficiency (NSE), Kling–Gupta Efficiency (KGE), percent bias (pBIAS) and etc.
 License: MIT + file LICENSE
 Depends: R (>= 4.1.0)
 Imports:
