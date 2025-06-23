@@ -19,7 +19,7 @@ RoxygenNote: 7.3.2
 Encoding: UTF-8
 Language: en-US
 Suggests:
-    bench,
+    microbenchmark,
     dplyr,
     hydroGOF,
     testthat (>= 3.0.0)

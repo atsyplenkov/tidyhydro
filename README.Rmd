@@ -15,14 +15,14 @@ knitr::opts_chunk$set(
 )
 
 requireNamespace("hydroGOF", quietly = TRUE)
-requireNamespace("bench", quietly = TRUE)
+requireNamespace("microbenchmark", quietly = TRUE)
 ```
 
 # tidyhydro
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/atsyplenkov/tidyhydro/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/atsyplenkov/tidyhydro/actions/workflows/R-CMD-check.yaml)
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![Codecov test coverage](https://codecov.io/gh/atsyplenkov/tidyhydro/graph/badge.svg)](https://app.codecov.io/gh/atsyplenkov/tidyhydro)
 [![CRAN status](https://www.r-pkg.org/badges/version/tidyhydro)](https://CRAN.R-project.org/package=tidyhydro)
 ![GitHub last commit](https://img.shields.io/github/last-commit/atsyplenkov/tidyhydro)
 <!-- badges: end -->
@@ -84,13 +84,13 @@ nse <- function(truth, estimate, na_rm = TRUE) {
         sum((truth - mean(truth, na.rm = na_rm))^2, na.rm = na_rm))
 }
 
-bench::mark(
+microbenchmark::microbenchmark(
   tidyhydro = tidyhydro::nse_vec(truth = x, estimate = y),
   hydroGOF = hydroGOF::NSE(sim = y, obs = x),
   baseR = nse(truth = x, estimate = y),
-  check = TRUE,
-  relative = TRUE,
-  iterations = 100L
+  check = "equal",
+  unit = "relative",
+  times = 100L
 )
 ```
 

@@ -6,8 +6,8 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/atsyplenkov/tidyhydro/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/atsyplenkov/tidyhydro/actions/workflows/R-CMD-check.yaml)
-[![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![Codecov test
+coverage](https://codecov.io/gh/atsyplenkov/tidyhydro/graph/badge.svg)](https://app.codecov.io/gh/atsyplenkov/tidyhydro)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/tidyhydro)](https://CRAN.R-project.org/package=tidyhydro)
 ![GitHub last
@@ -119,20 +119,19 @@ nse <- function(truth, estimate, na_rm = TRUE) {
         sum((truth - mean(truth, na.rm = na_rm))^2, na.rm = na_rm))
 }
 
-bench::mark(
+microbenchmark::microbenchmark(
   tidyhydro = tidyhydro::nse_vec(truth = x, estimate = y),
   hydroGOF = hydroGOF::NSE(sim = y, obs = x),
   baseR = nse(truth = x, estimate = y),
-  check = TRUE,
-  relative = TRUE,
-  iterations = 100L
+  check = "equal",
+  unit = "relative",
+  times = 100L
 )
-#> # A tibble: 3 × 6
-#>   expression   min median `itr/sec` mem_alloc `gc/sec`
-#>   <bch:expr> <dbl>  <dbl>     <dbl>     <dbl>    <dbl>
-#> 1 tidyhydro   1      1         8.95       NaN      NaN
-#> 2 hydroGOF    8.13   9.67      1          Inf      Inf
-#> 3 baseR       5.80   6.42      1.55       Inf      Inf
+#> Unit: relative
+#>       expr      min       lq     mean   median       uq      max neval
+#>  tidyhydro 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000   100
+#>   hydroGOF 8.354683 6.786902 5.308912 4.476011 3.900367 1.673130   100
+#>      baseR 5.491891 4.362061 3.431113 2.982940 2.608239 1.874348   100
 ```
 
 ## See also
