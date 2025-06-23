@@ -76,7 +76,7 @@ pbias_vec(solubility_test$solubility, solubility_test$prediction)
 Moriasi, D. N., Gitau, M. W., Pai, N., & Daggupati, P. (2015). Hydrologic
 and Water Quality Models: Performance Measures and Evaluation Criteria.
 Transactions of the ASABE, 58(6), 1763–1785.
-https://doi.org/10.13031/trans.58.10715
+\url{https://doi.org/10.13031/trans.58.10715}
 
 Gupta, H. V., S. Sorooshian, and P. O. Yapo. (1999).
 Status of automatic calibration for hydrologic models: Comparison with

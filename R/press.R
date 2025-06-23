@@ -45,11 +45,12 @@
 #'  Guidelines and procedures for computing time-series suspended-sediment
 #'  concentrations and loads from in-stream turbidity-sensor and streamflow
 #'  data. in U.S. Geological Survey Techniques and Methods book 3, chap.
-#'  C4 53 (2009).
+#'  C4 53 (2009) \url{https://pubs.usgs.gov/tm/tm3c4/}.
 #'
 #' Helsel, D. R., Hirsch, R. M., Ryberg, K. R., Archfield, S. A. &
 #'  Gilroy, E. J. Statistical Methods in Water Resources. 484
-#'  http://pubs.er.usgs.gov/publication/tm4A3 (2020) doi:10.3133/tm4A3.
+#'  \url{https://pubs.er.usgs.gov/publication/tm4A3} (2020)
+#'  \url{https://doi.org/10.3133/tm4A3}.
 #'
 #'
 #' @template examples-numeric

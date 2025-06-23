@@ -4,9 +4,9 @@ Title: Tidy Metrics For Hydrological Modelling Quality Assessment
 Version: 0.0.5
 Date: 2025-06-23
 Authors@R:
-    person(given = "Anatoly", family = "Tsyplenkov", , "atsyplenkov@fastmail.com", role = c("cre", "aut"), comment = c(ORCID = "0000-0003-4144-8402"))
+    person(given = "Anatoly", family = "Tsyplenkov", , "atsyplenkov@fastmail.com", role = c("cre", "aut", "cph"), comment = c(ORCID = "0000-0003-4144-8402"))
 Maintainer: Anatoly Tsyplenkov <atsyplenkov@fastmail.com>
-Description: Tidy tools for comparison of simulated and observed hydrological time series. yardstick compatible goodness-of-fit criteria such as NSE, KGE, pBIAS, etc.
+Description: Tidy tools for the comparison of simulated and observed hydrological time series. 'yardstick' package compatible goodness-of-fit criteria such as NSE, KGE, pBIAS, etc.
 License: MIT + file LICENSE
 Depends: R (>= 4.1.0)
 Imports:

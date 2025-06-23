@@ -6,7 +6,7 @@
 \alias{tidyhydro-package}
 \title{tidyhydro: Tidy Metrics For Hydrological Modelling Quality Assessment}
 \description{
-Tidy tools for comparison of simulated and observed hydrological time series. yardstick compatible goodness-of-fit criteria such as NSE, KGE, pBIAS, etc.
+Tidy tools for the comparison of simulated and observed hydrological time series. 'yardstick' package compatible goodness-of-fit criteria such as NSE, KGE, pBIAS, etc.
 }
 \seealso{
 Useful links:
@@ -17,7 +17,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Anatoly Tsyplenkov \email{atsyplenkov@fastmail.com} (\href{https://orcid.org/0000-0003-4144-8402}{ORCID})
+\strong{Maintainer}: Anatoly Tsyplenkov \email{atsyplenkov@fastmail.com} (\href{https://orcid.org/0000-0003-4144-8402}{ORCID}) [copyright holder]
 
 }
 \keyword{internal}

@@ -29,7 +29,7 @@ Survey (USGS) and the National Environmental Monitoring Standards (NEMS)
 guidelines. Examples include *PRESS* (Prediction Error Sum of Squares),
 *SFE* (Standard Factorial Error), and *MSPE* (Model Standard Percentage
 Error) and others. Based on the equations from *Helsel et al.*
-([2020](http://pubs.er.usgs.gov/publication/tm4A3)), *Rasmunsen et al.*
+([2020](https://pubs.usgs.gov/publication/tm4A3)), *Rasmunsen et al.*
 ([2008](https://pubs.usgs.gov/tm/tm3c4/)), *Hicks et al.*
 ([2020](https://www.nems.org.nz/documents/suspended-sediment)) and etc.
 (see functions documentation for details).
@@ -125,9 +125,9 @@ bench::mark(
 #> # A tibble: 3 × 6
 #>   expression   min median `itr/sec` mem_alloc `gc/sec`
 #>   <bch:expr> <dbl>  <dbl>     <dbl>     <dbl>    <dbl>
-#> 1 tidyhydro   1      1         9.57       NaN      NaN
-#> 2 hydroGOF    7.76  10.6       1          Inf      Inf
-#> 3 baseR       5.86   7.47      1.43       Inf      Inf
+#> 1 tidyhydro   1      1        10.9        NaN      NaN
+#> 2 hydroGOF    8.65  11.9       1          Inf      Inf
+#> 3 baseR       6.39   7.80      1.48       Inf      Inf
 ```
 
 ## See also
