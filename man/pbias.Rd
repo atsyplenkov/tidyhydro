@@ -63,14 +63,14 @@ According to Moriasi et al. (2015) the metric interpretation can be as follows:
 }
 }
 \examples{
-library(yardstick)
-data(solubility_test)
+library(tidyhydro)
+data(avacha)
 
 # Supply truth and predictions as bare column names
-pbias(solubility_test, solubility, prediction)
+pbias(avacha, obs, sim)
 
 # Or as numeric vectors
-pbias_vec(solubility_test$solubility, solubility_test$prediction)
+pbias_vec(avacha$obs, avacha$sim)
 }
 \references{
 Moriasi, D. N., Gitau, M. W., Pai, N., & Daggupati, P. (2015). Hydrologic

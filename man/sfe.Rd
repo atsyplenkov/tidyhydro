@@ -46,14 +46,14 @@ Prediction standard factorial error estimated
 using standard regression methods (see \emph{Herschy, 1978}).
 }
 \examples{
-library(yardstick)
-data(solubility_test)
+library(tidyhydro)
+data(avacha)
 
 # Supply truth and predictions as bare column names
-sfe(solubility_test, solubility, prediction)
+sfe(avacha, obs, sim)
 
 # Or as numeric vectors
-sfe_vec(solubility_test$solubility, solubility_test$prediction)
+sfe_vec(avacha$obs, avacha$sim)
 }
 \references{
 Herschy, R.W. 1978: Accuracy. Chapter 10 In: Herschy, R.W. (ed.)

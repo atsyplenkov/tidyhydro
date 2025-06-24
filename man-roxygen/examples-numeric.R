@@ -1,9 +1,9 @@
 #' @examples
-#' library(yardstick)
-#' data(solubility_test)
+#' library(tidyhydro)
+#' data(avacha)
 #'
 #' # Supply truth and predictions as bare column names
-#' <%=fn %>(solubility_test, solubility, prediction)
+#' <%=fn %>(avacha, obs, sim)
 #'
 #' # Or as numeric vectors
-#' <%=fn %>_vec(solubility_test$solubility, solubility_test$prediction)
+#' <%=fn %>_vec(avacha$obs, avacha$sim)

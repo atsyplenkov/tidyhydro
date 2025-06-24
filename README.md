@@ -47,21 +47,20 @@ provides S3 class methods for vectors and data frames. For example, one
 can estimate `NSE` and `pBIAS` for a data frame like this:
 
 ``` r
-library(yardstick)
 library(tidyhydro)
-data(solubility_test)
+data(avacha)
 
-nse(solubility_test, solubility, prediction)
+nse(avacha, obs, sim)
 #> # A tibble: 1 × 3
 #>   .metric .estimator .estimate
 #>   <chr>   <chr>          <dbl>
-#> 1 nse     standard       0.879
+#> 1 nse     standard       0.895
 
-pbias(solubility_test, solubility, prediction)
+pbias(avacha, obs, sim)
 #> # A tibble: 1 × 3
 #>   .metric .estimator .estimate
 #>   <chr>   <chr>          <dbl>
-#> 1 pbias   standard      -0.512
+#> 1 pbias   standard      0.0540
 ```
 
 or create a
@@ -71,12 +70,12 @@ and estimate several parameters at once like this:
 ``` r
 hydro_metrics <- yardstick::metric_set(nse, pbias)
 
-hydro_metrics(solubility_test, solubility, prediction)
+hydro_metrics(avacha, obs, sim)
 #> # A tibble: 2 × 3
 #>   .metric .estimator .estimate
 #>   <chr>   <chr>          <dbl>
-#> 1 nse     standard       0.879
-#> 2 pbias   standard      -0.512
+#> 1 nse     standard      0.895 
+#> 2 pbias   standard      0.0540
 ```
 
 We do understand that sometimes one needs a qualitative interpretation
@@ -86,7 +85,7 @@ interpretation will be returned according to Moriasi et
 al. ([2015](https://elibrary.asabe.org/abstract.asp?aid=46548&t=3&dabs=Y&redir=&redirType=)).
 
 ``` r
-hydro_metrics(solubility_test, solubility, prediction, performance = TRUE)
+hydro_metrics(avacha, obs, sim, performance = TRUE)
 #> # A tibble: 2 × 3
 #>   .metric .estimator .estimate
 #>   <chr>   <chr>      <chr>    
@@ -130,9 +129,9 @@ bench::mark(
 #> # A tibble: 3 × 6
 #>   expression   min median `itr/sec` mem_alloc `gc/sec`
 #>   <bch:expr> <dbl>  <dbl>     <dbl>     <dbl>    <dbl>
-#> 1 tidyhydro   1      1        10.0        NaN      NaN
-#> 2 hydroGOF    8.55  11.1       1          Inf      Inf
-#> 3 baseR       5.77   7.49      1.49       Inf      Inf
+#> 1 tidyhydro   1      1         8.51       NaN      NaN
+#> 2 hydroGOF    6.62   9.94      1          Inf      Inf
+#> 3 baseR       5.01   6.34      1.46       Inf      Inf
 ```
 
 ## See also

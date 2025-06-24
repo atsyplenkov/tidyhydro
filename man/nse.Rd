@@ -62,14 +62,14 @@ to Moriasi et al. (2015) the metric interpretation can be as follows:
 }
 }
 \examples{
-library(yardstick)
-data(solubility_test)
+library(tidyhydro)
+data(avacha)
 
 # Supply truth and predictions as bare column names
-nse(solubility_test, solubility, prediction)
+nse(avacha, obs, sim)
 
 # Or as numeric vectors
-nse_vec(solubility_test$solubility, solubility_test$prediction)
+nse_vec(avacha$obs, avacha$sim)
 }
 \references{
 Nash, J. E., & Sutcliffe, J. V. (1970). River flow forecasting through

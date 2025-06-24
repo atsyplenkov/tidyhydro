@@ -3,6 +3,7 @@
 ## New features
 * Added Kling-Gupta Efficiency (`kge`)
 * Added Mean Squared Error (`mse`)
+* Added hydrological dataset for example (`avacha`)
 
 ## Bug fixes
 * `nse` with `na_rm = TRUE` flag and missing values present in both simulated and observed time series now returns the same results as `hydroGOF::NSE()`. Previously, it did not skip missing values in the observed time series.

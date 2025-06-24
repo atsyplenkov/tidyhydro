@@ -81,14 +81,14 @@ For further discussion, see Knoben et al. (2019), who caution against
 directly translating NSE-based interpretation thresholds to KGE.
 }
 \examples{
-library(yardstick)
-data(solubility_test)
+library(tidyhydro)
+data(avacha)
 
 # Supply truth and predictions as bare column names
-kge(solubility_test, solubility, prediction)
+kge(avacha, obs, sim)
 
 # Or as numeric vectors
-kge_vec(solubility_test$solubility, solubility_test$prediction)
+kge_vec(avacha$obs, avacha$sim)
 }
 \references{
 Gupta, H.V.; Kling, H.; Yilmaz, K.K.; Martinez, G.F. (2009).

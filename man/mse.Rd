@@ -59,14 +59,14 @@ where:
 }
 }
 \examples{
-library(yardstick)
-data(solubility_test)
+library(tidyhydro)
+data(avacha)
 
 # Supply truth and predictions as bare column names
-mse(solubility_test, solubility, prediction)
+mse(avacha, obs, sim)
 
 # Or as numeric vectors
-mse_vec(solubility_test$solubility, solubility_test$prediction)
+mse_vec(avacha$obs, avacha$sim)
 }
 \references{
 Fisher, R. A. (1920). Accuracy of observation, a mathematical
