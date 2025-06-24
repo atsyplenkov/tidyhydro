@@ -6,3 +6,4 @@
 ^PLAYGROUND.R$
 ^man-roxygen$
 ^BENCHMARKS.R$
+^cran-comments\.md$
