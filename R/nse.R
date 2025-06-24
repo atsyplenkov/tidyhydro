@@ -53,8 +53,6 @@
 #'  Transactions of the ASABE, 58(6), 1763–1785.
 #'  \url{https://doi.org/10.13031/trans.58.10715}
 #'
-#' @author Anatolii Tsyplenkov
-#'
 #' @template examples-numeric
 #'
 #' @export

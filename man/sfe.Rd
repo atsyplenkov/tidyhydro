@@ -45,6 +45,18 @@ For \code{sfe_vec()}, a single \code{numeric} value (or \code{NA}).
 Prediction standard factorial error estimated
 using standard regression methods (see \emph{Herschy, 1978}).
 }
+\details{
+The metric is widely used for assessing Sediment Rating Curves
+(e.g., Hicks et al. 2020). The model is usually considered 'unacceptable'
+if the \eqn{SFE > 2}, see Hicks et al. (2011). It is estimated as follows:
+\deqn{SFE = \exp\left(\sqrt{\frac{1}{n} \sum_{i=1}^{n}
+\left( \log\left(\frac{obs_i}{sim_i} \right) \right)^2 }\right)}
+where:
+\itemize{
+\item \eqn{sim} defines model simulations at time step \eqn{i}
+\item \eqn{obs} defines model observations at time step \eqn{i}
+}
+}
 \examples{
 library(tidyhydro)
 data(avacha)
@@ -59,6 +71,17 @@ sfe_vec(avacha$obs, avacha$sim)
 Herschy, R.W. 1978: Accuracy. Chapter 10 In: Herschy, R.W. (ed.)
 Hydrometry - principles and practices. John Wiley and Sons, Chichester,
 511 p.
+
+Hicks, D. M., Shankar, U., McKerchar, A. I., Basher, L., Lynn, I.,
+Page, M., & Jessen, M. (2011). Suspended Sediment Yields from New Zealand
+Rivers. Journal of Hydrology (New Zealand), 50(1), 81–142.
+\url{https://doi.org/10.3316/informit.315190637227597}
+
+Hicks, M., Doyle, M., Watson, J., Holwerda, N., Lynch, B., Wyatt, J.,
+Jones, H., & Hill, R. (2020). Measurement of Fluvial Suspended Sediment
+Load and its Composition (No. 1.0.0; National Environmental Monitoring
+Standards, p. 138).
+\url{https://www.nems.org.nz/documents/suspended-sediment}
 }
 \seealso{
 Other numeric metrics: 
@@ -74,9 +97,6 @@ Other accuracy metrics:
 \code{\link{nse}()},
 \code{\link{pbias}()},
 \code{\link{press}()}
-}
-\author{
-Anatolii Tsyplenkov
 }
 \concept{accuracy metrics}
 \concept{numeric metrics}

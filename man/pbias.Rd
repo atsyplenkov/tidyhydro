@@ -99,8 +99,5 @@ Other accuracy metrics:
 \code{\link{press}()},
 \code{\link{sfe}()}
 }
-\author{
-Anatolii Tsyplenkov
-}
 \concept{accuracy metrics}
 \concept{numeric metrics}

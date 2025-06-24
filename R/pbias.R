@@ -53,8 +53,6 @@
 #' Status of automatic calibration for hydrologic models: Comparison with
 #' multilevel expert calibration. J. Hydrologic Eng. 4(2): 135-143
 #'
-#' @author Anatolii Tsyplenkov
-#'
 #' @template examples-numeric
 #'
 #' @export

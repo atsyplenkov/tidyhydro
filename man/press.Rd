@@ -96,8 +96,5 @@ Other accuracy metrics:
 \code{\link{pbias}()},
 \code{\link{sfe}()}
 }
-\author{
-Anatolii Tsyplenkov
-}
 \concept{accuracy metrics}
 \concept{numeric metrics}
