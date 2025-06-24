@@ -1,13 +1,15 @@
 #' Percent bias (PBIAS)
 #'
 #' @details
-#' PBIAS is the deviation of data being evaluated, expressed as a percentage. It
-#' measures the average tendency of the simulated data to be larger or smaller than
-#' their observed counterparts (Moriasi et al., 2015). The optimal value of PBIAS
-#' is 0.0, with low-magnitude values indicating accurate model simulation.
+#' PBIAS is the deviation of data being evaluated, expressed as a percentage.
+#' It measures the average tendency of the simulated data to be larger or
+#' smaller than their observed counterparts (Moriasi et al., 2015). The optimal
+#' value of PBIAS is 0.0, with low-magnitude values indicating accurate model
+#' simulation.
 #' Positive values indicate model underestimation bias,
 #' and negative values indicate model overestimation bias (Gupta et al., 1999)
-#' According to Moriasi et al. (2015) the metric interpretation can be as follows:
+#' According to Moriasi et al. (2015) the metric interpretation can be as
+#' follows:
 #'
 #' - **Excellent**/**Very Good** -- `pbias()` < ±5.0
 #' - **Good** -- ±5.0 <= `pbias()` < ±10.0
@@ -36,8 +38,8 @@
 #' @param na_rm A `logical` value indicating whether `NA`
 #' values should be stripped before the computation proceeds.
 #'
-#' @param performance The optional column, indicating should the `pbias()` return
-#' metric interpretation. See details.
+#' @param performance The optional column, indicating should the `pbias()`
+#' return metric interpretation. See details.
 #'
 #' @param ... Not currently used.
 #'

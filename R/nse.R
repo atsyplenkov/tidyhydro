@@ -2,8 +2,8 @@
 #'
 #' @description
 #' Calculate the Nash-Sutcliffe efficiency (Nash & Sutcliffe, 1970).
-#' Dimensionless (from \eqn{-\infty} to 1). `nse()` indicates how well the plot of observed
-#' versus simulated data fits the 1:1 line.
+#' Dimensionless (from \eqn{-\infty} to 1). `nse()` indicates how well the plot
+#' of observed versus simulated data fits the 1:1 line.
 #'
 #' @details
 #' The Nash-Sutcliffe efficiency is a normalized statistic that determines

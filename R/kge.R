@@ -2,8 +2,9 @@
 #'
 #' @description
 #' Calculate the Kling-Gupta Efficiency (Gupta et al., 2009).
-#' Dimensionless (from \eqn{-\infty} to 1). `kge()` assesses the accuracy of simulated data
-#' by considering correlation, bias, and variability relative to observed data.
+#' Dimensionless (from \eqn{-\infty} to 1). `kge()` assesses the accuracy of 
+#' simulated data by considering correlation, bias, and variability relative 
+#' to observed data.
 #'
 #' @details
 #' The Kling-Gupta Efficiency is a composite metric that decomposes model
