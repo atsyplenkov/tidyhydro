@@ -11,7 +11,7 @@
 <img src="https://img.shields.io/github/v/release/atsyplenkov/tidyhydro?style=flat&labelColor=1C2C2E&color=198ce7&logo=GitHub&logoColor=white"></a>
 <a href="https://cran.r-project.org/package=tidyhydro">
 <img src="https://img.shields.io/cran/v/tidyhydro?style=flat&labelColor=1C2C2E&color=198ce7&logo=R&logoColor=white"></a>
-<a href="https://codecov.io/gh/atsyplenkov/tidyhydro">
+<a href="https://app.codecov.io/gh/atsyplenkov/tidyhydro">
 <img src="https://img.shields.io/codecov/c/gh/atsyplenkov/tidyhydro?style=flat&labelColor=1C2C2E&color=256bc0&logo=Codecov&logoColor=white"></a>
 <a href="https://github.com/atsyplenkov/tidyhydro/actions/workflows/check-r-pkg.yaml">
 <img src="https://img.shields.io/github/actions/workflow/status/atsyplenkov/tidyhydro/check-r-pkg.yaml?style=flat&labelColor=1C2C2E&color=256bc0&logo=GitHub%20Actions&logoColor=white"></a>
@@ -109,6 +109,7 @@ Since the package uses `Rcpp` in the background, it performs slightly
 faster than base R and other R packages:
 
 ``` r
+set.seed(12234)
 x <- runif(10^5)
 y <- runif(10^5)
 
@@ -124,18 +125,18 @@ bench::mark(
   baseR = nse(truth = x, estimate = y),
   check = TRUE,
   relative = TRUE,
-  iterations = 100L
+  iterations = 50L
 )
 #> # A tibble: 3 × 6
 #>   expression   min median `itr/sec` mem_alloc `gc/sec`
 #>   <bch:expr> <dbl>  <dbl>     <dbl>     <dbl>    <dbl>
-#> 1 tidyhydro   1      1         8.51       NaN      NaN
-#> 2 hydroGOF    6.62   9.94      1          Inf      Inf
-#> 3 baseR       5.01   6.34      1.46       Inf      Inf
+#> 1 tidyhydro   1      1         8.67       NaN      NaN
+#> 2 hydroGOF    7.45  10.1       1          Inf      Inf
+#> 3 baseR       5.18   6.88      1.50       Inf      Inf
 ```
 
 ## See also
 
-- [`hydroGOF`](https://github.com/hzambran/hydroGOF%3E) -
-  Goodness-of-fit functions for comparison of simulated and observed
-  hydrological time series.
+- [`hydroGOF`](https://github.com/hzambran/hydroGOF) - Goodness-of-fit
+  functions for comparison of simulated and observed hydrological time
+  series.
