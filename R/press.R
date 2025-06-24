@@ -38,8 +38,6 @@
 #' values should be stripped before the computation proceeds.
 #' @param ... Not currently used.
 #'
-#' @author Anatolii Tsyplenkov
-#'
 #' @references
 #' Rasmussen, P. P., Gray, J. R., Glysson, G. D. & Ziegler, A. C.
 #'  Guidelines and procedures for computing time-series suspended-sediment

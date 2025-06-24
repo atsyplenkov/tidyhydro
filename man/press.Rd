@@ -60,14 +60,14 @@ The PRESS is only relevant for comparisons to other regression models
 with the same response variable units (\emph{Rasmunsen et al., 2009}).
 }
 \examples{
-library(yardstick)
-data(solubility_test)
+library(tidyhydro)
+data(avacha)
 
 # Supply truth and predictions as bare column names
-press(solubility_test, solubility, prediction)
+press(avacha, obs, sim)
 
 # Or as numeric vectors
-press_vec(solubility_test$solubility, solubility_test$prediction)
+press_vec(avacha$obs, avacha$sim)
 }
 \references{
 Rasmussen, P. P., Gray, J. R., Glysson, G. D. & Ziegler, A. C.
@@ -84,18 +84,17 @@ Gilroy, E. J. Statistical Methods in Water Resources. 484
 \seealso{
 Other numeric metrics: 
 \code{\link{kge}()},
+\code{\link{mse}()},
 \code{\link{nse}()},
 \code{\link{pbias}()},
 \code{\link{sfe}()}
 
 Other accuracy metrics: 
 \code{\link{kge}()},
+\code{\link{mse}()},
 \code{\link{nse}()},
 \code{\link{pbias}()},
 \code{\link{sfe}()}
-}
-\author{
-Anatolii Tsyplenkov
 }
 \concept{accuracy metrics}
 \concept{numeric metrics}

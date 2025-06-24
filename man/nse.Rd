@@ -46,8 +46,8 @@ For \code{nse_vec()}, a single \code{numeric} value (or \code{NA}).
 }
 \description{
 Calculate the Nash-Sutcliffe efficiency (Nash & Sutcliffe, 1970).
-Dimensionless (from -∞ to 1). \code{nse()} indicates how well the plot of observed
-versus simulated data fits the 1:1 line.
+Dimensionless (from \eqn{-\infty} to 1). \code{nse()} indicates how well the plot
+of observed versus simulated data fits the 1:1 line.
 }
 \details{
 The Nash-Sutcliffe efficiency is a normalized statistic that determines
@@ -62,14 +62,14 @@ to Moriasi et al. (2015) the metric interpretation can be as follows:
 }
 }
 \examples{
-library(yardstick)
-data(solubility_test)
+library(tidyhydro)
+data(avacha)
 
 # Supply truth and predictions as bare column names
-nse(solubility_test, solubility, prediction)
+nse(avacha, obs, sim)
 
 # Or as numeric vectors
-nse_vec(solubility_test$solubility, solubility_test$prediction)
+nse_vec(avacha$obs, avacha$sim)
 }
 \references{
 Nash, J. E., & Sutcliffe, J. V. (1970). River flow forecasting through
@@ -84,18 +84,17 @@ Transactions of the ASABE, 58(6), 1763–1785.
 \seealso{
 Other numeric metrics: 
 \code{\link{kge}()},
+\code{\link{mse}()},
 \code{\link{pbias}()},
 \code{\link{press}()},
 \code{\link{sfe}()}
 
 Other accuracy metrics: 
 \code{\link{kge}()},
+\code{\link{mse}()},
 \code{\link{pbias}()},
 \code{\link{press}()},
 \code{\link{sfe}()}
-}
-\author{
-Anatolii Tsyplenkov
 }
 \concept{accuracy metrics}
 \concept{numeric metrics}

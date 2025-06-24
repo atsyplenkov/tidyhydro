@@ -32,8 +32,8 @@ unquoted variable name. For \verb{_vec()} functions, a \code{numeric} vector.}
 \item{na_rm}{A \code{logical} value indicating whether \code{NA}
 values should be stripped before the computation proceeds.}
 
-\item{performance}{The optional column, indicating should the \code{pbias()} return
-metric interpretation. See details.}
+\item{performance}{The optional column, indicating should the \code{pbias()}
+return metric interpretation. See details.}
 }
 \value{
 A \code{tibble} with columns \code{.metric}, \code{.estimator},
@@ -48,13 +48,15 @@ For \code{pbias_vec()}, a single \code{numeric} value (or \code{NA}).
 Percent bias (PBIAS)
 }
 \details{
-PBIAS is the deviation of data being evaluated, expressed as a percentage. It
-measures the average tendency of the simulated data to be larger or smaller than
-their observed counterparts (Moriasi et al., 2015). The optimal value of PBIAS
-is 0.0, with low-magnitude values indicating accurate model simulation.
+PBIAS is the deviation of data being evaluated, expressed as a percentage.
+It measures the average tendency of the simulated data to be larger or
+smaller than their observed counterparts (Moriasi et al., 2015). The optimal
+value of PBIAS is 0.0, with low-magnitude values indicating accurate model
+simulation.
 Positive values indicate model underestimation bias,
 and negative values indicate model overestimation bias (Gupta et al., 1999)
-According to Moriasi et al. (2015) the metric interpretation can be as follows:
+According to Moriasi et al. (2015) the metric interpretation can be as
+follows:
 \itemize{
 \item \strong{Excellent}/\strong{Very Good} -- \code{pbias()} < ±5.0
 \item \strong{Good} -- ±5.0 <= \code{pbias()} < ±10.0
@@ -63,14 +65,14 @@ According to Moriasi et al. (2015) the metric interpretation can be as follows:
 }
 }
 \examples{
-library(yardstick)
-data(solubility_test)
+library(tidyhydro)
+data(avacha)
 
 # Supply truth and predictions as bare column names
-pbias(solubility_test, solubility, prediction)
+pbias(avacha, obs, sim)
 
 # Or as numeric vectors
-pbias_vec(solubility_test$solubility, solubility_test$prediction)
+pbias_vec(avacha$obs, avacha$sim)
 }
 \references{
 Moriasi, D. N., Gitau, M. W., Pai, N., & Daggupati, P. (2015). Hydrologic
@@ -85,18 +87,17 @@ multilevel expert calibration. J. Hydrologic Eng. 4(2): 135-143
 \seealso{
 Other numeric metrics: 
 \code{\link{kge}()},
+\code{\link{mse}()},
 \code{\link{nse}()},
 \code{\link{press}()},
 \code{\link{sfe}()}
 
 Other accuracy metrics: 
 \code{\link{kge}()},
+\code{\link{mse}()},
 \code{\link{nse}()},
 \code{\link{press}()},
 \code{\link{sfe}()}
-}
-\author{
-Anatolii Tsyplenkov
 }
 \concept{accuracy metrics}
 \concept{numeric metrics}
