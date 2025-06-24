@@ -8,4 +8,5 @@ PLAYGROUND.R
 BENCHMARKS.R
 
 /.quarto/
-^cran-comments\.md$
+cran-comments.md
+CRAN-SUBMISSION
