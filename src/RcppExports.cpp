@@ -11,15 +11,16 @@ Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
 // kge_cpp
-SEXP kge_cpp(NumericVector obs, NumericVector sim, bool na_rm);
-RcppExport SEXP _tidyhydro_kge_cpp(SEXP obsSEXP, SEXP simSEXP, SEXP na_rmSEXP) {
+SEXP kge_cpp(NumericVector obs, NumericVector sim, bool na_rm, std::string version);
+RcppExport SEXP _tidyhydro_kge_cpp(SEXP obsSEXP, SEXP simSEXP, SEXP na_rmSEXP, SEXP versionSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< NumericVector >::type obs(obsSEXP);
     Rcpp::traits::input_parameter< NumericVector >::type sim(simSEXP);
     Rcpp::traits::input_parameter< bool >::type na_rm(na_rmSEXP);
-    rcpp_result_gen = Rcpp::wrap(kge_cpp(obs, sim, na_rm));
+    Rcpp::traits::input_parameter< std::string >::type version(versionSEXP);
+    rcpp_result_gen = Rcpp::wrap(kge_cpp(obs, sim, na_rm, version));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -92,7 +93,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_tidyhydro_kge_cpp", (DL_FUNC) &_tidyhydro_kge_cpp, 3},
+    {"_tidyhydro_kge_cpp", (DL_FUNC) &_tidyhydro_kge_cpp, 4},
     {"_tidyhydro_mse_cpp", (DL_FUNC) &_tidyhydro_mse_cpp, 3},
     {"_tidyhydro_nse_cpp", (DL_FUNC) &_tidyhydro_nse_cpp, 4},
     {"_tidyhydro_pbias_cpp", (DL_FUNC) &_tidyhydro_pbias_cpp, 4},

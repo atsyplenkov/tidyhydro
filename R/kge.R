@@ -117,5 +117,5 @@ kge_vec <- function(
 ) {
   yardstick::check_numeric_metric(truth, estimate, case_weights = NULL)
 
-  kge_cpp(truth, estimate, na_rm = na_rm)
+  kge_cpp(truth, estimate, na_rm = na_rm, version = "2009")
 }
