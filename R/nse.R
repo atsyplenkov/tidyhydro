@@ -1,15 +1,33 @@
 #' Nash-Sutcliffe efficiency (NSE)
 #'
 #' @description
-#' Calculate the Nash-Sutcliffe efficiency (Nash & Sutcliffe, 1970).
+#' Calculate the Nash-Sutcliffe efficiency (*Nash & Sutcliffe, 1970*).
 #' Dimensionless (from \eqn{-\infty} to 1). `nse()` indicates how well the plot
 #' of observed versus simulated data fits the 1:1 line.
 #'
 #' @details
 #' The Nash-Sutcliffe efficiency is a normalized statistic that determines
 #' the relative magnitude of the residual variance ("noise") compared to the
-#' measured data variance ("information"; Nash and Sutcliffe, 1970). According
-#' to Moriasi et al. (2015) the metric interpretation can be as follows:
+#' measured data variance ("information"; *Nash and Sutcliffe, 1970*). 
+#' 
+#' The formula for NSE is:
+#'
+#' \deqn{
+#'   NSE = 1 - \frac{
+#'     \sum_{i=1}^{n}{(sim_i - obs_i)^2}
+#'   }{
+#'     \sum_{i=1}^{n}{(obs_i - \mu_{obs})^2}
+#'   }
+#' }
+#' where:
+#' \itemize{
+#'   \item \eqn{sim} defines model simulations at time step \eqn{i}
+#'   \item \eqn{obs} defines model observations at time step \eqn{i}
+#'   \item \eqn{\mu_{obs}} defines mean of model observations
+#' }
+#' 
+#' According to Moriasi et al. (2015) the metric interpretation can be 
+#' as follows:
 #'
 #' - **Excellent**/**Very Good** -- `nse()` > 0.8
 #' - **Good** -- 0.6 <= `nse()` <= 0.8
