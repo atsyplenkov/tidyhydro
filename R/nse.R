@@ -7,8 +7,8 @@
 #'
 #' @details
 #' The Nash-Sutcliffe efficiency is a normalized statistic that determines
-#' the relative magnitude of the residual variance (“noise”) compared to the
-#' measured data variance (“information”; Nash and Sutcliffe, 1970). According
+#' the relative magnitude of the residual variance ("noise") compared to the
+#' measured data variance ("information"; Nash and Sutcliffe, 1970). According
 #' to Moriasi et al. (2015) the metric interpretation can be as follows:
 #'
 #' - **Excellent**/**Very Good** -- `nse()` > 0.8

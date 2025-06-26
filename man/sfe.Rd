@@ -86,6 +86,7 @@ Standards, p. 138).
 \seealso{
 Other numeric metrics: 
 \code{\link{kge}()},
+\code{\link{kge2012}()},
 \code{\link{mse}()},
 \code{\link{nse}()},
 \code{\link{pbias}()},
@@ -93,6 +94,7 @@ Other numeric metrics:
 
 Other accuracy metrics: 
 \code{\link{kge}()},
+\code{\link{kge2012}()},
 \code{\link{mse}()},
 \code{\link{nse}()},
 \code{\link{pbias}()},

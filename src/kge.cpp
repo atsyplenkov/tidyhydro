@@ -69,19 +69,19 @@ SEXP kge_cpp(NumericVector obs, NumericVector sim, bool na_rm = true, std::strin
   if (var_obs == 0.0 || var_sim == 0.0) return wrap(NA_REAL);
 
   double r = r_num / std::sqrt(var_obs * var_sim);
-  double alpha = std::sqrt(var_sim / var_obs);
-
+  double beta = mean_sim / mean_obs;
+  
   double result;
   if (version == "2009") {
-    double beta = mean_sim / mean_obs;
+    double alpha = std::sqrt(var_sim / var_obs);
     result = 1.0 - std::sqrt(std::pow(r - 1.0, 2.0) +
                              std::pow(alpha - 1.0, 2.0) +
                              std::pow(beta - 1.0, 2.0));
   } else { // version == "2012"
-    double xBeta = mean_sim / mean_obs;
+    double gamma = (std::sqrt(var_sim)/mean_sim)/(std::sqrt(var_obs)/mean_obs);
     result = 1.0 - std::sqrt(std::pow(r - 1.0, 2.0) +
-                             std::pow(alpha - 1.0, 2.0) +
-                             std::pow(xBeta - 1.0, 2.0));
+                             std::pow(gamma - 1.0, 2.0) +
+                             std::pow(beta - 1.0, 2.0));
   }
 
   return wrap(result);

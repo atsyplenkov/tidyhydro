@@ -64,6 +64,25 @@ test_that("kge", {
   )
 })
 
+test_that("kge2012", {
+  skip_if_not_installed("quickcheck")
+
+  quickcheck::for_all(
+    obs = quickcheck::any_atomic(any_na = TRUE),
+    sim = quickcheck::any_atomic(any_na = TRUE),
+    na_flag = quickcheck::logical_(any_na = FALSE),
+    property = function(obs, sim, na_flag) {
+      suppressWarnings(
+        try(
+          kge2012_vec(truth = obs, estimate = sim, na_rm = na_flag),
+          silent = TRUE
+        )
+      )
+      expect_true(TRUE)
+    }
+  )
+})
+
 test_that("pbias", {
   skip_if_not_installed("quickcheck")
 

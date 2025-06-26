@@ -83,6 +83,7 @@ e2020WR029001. \url{https://doi.org/10.1029/2020WR029001}
 \seealso{
 Other numeric metrics: 
 \code{\link{kge}()},
+\code{\link{kge2012}()},
 \code{\link{nse}()},
 \code{\link{pbias}()},
 \code{\link{press}()},
@@ -90,6 +91,7 @@ Other numeric metrics:
 
 Other accuracy metrics: 
 \code{\link{kge}()},
+\code{\link{kge2012}()},
 \code{\link{nse}()},
 \code{\link{pbias}()},
 \code{\link{press}()},

@@ -51,8 +51,8 @@ of observed versus simulated data fits the 1:1 line.
 }
 \details{
 The Nash-Sutcliffe efficiency is a normalized statistic that determines
-the relative magnitude of the residual variance (“noise”) compared to the
-measured data variance (“information”; Nash and Sutcliffe, 1970). According
+the relative magnitude of the residual variance ("noise") compared to the
+measured data variance ("information"; Nash and Sutcliffe, 1970). According
 to Moriasi et al. (2015) the metric interpretation can be as follows:
 \itemize{
 \item \strong{Excellent}/\strong{Very Good} -- \code{nse()} > 0.8
@@ -84,6 +84,7 @@ Transactions of the ASABE, 58(6), 1763–1785.
 \seealso{
 Other numeric metrics: 
 \code{\link{kge}()},
+\code{\link{kge2012}()},
 \code{\link{mse}()},
 \code{\link{pbias}()},
 \code{\link{press}()},
@@ -91,6 +92,7 @@ Other numeric metrics:
 
 Other accuracy metrics: 
 \code{\link{kge}()},
+\code{\link{kge2012}()},
 \code{\link{mse}()},
 \code{\link{pbias}()},
 \code{\link{press}()},

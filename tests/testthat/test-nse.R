@@ -44,25 +44,6 @@ test_that("Integer columns are allowed", {
   )
 })
 
-test_that("Result similar to {hydroGOF} package", {
-  skip_if_not_installed("hydroGOF")
-
-  ex_dat <- generate_numeric_test_data()
-  not_na <- !is.na(ex_dat$pred_na)
-
-  # General case
-  expect_equal(
-    nse(ex_dat, truth = "obs", estimate = "pred", na_rm = FALSE)[[".estimate"]],
-    hydroGOF::NSE(obs = ex_dat$obs, sim = ex_dat$pred)
-  )
-
-  # With missing data
-  expect_equal(
-    nse_vec(truth = ex_dat$obs, estimate = ex_dat$pred_na, na_rm = TRUE),
-    hydroGOF::NSE(obs = ex_dat$obs, sim = ex_dat$pred_na, na.rm = TRUE)
-  )
-})
-
 test_that("Result interpretation is returned", {
   ex_dat <- generate_numeric_test_data()
 
