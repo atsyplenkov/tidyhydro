@@ -42,7 +42,7 @@ the number of groups.
 For \code{kge2012_vec()}, a single \code{numeric} value (or \code{NA}).
 }
 \description{
-Calculate the modified Kling-Gupta Efficiency (Kling et al., 2012),
+Calculate the modified Kling-Gupta Efficiency (\emph{Kling et al., 2012}),
 aka \eqn{KGE'}. Dimensionless (from \eqn{-\infty} to 1).
 \code{kge2012()} assesses the accuracy of
 simulated data by considering correlation, bias, and variability relative

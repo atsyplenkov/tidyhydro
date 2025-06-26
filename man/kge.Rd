@@ -42,7 +42,7 @@ the number of groups.
 For \code{kge_vec()}, a single \code{numeric} value (or \code{NA}).
 }
 \description{
-Calculate the Kling-Gupta Efficiency (Gupta et al., 2009).
+Calculate the Kling-Gupta Efficiency (\emph{Gupta et al., 2009}).
 Dimensionless (from \eqn{-\infty} to 1). \code{kge()} assesses the accuracy of
 simulated data by considering correlation, bias, and variability relative
 to observed data.
@@ -52,7 +52,7 @@ The Kling-Gupta Efficiency is a composite metric that decomposes model
 performance into three components: correlation (\eqn{r}),
 variability ratio (\eqn{\alpha}), and bias ratio (\eqn{\beta}).
 It improves upon the Nash-Sutcliffe Efficiency (see \link{nse})
-by explicitly accounting for each source of error (Gupta et al., 2009).
+by explicitly accounting for each source of error (\emph{Gupta et al., 2009}).
 
 The Kling-Gupta Efficiency is estimated as follows:
 \deqn{

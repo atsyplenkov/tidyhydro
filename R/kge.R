@@ -1,7 +1,7 @@
 #' Kling-Gupta Efficiency (KGE)
 #'
 #' @description
-#' Calculate the Kling-Gupta Efficiency (Gupta et al., 2009).
+#' Calculate the Kling-Gupta Efficiency (*Gupta et al., 2009*).
 #' Dimensionless (from \eqn{-\infty} to 1). `kge()` assesses the accuracy of
 #' simulated data by considering correlation, bias, and variability relative
 #' to observed data.
@@ -11,7 +11,7 @@
 #' performance into three components: correlation (\eqn{r}),
 #' variability ratio (\eqn{\alpha}), and bias ratio (\eqn{\beta}).
 #' It improves upon the Nash-Sutcliffe Efficiency (see [nse])
-#' by explicitly accounting for each source of error (Gupta et al., 2009).
+#' by explicitly accounting for each source of error (*Gupta et al., 2009*).
 #'
 #' The Kling-Gupta Efficiency is estimated as follows:
 #' \deqn{
@@ -124,7 +124,7 @@ kge_vec <- function(
 #' Modified Kling-Gupta Efficiency (KGE')
 #'
 #' @description
-#' Calculate the modified Kling-Gupta Efficiency (Kling et al., 2012),
+#' Calculate the modified Kling-Gupta Efficiency (*Kling et al., 2012*),
 #' aka \eqn{KGE'}. Dimensionless (from \eqn{-\infty} to 1).
 #' `kge2012()` assesses the accuracy of
 #' simulated data by considering correlation, bias, and variability relative
@@ -196,7 +196,7 @@ kge_vec <- function(
 #' Kling, H., Fuchs, M., & Paulin, M. (2012). Runoff conditions in the upper
 #'  Danube basin under an ensemble of climate change scenarios.
 #'  Journal of Hydrology, 424–425, 264–277.
-#' \doi{10.1016/j.jhydrol.2012.01.011}
+#'  \doi{10.1016/j.jhydrol.2012.01.011}
 #'
 #' Knoben, W. J. M., Freer, J. E., & Woods, R. A. (2019).
 #'  Technical note: Inherent benchmark or not? Comparing Nash–Sutcliffe and

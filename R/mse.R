@@ -2,7 +2,7 @@
 #'
 #' @description
 #' The MSE is a metric that evaluates the goodness of fit between model
-#' simulations and observations (Fisher, 1920). Measured in the squared
+#' simulations and observations (*Fisher, 1920*). Measured in the squared
 #' units of `truth` and `estimate` and can vary from \eqn{-\infty} to
 #' \eqn{+\infty}.
 #'
