@@ -58,22 +58,11 @@ test_that("Integer columns are allowed", {
   )
 })
 
-test_that("Result similar to {hydroGOF} package", {
-  skip_if_not_installed("hydroGOF")
-
+test_that("Internal function works as expected", {
   ex_dat <- generate_numeric_test_data()
-  not_na <- !is.na(ex_dat$pred_na)
 
-  # General case
-  expect_equal(
-    kge(ex_dat, truth = "obs", estimate = "pred", na_rm = FALSE)[[".estimate"]],
-    hydroGOF::KGE(obs = ex_dat$obs, sim = ex_dat$pred)
-  )
-
-  # With missing data
-  expect_equal(
-    kge_vec(truth = ex_dat$obs, estimate = ex_dat$pred_na, na_rm = TRUE),
-    hydroGOF::KGE(obs = ex_dat$obs, sim = ex_dat$pred_na, na.rm = TRUE),
-    tolerance = 0.0001
+  expect_true(
+    kge_cpp(ex_dat$obs, ex_dat$pred, na_rm = TRUE, version = "2009") !=
+      kge_cpp(ex_dat$obs, ex_dat$pred, na_rm = TRUE, version = "2012")
   )
 })

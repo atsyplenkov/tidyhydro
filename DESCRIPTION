@@ -1,7 +1,7 @@
 Package: tidyhydro
 Type: Package
 Title: Tidy Metrics for Assessing Hydrological Models Performance
-Version: 0.1.0
+Version: 0.1.0.9000
 Authors@R:
     person(given = "Anatoly", family = "Tsyplenkov", email = "atsyplenkov@fastmail.com", role = c("cre", "aut", "cph"), comment = c(ORCID = "0000-0003-4144-8402"))
 Maintainer: Anatoly Tsyplenkov <atsyplenkov@fastmail.com>

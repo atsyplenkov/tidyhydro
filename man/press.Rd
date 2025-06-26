@@ -42,12 +42,12 @@ the number of groups.
 For \code{press_vec()}, a single \code{numeric} value (or \code{NA}).
 }
 \description{
-PRESS is a measure of the quality of a regression model using residuals.
-PRESS is a validation-type estimator of error that uses the deleted
-residuals to provide an estimate of the prediction error. When comparing
-alternate regression models, selecting the model with the lowest value
-of the PRESS statistic is a good approach because it means that the
-equation produces the least error when making new predictions
+\eqn{PRESS} is a measure of the quality of a regression model using
+residuals. \eqn{PRESS} is a validation-type estimator of error that uses
+the deleted residuals to provide an estimate of the prediction error.
+When comparing alternate regression models, selecting the model with the
+lowest value of the \eqn{PRESS} statistic is a good approach because it
+means that the equation produces the least error when making new predictions
 (see \emph{Helsel et al., 2020}).
 
 It is particularly valuable in assessing multiple forms of multiple
@@ -56,8 +56,19 @@ simply comparing different options for a single explanatory variable in
 single-variable regression models.
 }
 \details{
-The PRESS is only relevant for comparisons to other regression models
+The \eqn{PRESS} is only relevant for comparisons to other regression models
 with the same response variable units (\emph{Rasmunsen et al., 2009}).
+
+It estimates as follows:
+\deqn{
+  PRESS = \sum_{i=1}^{n}{(sim_i - obs_i)^2}
+}
+
+where:
+\itemize{
+\item \eqn{sim} defines model simulations at time step \eqn{i}
+\item \eqn{obs} defines model observations at time step \eqn{i}
+}
 }
 \examples{
 library(tidyhydro)
@@ -77,13 +88,13 @@ data. in U.S. Geological Survey Techniques and Methods book 3, chap.
 C4 53 (2009) \url{https://pubs.usgs.gov/tm/tm3c4/}.
 
 Helsel, D. R., Hirsch, R. M., Ryberg, K. R., Archfield, S. A. &
-Gilroy, E. J. Statistical Methods in Water Resources. 484
-\url{https://pubs.er.usgs.gov/publication/tm4A3} (2020)
-\url{https://doi.org/10.3133/tm4A3}.
+Gilroy, E. J. Statistical Methods in Water Resources. 484 (2020)
+\doi{10.3133/tm4A3}.
 }
 \seealso{
 Other numeric metrics: 
 \code{\link{kge}()},
+\code{\link{kge2012}()},
 \code{\link{mse}()},
 \code{\link{nse}()},
 \code{\link{pbias}()},
@@ -91,6 +102,7 @@ Other numeric metrics:
 
 Other accuracy metrics: 
 \code{\link{kge}()},
+\code{\link{kge2012}()},
 \code{\link{mse}()},
 \code{\link{nse}()},
 \code{\link{pbias}()},

@@ -7,7 +7,9 @@
 #' @details
 #' The metric is widely used for assessing Sediment Rating Curves
 #' (e.g., Hicks et al. 2020). The model is usually considered 'unacceptable'
-#' if the \eqn{SFE > 2}, see Hicks et al. (2011). It is estimated as follows:
+#' if the \eqn{SFE > 2}, see Hicks et al. (2011). 
+#' 
+#' It is estimated as follows:
 #' \deqn{SFE = \exp\left(\sqrt{\frac{1}{n} \sum_{i=1}^{n}
 #' \left( \log\left(\frac{obs_i}{sim_i} \right) \right)^2 }\right)}
 #' where:
@@ -44,7 +46,7 @@
 #' Hicks, D. M., Shankar, U., McKerchar, A. I., Basher, L., Lynn, I.,
 #'  Page, M., & Jessen, M. (2011). Suspended Sediment Yields from New Zealand
 #'  Rivers. Journal of Hydrology (New Zealand), 50(1), 81–142.
-#'  \url{https://doi.org/10.3316/informit.315190637227597}
+#'  \doi{10.3316/informit.315190637227597}
 #'
 #' Hicks, M., Doyle, M., Watson, J., Holwerda, N., Lynch, B., Wyatt, J.,
 #'  Jones, H., & Hill, R. (2020). Measurement of Fluvial Suspended Sediment

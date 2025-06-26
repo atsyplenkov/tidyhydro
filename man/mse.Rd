@@ -43,7 +43,7 @@ For \code{mse_vec()}, a single \code{numeric} value (or \code{NA}).
 }
 \description{
 The MSE is a metric that evaluates the goodness of fit between model
-simulations and observations (Fisher, 1920). Measured in the squared
+simulations and observations (\emph{Fisher, 1920}). Measured in the squared
 units of \code{truth} and \code{estimate} and can vary from \eqn{-\infty} to
 \eqn{+\infty}.
 }
@@ -72,17 +72,18 @@ mse_vec(avacha$obs, avacha$sim)
 Fisher, R. A. (1920). Accuracy of observation, a mathematical
 examination of the methods of determining, by the mean error and
 by the mean square error. Monthly Notices of the Royal Astronomical
-Society, 80, 758–770. \url{https://doi.org/10.1093/mnras/80.8.758}
+Society, 80, 758–770. \doi{10.1093/mnras/80.8.758}
 
 Clark, M. P., Vogel, R. M., Lamontagne, J. R., Mizukami, N.,
 Knoben, W. J. M., Tang, G., Gharari, S., Freer, J. E., Whitfield,
 P. H., Shook, K. R., & Papalexiou, S. M. (2021). The Abuse of Popular
 Performance Metrics in Hydrologic Modeling. Water Resources Research, 57(9),
-e2020WR029001. \url{https://doi.org/10.1029/2020WR029001}
+e2020WR029001. \doi{10.1029/2020WR029001}
 }
 \seealso{
 Other numeric metrics: 
 \code{\link{kge}()},
+\code{\link{kge2012}()},
 \code{\link{nse}()},
 \code{\link{pbias}()},
 \code{\link{press}()},
@@ -90,6 +91,7 @@ Other numeric metrics:
 
 Other accuracy metrics: 
 \code{\link{kge}()},
+\code{\link{kge2012}()},
 \code{\link{nse}()},
 \code{\link{pbias}()},
 \code{\link{press}()},

@@ -45,15 +45,33 @@ the number of groups.
 For \code{nse_vec()}, a single \code{numeric} value (or \code{NA}).
 }
 \description{
-Calculate the Nash-Sutcliffe efficiency (Nash & Sutcliffe, 1970).
+Calculate the Nash-Sutcliffe efficiency (\emph{Nash & Sutcliffe, 1970}).
 Dimensionless (from \eqn{-\infty} to 1). \code{nse()} indicates how well the plot
 of observed versus simulated data fits the 1:1 line.
 }
 \details{
 The Nash-Sutcliffe efficiency is a normalized statistic that determines
-the relative magnitude of the residual variance (“noise”) compared to the
-measured data variance (“information”; Nash and Sutcliffe, 1970). According
-to Moriasi et al. (2015) the metric interpretation can be as follows:
+the relative magnitude of the residual variance ("noise") compared to the
+measured data variance ("information"; \emph{Nash and Sutcliffe, 1970}).
+
+The formula for NSE is:
+
+\deqn{
+  NSE = 1 - \frac{
+    \sum_{i=1}^{n}{(sim_i - obs_i)^2}
+  }{
+    \sum_{i=1}^{n}{(obs_i - \mu_{obs})^2}
+  }
+}
+where:
+\itemize{
+\item \eqn{sim} defines model simulations at time step \eqn{i}
+\item \eqn{obs} defines model observations at time step \eqn{i}
+\item \eqn{\mu_{obs}} defines mean of model observations
+}
+
+According to Moriasi et al. (2015) the metric interpretation can be
+as follows:
 \itemize{
 \item \strong{Excellent}/\strong{Very Good} -- \code{nse()} > 0.8
 \item \strong{Good} -- 0.6 <= \code{nse()} <= 0.8
@@ -74,16 +92,17 @@ nse_vec(avacha$obs, avacha$sim)
 \references{
 Nash, J. E., & Sutcliffe, J. V. (1970). River flow forecasting through
 conceptual models part I — A discussion of principles. Journal of Hydrology,
-10(3), 282–290. \url{https://doi.org/10.1016/0022-1694(70)90255-6}
+10(3), 282–290. \doi{10.1016/0022-1694(70)90255-6}
 
 Moriasi, D. N., Gitau, M. W., Pai, N., & Daggupati, P. (2015). Hydrologic
 and Water Quality Models: Performance Measures and Evaluation Criteria.
 Transactions of the ASABE, 58(6), 1763–1785.
-\url{https://doi.org/10.13031/trans.58.10715}
+\doi{10.13031/trans.58.10715}
 }
 \seealso{
 Other numeric metrics: 
 \code{\link{kge}()},
+\code{\link{kge2012}()},
 \code{\link{mse}()},
 \code{\link{pbias}()},
 \code{\link{press}()},
@@ -91,6 +110,7 @@ Other numeric metrics:
 
 Other accuracy metrics: 
 \code{\link{kge}()},
+\code{\link{kge2012}()},
 \code{\link{mse}()},
 \code{\link{pbias}()},
 \code{\link{press}()},
