@@ -35,7 +35,7 @@ requireNamespace("bench", quietly = TRUE)
 
 The `tidyhydro` package provides a set of commonly used metrics in hydrology (such as _NSE_, _KGE_, _pBIAS_) for use within a [`tidymodels`](https://www.tidymodels.org/) infrastructure. Originally inspired by the [`yardstick`](https://github.com/tidymodels/yardstick/tree/main) and [`hydroGOF`](https://github.com/hzambran/hydroGOF) packages, this library is mainly written in C++ and provides a very quick estimation of desired goodness-of-fit criteria.
 
-Additionally, you'll find here a C++ implementation of lesser-known yet powerful metrics used in reports from the United States Geological Survey (USGS) and the National Environmental Monitoring Standards (NEMS) guidelines. Examples include _PRESS_ (Prediction Error Sum of Squares), _SFE_ (Standard Factorial Error), and _MSPE_ (Model Standard Percentage Error) and others. Based on the equations from _Helsel et al._ ([2020](https://pubs.usgs.gov/publication/tm4A3)), _Rasmunsen et al._ ([2008](https://pubs.usgs.gov/tm/tm3c4/)), _Hicks et al._ ([2020](https://www.nems.org.nz/documents/suspended-sediment)) and etc. (see functions documentation for details).
+Additionally, you'll find here a C++ implementation of lesser-known yet powerful metrics used in reports from the United States Geological Survey (USGS) and the National Environmental Monitoring Standards (NEMS) guidelines. Examples include _PRESS_ (Prediction Error Sum of Squares), _SFE_ (Standard Factorial Error), and _MSPE_ (Model Standard Percentage Error) and others. Based on the equations from _Helsel et al._ ([2020](https://pubs.usgs.gov/publication/tm4A3)), _Rasmunsen et al._ ([2008](https://pubs.usgs.gov/tm/tm3c4/)), _Hicks et al._ ([2020](https://www.nems.org.nz/documents/suspended-sediment)) and etc. (see documentation for details).
 
 ## Example
 The `tidyhydro` package follows the philosophy of [`yardstick`](https://github.com/tidymodels/yardstick/tree/main) and provides S3 class methods for vectors and data frames. For example, one can estimate `NSE` and `pBIAS` for a data frame like this:
@@ -44,9 +44,9 @@ The `tidyhydro` package follows the philosophy of [`yardstick`](https://github.c
 library(tidyhydro)
 data(avacha)
 
-nse(avacha, obs, sim)
+avacha
 
-pbias(avacha, obs, sim)
+kge(avacha, obs, sim)
 ```
 
 or create a [`metric_set`](https://yardstick.tidymodels.org/reference/metric_set.html) and estimate several parameters at once like this:
@@ -73,11 +73,11 @@ pak::pak("atsyplenkov/tidyhydro")
 ```
 
 ## Benchmarking
-Since the package uses `Rcpp` in the background, it performs slightly faster than base R and other R packages:
+Since the package uses `Rcpp` in the background, it performs slightly faster than base R and other R packages. This is particularly noticeable with large datasets:
 ```{r benchmarking}
 set.seed(12234)
-x <- runif(10^5)
-y <- runif(10^5)
+x <- runif(10^6)
+y <- runif(10^6)
 
 nse <- function(truth, estimate, na_rm = TRUE) {
   #fmt: skip
@@ -91,9 +91,11 @@ bench::mark(
   baseR = nse(truth = x, estimate = y),
   check = TRUE,
   relative = TRUE,
+  filter_gc = FALSE,
   iterations = 50L
 )
 ```
 
 ## See also
 * [`hydroGOF`](https://github.com/hzambran/hydroGOF) - Goodness-of-fit functions for comparison of simulated and observed hydrological time series.
+* [`yardstick`](https://github.com/tidymodels/yardstick/tree/main) - tidy methods for models performance assessment.

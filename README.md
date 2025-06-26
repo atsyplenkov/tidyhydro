@@ -37,7 +37,7 @@ Error) and others. Based on the equations from *Helsel et al.*
 ([2020](https://pubs.usgs.gov/publication/tm4A3)), *Rasmunsen et al.*
 ([2008](https://pubs.usgs.gov/tm/tm3c4/)), *Hicks et al.*
 ([2020](https://www.nems.org.nz/documents/suspended-sediment)) and etc.
-(see functions documentation for details).
+(see documentation for details).
 
 ## Example
 
@@ -50,17 +50,27 @@ can estimate `NSE` and `pBIAS` for a data frame like this:
 library(tidyhydro)
 data(avacha)
 
-nse(avacha, obs, sim)
-#> # A tibble: 1 × 3
-#>   .metric .estimator .estimate
-#>   <chr>   <chr>          <dbl>
-#> 1 nse     standard       0.895
+avacha
+#> # A data frame: 365 × 3
+#>    date         obs   sim
+#>    <date>     <dbl> <dbl>
+#>  1 2022-01-01  76.2  84.8
+#>  2 2022-01-02  76.2  84.3
+#>  3 2022-01-03  76.3  84.0
+#>  4 2022-01-04  76.3  83.7
+#>  5 2022-01-05  76.4  83.4
+#>  6 2022-01-06  76.4  83.1
+#>  7 2022-01-07  76.5  83.0
+#>  8 2022-01-08  76.5  82.9
+#>  9 2022-01-09  76.6  82.8
+#> 10 2022-01-10  76.6  82.7
+#> # ℹ 355 more rows
 
-pbias(avacha, obs, sim)
+kge(avacha, obs, sim)
 #> # A tibble: 1 × 3
 #>   .metric .estimator .estimate
 #>   <chr>   <chr>          <dbl>
-#> 1 pbias   standard      0.0540
+#> 1 kge     standard       0.947
 ```
 
 or create a
@@ -106,12 +116,13 @@ pak::pak("atsyplenkov/tidyhydro")
 ## Benchmarking
 
 Since the package uses `Rcpp` in the background, it performs slightly
-faster than base R and other R packages:
+faster than base R and other R packages. This is particularly noticeable
+with large datasets:
 
 ``` r
 set.seed(12234)
-x <- runif(10^5)
-y <- runif(10^5)
+x <- runif(10^6)
+y <- runif(10^6)
 
 nse <- function(truth, estimate, na_rm = TRUE) {
   #fmt: skip
@@ -125,14 +136,15 @@ bench::mark(
   baseR = nse(truth = x, estimate = y),
   check = TRUE,
   relative = TRUE,
+  filter_gc = FALSE,
   iterations = 50L
 )
 #> # A tibble: 3 × 6
 #>   expression   min median `itr/sec` mem_alloc `gc/sec`
 #>   <bch:expr> <dbl>  <dbl>     <dbl>     <dbl>    <dbl>
-#> 1 tidyhydro   1      1         8.67       NaN      NaN
-#> 2 hydroGOF    7.45  10.1       1          Inf      Inf
-#> 3 baseR       5.18   6.88      1.50       Inf      Inf
+#> 1 tidyhydro    1      1       30.3        NaN      NaN
+#> 2 hydroGOF    21.7   24.3      1          Inf      Inf
+#> 3 baseR       13.4   15.1      1.94       Inf      Inf
 ```
 
 ## See also
@@ -140,3 +152,5 @@ bench::mark(
 - [`hydroGOF`](https://github.com/hzambran/hydroGOF) - Goodness-of-fit
   functions for comparison of simulated and observed hydrological time
   series.
+- [`yardstick`](https://github.com/tidymodels/yardstick/tree/main) -
+  tidy methods for models performance assessment.
