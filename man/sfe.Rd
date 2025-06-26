@@ -75,7 +75,7 @@ Hydrometry - principles and practices. John Wiley and Sons, Chichester,
 Hicks, D. M., Shankar, U., McKerchar, A. I., Basher, L., Lynn, I.,
 Page, M., & Jessen, M. (2011). Suspended Sediment Yields from New Zealand
 Rivers. Journal of Hydrology (New Zealand), 50(1), 81–142.
-\url{https://doi.org/10.3316/informit.315190637227597}
+\doi{10.3316/informit.315190637227597}
 
 Hicks, M., Doyle, M., Watson, J., Holwerda, N., Lynch, B., Wyatt, J.,
 Jones, H., & Hill, R. (2020). Measurement of Fluvial Suspended Sediment

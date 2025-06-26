@@ -50,23 +50,26 @@ to observed data.
 }
 \details{
 The Modified Kling-Gupta Efficiency is a composite metric that decomposes
-model performance into three components: correlation (r),
-variability error (α), and bias error (β).
-It improves upon the Kling-Gupta Efficiency (see \link{kge})
-by explicitly accounting for each source of error (Kling et al., 2012).
+model performance into three components: correlation (\eqn{r}),
+bias ratio (\eqn{\beta}), and variability ratio (\eqn{\gamma}).
+It improves upon the Kling-Gupta Efficiency (see \link{kge}) by replacing
+standard deviation with Coefficient of Variation. This ensures that the
+bias and variability ratios are not cross-correlated,
+which otherwise may occur when e.g. the precipitation inputs are biased.
 
 The Modified Kling-Gupta Efficiency (\eqn{KGE'}) is estimated as follows:
 \deqn{
-KGE' = 1 - \sqrt{(r - 1)^2 + (\alpha - 1)^2 + (\beta - 1)^2}
+KGE' = 1 - \sqrt{(r - 1)^2 + (\beta - 1)^2 + (\gamma - 1)^2}
 }
 where:
 \itemize{
 \item \eqn{r} is the linear Pearson correlation coefficient between
 observed and simulated values
-\item \eqn{\alpha = \sigma_{sim} / \sigma_{obs}} is the ratio of the
-standard deviations (variability error)
 \item \eqn{\beta = \mu_{sim} / \mu_{obs}} is the ratio of the
-means (bias error)
+means (bias ratio)
+\item \eqn{
+        \gamma = \frac{\sigma_{sim} / \mu_{sim}}{\sigma_{sim} / \mu_{sim}}
+        } is the ratio of the Coefficients of Variation (variability ratio)
 }
 }
 \note{
@@ -75,7 +78,8 @@ inherent benchmark such as "mean flow", and \eqn{KGE' = 0} does not
 correspond to a baseline performance.
 Therefore, \eqn{KGE'} values should not be interpreted as "good" or "bad"
 based solely on their sign or magnitude.
-Instead, users are encouraged to examine the individual components (r, α, β)
+Instead, users are encouraged to examine the individual components
+(\eqn{r}, \eqn{\beta}, \eqn{\gamma})
 to understand the nature of model performance and consider defining
 explicit benchmarks based on the study context.
 

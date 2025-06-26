@@ -79,7 +79,7 @@ C4 53 (2009) \url{https://pubs.usgs.gov/tm/tm3c4/}.
 Helsel, D. R., Hirsch, R. M., Ryberg, K. R., Archfield, S. A. &
 Gilroy, E. J. Statistical Methods in Water Resources. 484
 \url{https://pubs.er.usgs.gov/publication/tm4A3} (2020)
-\url{https://doi.org/10.3133/tm4A3}.
+\doi{10.3133/tm4A3}.
 }
 \seealso{
 Other numeric metrics: 

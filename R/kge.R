@@ -8,8 +8,8 @@
 #'
 #' @details
 #' The Kling-Gupta Efficiency is a composite metric that decomposes model
-#' performance into three components: correlation (r), variability error (α),
-#' and bias error (β).
+#' performance into three components: correlation (\eqn{r}),
+#' variability error (\eqn{\alpha}), and bias error (\eqn{\beta}).
 #' It improves upon the Nash-Sutcliffe Efficiency (see [nse])
 #' by explicitly accounting for each source of error (Gupta et al., 2009).
 #'
@@ -33,7 +33,8 @@
 #' correspond to a baseline performance.
 #' Therefore, KGE values should not be interpreted as "good" or "bad" based
 #' solely on their sign or magnitude.
-#' Instead, users are encouraged to examine the individual components (r, α, β)
+#' Instead, users are encouraged to examine the individual components
+#' (\eqn{r}, \eqn{\alpha}, \eqn{\beta})
 #' to understand the nature of model performance and consider defining
 #' explicit benchmarks based on the study context.
 #'
@@ -68,12 +69,12 @@
 #' Gupta, H.V.; Kling, H.; Yilmaz, K.K.; Martinez, G.F. (2009).
 #'  Decomposition of the mean squared error and kge performance criteria:
 #'  Implications for improving hydrological modelling. Journal of Hydrology,
-#'  377(1-2), 80-91. \url{https://doi.org/10.1016/j.jhydrol.2009.08.003}
+#'  377(1-2), 80-91. \doi{10.1016/j.jhydrol.2009.08.003}
 #'
 #' Knoben, W. J. M., Freer, J. E., & Woods, R. A. (2019).
 #'  Technical note: Inherent benchmark or not? Comparing Nash–Sutcliffe and
 #'  Kling–Gupta efficiency scores. Hydrology and Earth System Sciences, 23,
-#'  4323–4331. \url{https://doi.org/10.5194/hess-23-4323-2019}
+#'  4323–4331. \doi{10.5194/hess-23-4323-2019}
 #'
 #' @template examples-numeric
 #'
@@ -131,23 +132,26 @@ kge_vec <- function(
 #'
 #' @details
 #' The Modified Kling-Gupta Efficiency is a composite metric that decomposes
-#' model performance into three components: correlation (r),
-#' variability error (α), and bias error (β).
-#' It improves upon the Kling-Gupta Efficiency (see [kge])
-#' by explicitly accounting for each source of error (Kling et al., 2012).
+#' model performance into three components: correlation (\eqn{r}),
+#' bias ratio (\eqn{\beta}), and variability ratio (\eqn{\gamma}).
+#' It improves upon the Kling-Gupta Efficiency (see [kge]) by replacing
+#' standard deviation with Coefficient of Variation. This ensures that the
+#' bias and variability ratios are not cross-correlated,
+#' which otherwise may occur when e.g. the precipitation inputs are biased.
 #'
 #' The Modified Kling-Gupta Efficiency (\eqn{KGE'}) is estimated as follows:
 #' \deqn{
-#' KGE' = 1 - \sqrt{(r - 1)^2 + (\alpha - 1)^2 + (\beta - 1)^2}
+#' KGE' = 1 - \sqrt{(r - 1)^2 + (\beta - 1)^2 + (\gamma - 1)^2}
 #' }
 #' where:
 #' \itemize{
 #'   \item \eqn{r} is the linear Pearson correlation coefficient between
 #'   observed and simulated values
-#'   \item \eqn{\alpha = \sigma_{sim} / \sigma_{obs}} is the ratio of the
-#'   standard deviations (variability error)
 #'   \item \eqn{\beta = \mu_{sim} / \mu_{obs}} is the ratio of the
-#'   means (bias error)
+#'   means (bias ratio)
+#'   \item \eqn{
+#'         \gamma = \frac{\sigma_{sim} / \mu_{sim}}{\sigma_{sim} / \mu_{sim}}
+#'         } is the ratio of the Coefficients of Variation (variability ratio)
 #' }
 #'
 #' @note
@@ -156,7 +160,8 @@ kge_vec <- function(
 #' correspond to a baseline performance.
 #' Therefore, \eqn{KGE'} values should not be interpreted as "good" or "bad"
 #' based solely on their sign or magnitude.
-#' Instead, users are encouraged to examine the individual components (r, α, β)
+#' Instead, users are encouraged to examine the individual components
+#' (\eqn{r}, \eqn{\beta}, \eqn{\gamma})
 #' to understand the nature of model performance and consider defining
 #' explicit benchmarks based on the study context.
 #'
