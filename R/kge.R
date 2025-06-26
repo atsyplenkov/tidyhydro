@@ -9,7 +9,7 @@
 #' @details
 #' The Kling-Gupta Efficiency is a composite metric that decomposes model
 #' performance into three components: correlation (\eqn{r}),
-#' variability error (\eqn{\alpha}), and bias error (\eqn{\beta}).
+#' variability ratio (\eqn{\alpha}), and bias ratio (\eqn{\beta}).
 #' It improves upon the Nash-Sutcliffe Efficiency (see [nse])
 #' by explicitly accounting for each source of error (Gupta et al., 2009).
 #'
@@ -22,9 +22,9 @@
 #'   \item \eqn{r} is the linear Pearson correlation coefficient between
 #'   observed and simulated values
 #'   \item \eqn{\alpha = \sigma_{sim} / \sigma_{obs}} is the ratio of the
-#'   standard deviations (variability error)
+#'   standard deviations (variability ratio)
 #'   \item \eqn{\beta = \mu_{sim} / \mu_{obs}} is the ratio of the
-#'   means (bias error)
+#'   means (bias ratio)
 #' }
 #'
 #' @note

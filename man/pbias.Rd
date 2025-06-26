@@ -4,7 +4,7 @@
 \alias{pbias}
 \alias{pbias.data.frame}
 \alias{pbias_vec}
-\title{Percent bias (PBIAS)}
+\title{Percent BIAS (pBIAS)}
 \usage{
 pbias(data, ...)
 
@@ -45,16 +45,28 @@ the number of groups.
 For \code{pbias_vec()}, a single \code{numeric} value (or \code{NA}).
 }
 \description{
-Percent bias (PBIAS)
+\eqn{pBIAS} is the deviation of data being evaluated, expressed as a
+percentage. It measures the average tendency of the simulated data to be
+larger or smaller than their observed counterparts (\emph{Moriasi et al., 2015}).
+The optimal value of \eqn{pBIAS} is 0.0, with low-magnitude values
+indicating accurate mode simulation. Positive values indicate model
+underestimation bias, and negative values indicate model overestimation
+bias (\emph{Gupta et al., 1999}).
 }
 \details{
-PBIAS is the deviation of data being evaluated, expressed as a percentage.
-It measures the average tendency of the simulated data to be larger or
-smaller than their observed counterparts (Moriasi et al., 2015). The optimal
-value of PBIAS is 0.0, with low-magnitude values indicating accurate model
-simulation.
-Positive values indicate model underestimation bias,
-and negative values indicate model overestimation bias (Gupta et al., 1999)
+The formula for \eqn{pBIAS} is:
+
+\deqn{
+  pBIAS = 100 \times \frac{\sum_{i=1}^{n}{(sim_i - obs_i)}}
+                          {\sum_{i=1}^{n}{obs_i}}
+}
+
+where:
+\itemize{
+\item \eqn{sim} defines model simulations at time step \eqn{i}
+\item \eqn{obs} defines model observations at time step \eqn{i}
+}
+
 According to Moriasi et al. (2015) the metric interpretation can be as
 follows:
 \itemize{
@@ -83,6 +95,7 @@ Transactions of the ASABE, 58(6), 1763–1785.
 Gupta, H. V., S. Sorooshian, and P. O. Yapo. (1999).
 Status of automatic calibration for hydrologic models: Comparison with
 multilevel expert calibration. J. Hydrologic Eng. 4(2): 135-143
+\doi{10.1061/(ASCE)1084-0699(1999)4:2(135)}
 }
 \seealso{
 Other numeric metrics: 
