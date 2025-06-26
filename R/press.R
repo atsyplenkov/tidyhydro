@@ -1,12 +1,12 @@
 #' PRediction Error Sum of Squares (PRESS)
 #'
 #' @description
-#' PRESS is a measure of the quality of a regression model using residuals.
-#' PRESS is a validation-type estimator of error that uses the deleted
-#' residuals to provide an estimate of the prediction error. When comparing
-#'  alternate regression models, selecting the model with the lowest value
-#' of the PRESS statistic is a good approach because it means that the
-#' equation produces the least error when making new predictions
+#' \eqn{PRESS} is a measure of the quality of a regression model using
+#' residuals. \eqn{PRESS} is a validation-type estimator of error that uses
+#' the deleted residuals to provide an estimate of the prediction error.
+#' When comparing alternate regression models, selecting the model with the
+#' lowest value of the \eqn{PRESS} statistic is a good approach because it
+#' means that the equation produces the least error when making new predictions
 #' (see *Helsel et al., 2020*).
 #'
 #' It is particularly valuable in assessing multiple forms of multiple
@@ -15,8 +15,19 @@
 #' single-variable regression models.
 #'
 #' @details
-#' The PRESS is only relevant for comparisons to other regression models
+#' The \eqn{PRESS} is only relevant for comparisons to other regression models
 #' with the same response variable units (*Rasmunsen et al., 2009*).
+#'
+#' It estimates as follows:
+#' \deqn{
+#'   PRESS = \sum_{i=1}^{n}{(sim_i - obs_i)^2}
+#' }
+#'
+#' where:
+#' \itemize{
+#'   \item \eqn{sim} defines model simulations at time step \eqn{i}
+#'   \item \eqn{obs} defines model observations at time step \eqn{i}
+#' }
 #'
 #' @family numeric metrics
 #' @family accuracy metrics
@@ -46,10 +57,8 @@
 #'  C4 53 (2009) \url{https://pubs.usgs.gov/tm/tm3c4/}.
 #'
 #' Helsel, D. R., Hirsch, R. M., Ryberg, K. R., Archfield, S. A. &
-#'  Gilroy, E. J. Statistical Methods in Water Resources. 484
-#'  \url{https://pubs.er.usgs.gov/publication/tm4A3} (2020)
+#'  Gilroy, E. J. Statistical Methods in Water Resources. 484 (2020)
 #'  \doi{10.3133/tm4A3}.
-#'
 #'
 #' @template examples-numeric
 #'
