@@ -96,6 +96,10 @@ bench::mark(
 )
 ```
 
+## Code of Conduct
+  
+Please note that the tidyhydro project is released with a [Contributor Code of Conduct](https://atsyplenkov.github.io/tidyhydro/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
+
 ## See also
 * [`hydroGOF`](https://github.com/hzambran/hydroGOF) - Goodness-of-fit functions for comparison of simulated and observed hydrological time series.
 * [`yardstick`](https://github.com/tidymodels/yardstick/tree/main) - tidy methods for models performance assessment.
