@@ -26,4 +26,4 @@ Config/testthat/edition: 3
 URL: https://github.com/atsyplenkov/tidyhydro, https://atsyplenkov.github.io/tidyhydro/
 BugReports: https://github.com/atsyplenkov/tidyhydro/issues
 LazyData: true
-Config/Needs/website: bench, ggplot2, quarto
+Config/Needs/website: bench, ggplot2, quarto, lubridate, dplyr

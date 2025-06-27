@@ -4,7 +4,7 @@
 \alias{nse}
 \alias{nse.data.frame}
 \alias{nse_vec}
-\title{Nash-Sutcliffe efficiency (NSE)}
+\title{Nash-Sutcliffe Efficiency (NSE)}
 \usage{
 nse(data, ...)
 

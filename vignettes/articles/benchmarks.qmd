@@ -1,0 +1,70 @@
+---
+title: "Benchmarks"
+knitr:
+  opts_chunk:
+    collapse: true
+    comment: '#>'
+    message: false
+---
+
+Since `tidyhydro` uses C++ under the hood, it performs slightly faster than similar R packages (like `hydroGOF`). The results are particularly noticeable in large datasets with $N$ observations exceeding 1000.
+
+```{r}
+#| label: setup
+library(tidyhydro)
+library(hydroGOF)
+```
+
+# Default dataset `avacha`
+
+```{r}
+# NSE
+bench::mark(
+  tidyhydro = nse_vec(truth = avacha$obs, estimate = avacha$sim),
+  hydroGOF = hydroGOF::NSE(sim = avacha$sim, obs = avacha$obs),
+  relative = TRUE,
+  check = TRUE,
+  iterations = 25L,
+  filter_gc = FALSE
+)
+
+# KGE
+bench::mark(
+  tidyhydro = kge_vec(truth = avacha$obs, estimate = avacha$sim),
+  hydroGOF = hydroGOF::KGE(sim = avacha$sim, obs = avacha$obs, method = "2009"),
+  relative = TRUE,
+  check = TRUE,
+  iterations = 25L,
+  filter_gc = FALSE
+)
+
+# KGE'
+bench::mark(
+  tidyhydro = kge2012_vec(truth = avacha$obs, estimate = avacha$sim),
+  hydroGOF = hydroGOF::KGE(sim = avacha$sim, obs = avacha$obs, method = "2012"),
+  relative = TRUE,
+  check = TRUE,
+  iterations = 25L,
+  filter_gc = FALSE
+)
+
+# pBIAS
+bench::mark(
+  tidyhydro = pbias_vec(truth = avacha$obs, estimate = avacha$sim),
+  hydroGOF = hydroGOF::pbias(sim = avacha$sim, obs = avacha$obs, dec = 9),
+  relative = TRUE,
+  check = TRUE,
+  iterations = 25L,
+  filter_gc = FALSE
+)
+
+# MSE
+bench::mark(
+  tidyhydro = mse_vec(truth = avacha$obs, estimate = avacha$sim),
+  hydroGOF = hydroGOF::mse(sim = avacha$sim, obs = avacha$obs),
+  relative = TRUE,
+  check = TRUE,
+  iterations = 25L,
+  filter_gc = FALSE
+)
+```

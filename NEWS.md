@@ -10,6 +10,9 @@
 -   Improved documenation by switching from `\url` to `\doi`
 -   Removed unicode characters α, β
 
+## Miscellaneous
+-   Created website with vignettes (https://atsyplenkov.github.io/tidyhydro)
+
 # tidyhydro 0.1.0
 
 ## New features

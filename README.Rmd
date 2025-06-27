@@ -73,7 +73,7 @@ pak::pak("atsyplenkov/tidyhydro")
 ```
 
 ## Benchmarking
-Since the package uses `Rcpp` in the background, it performs slightly faster than base R and other R packages. This is particularly noticeable with large datasets:
+Since the package uses `Rcpp` in the background, it performs slightly faster than base R and other R packages (see [benchmarks](https://atsyplenkov.github.io/tidyhydro/articles/benchmarks.html)). This is particularly noticeable with large datasets:
 ```{r benchmarking}
 set.seed(12234)
 x <- runif(10^6)
