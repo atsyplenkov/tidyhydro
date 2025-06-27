@@ -16,3 +16,4 @@
 ^vignettes/articles/*_files$
 ^vignettes/articles$
 ^codemeta\.json$
+^CODE_OF_CONDUCT\.md$

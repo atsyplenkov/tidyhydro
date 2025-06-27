@@ -140,10 +140,17 @@ bench::mark(
 #> # A tibble: 3 × 6
 #>   expression   min median `itr/sec` mem_alloc `gc/sec`
 #>   <bch:expr> <dbl>  <dbl>     <dbl>     <dbl>    <dbl>
-#> 1 tidyhydro    1      1       54.6        NaN      NaN
-#> 2 hydroGOF    29.5   40.0      1          Inf      Inf
-#> 3 baseR       16.1   19.9      2.33       Inf      Inf
+#> 1 tidyhydro    1      1       52.8        NaN      NaN
+#> 2 hydroGOF    30.5   41.1      1          Inf      Inf
+#> 3 baseR       17.3   20.6      2.31       Inf      Inf
 ```
+
+## Code of Conduct
+
+Please note that the tidyhydro project is released with a [Contributor
+Code of
+Conduct](https://atsyplenkov.github.io/tidyhydro/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
 
 ## See also
 
