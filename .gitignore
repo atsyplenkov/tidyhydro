@@ -12,3 +12,5 @@ cran-comments.md
 CRAN-SUBMISSION
 docs
 **/.quarto/
+*.o
+*.so
