@@ -1,5 +1,5 @@
 ---
-title: "getting-started"
+title: "Getting started"
 knitr:
   opts_chunk:
     collapse: true
@@ -8,5 +8,30 @@ knitr:
 
 ```{r}
 #| label: setup
+#| include: false
+library(ggplot2)
+theme_set(
+  theme_minimal() +
+    theme(legend.position = "bottom")
+)
+```
+
+# Available metrics
+
+# Example data `avacha`
+The package comes with the mean daily water discharge values (`obs` in m^3/s) measured at the state gauging station Avacha River — Elizovo City (site No. 2090). Alongside with the measured water discharge, the mean water discharge in the last 24 hours derived from the GloFAS-ERA5 v4.0 reanalysis is provided (`sim`).
+
+```{r}
+#| fig-cap: Avacha River - Elizovo City hydrograph
+library(ggplot2)
 library(tidyhydro)
+data(avacha)
+
+avacha |>
+  ggplot(aes(x = date)) +
+  geom_line(aes(y = obs, color = "Measured")) +
+  geom_line(aes(y = sim, color = "Predicted")) +
+  scale_color_brewer(name = "", palette = "Set1") +
+  labs(x = "", y = "Water Discharge, m3/s")
+
 ```
