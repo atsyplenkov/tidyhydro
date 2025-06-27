@@ -4,9 +4,7 @@
 # tidyhydro
 
 <!-- badges: start -->
-
 <p align="center">
-
 <a href="https://github.com/atsyplenkov/tidyhydro/releases">
 <img src="https://img.shields.io/github/v/release/atsyplenkov/tidyhydro?style=flat&labelColor=1C2C2E&color=198ce7&logo=GitHub&logoColor=white"></a>
 <!-- <a href="https://cran.r-project.org/package=tidyhydro">
@@ -16,7 +14,6 @@
 <a href="https://github.com/atsyplenkov/tidyhydro/actions/workflows/check-r-pkg.yaml">
 <img src="https://img.shields.io/github/actions/workflow/status/atsyplenkov/tidyhydro/check-r-pkg.yaml?style=flat&labelColor=1C2C2E&color=256bc0&logo=GitHub%20Actions&logoColor=white"></a>
 </p>
-
 <!-- badges: end -->
 
 The `tidyhydro` package provides a set of commonly used metrics in
@@ -143,15 +140,15 @@ bench::mark(
 #> # A tibble: 3 × 6
 #>   expression   min median `itr/sec` mem_alloc `gc/sec`
 #>   <bch:expr> <dbl>  <dbl>     <dbl>     <dbl>    <dbl>
-#> 1 tidyhydro    1      1       39.1        NaN      NaN
-#> 2 hydroGOF    30.8   33.7      1          Inf      Inf
-#> 3 baseR       20.5   21.6      1.92       Inf      Inf
+#> 1 tidyhydro    1      1       54.6        NaN      NaN
+#> 2 hydroGOF    29.5   40.0      1          Inf      Inf
+#> 3 baseR       16.1   19.9      2.33       Inf      Inf
 ```
 
 ## See also
 
-- [`hydroGOF`](https://github.com/hzambran/hydroGOF) - Goodness-of-fit
-  functions for comparison of simulated and observed hydrological time
-  series.
-- [`yardstick`](https://github.com/tidymodels/yardstick/tree/main) -
-  tidy methods for models performance assessment.
+-   [`hydroGOF`](https://github.com/hzambran/hydroGOF) - Goodness-of-fit
+    functions for comparison of simulated and observed hydrological time
+    series.
+-   [`yardstick`](https://github.com/tidymodels/yardstick/tree/main) -
+    tidy methods for models performance assessment.
