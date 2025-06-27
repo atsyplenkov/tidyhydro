@@ -1,4 +1,23 @@
 url: https://atsyplenkov.github.io/tidyhydro/
+
+repo:
+  url:
+    home: https://github.com/atsyplenkov/tidyhydro
+    source: https://github.com/atsyplenkov/tidyhydro/tree/master
+    issues: https://github.com/atsyplenkov/tidyhydro/issues
+
 template:
   bootstrap: 5
   math-rendering: mathjax
+  bslib:
+    base_font: {google: "Roboto"}
+    heading_font: {google: "Inter Tight"}
+    code_font: {google: "Fira Code"}
+
+footer:
+  structure: 
+    left: [developed_by]
+    right: [legal]
+  components:
+    legal: "[MIT](https://opensource.org/license/mit) License | Copyright (c) 2025 centerline authors"
+    developed_by: Developed by [Anatolii Tsyplenkov](https://github.com/atsyplenkov)

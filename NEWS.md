@@ -1,12 +1,14 @@
-# tidyhydro (development version)
+# tidyhydro 0.1.1
 
 ## New features
 
 -   Added support for modified Kling-Gupta Efficiency (`kge2012`), aka $KGE'$ ([#8](https://github.com/atsyplenkov/tidyhydro/issues/8))
+-   Added vignettes and website ([#14](https://github.com/atsyplenkov/tidyhydro/issues/14))
 
 ## Bug fixes
-- Improved documenation by switching from `\url` to `\doi`
-- Removed unicode characters α, β
+
+-   Improved documenation by switching from `\url` to `\doi`
+-   Removed unicode characters α, β
 
 # tidyhydro 0.1.0
 
