@@ -8,7 +8,7 @@
   "codeRepository": "https://github.com/atsyplenkov/tidyhydro",
   "issueTracker": "https://github.com/atsyplenkov/tidyhydro/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.1.1",
+  "version": "0.1.1.9000",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -142,7 +142,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "102.604KB",
+  "fileSize": "103.052KB",
   "releaseNotes": "https://github.com/atsyplenkov/tidyhydro/blob/master/NEWS.md",
   "readme": "https://github.com/atsyplenkov/tidyhydro/blob/master/README.md",
   "keywords": ["r", "r-package", "rstats"]

@@ -5,7 +5,7 @@
 .DS_Store
 .quarto
 PLAYGROUND.R
-BENCHMARKS.R
+dev.R
 
 /.quarto/
 cran-comments.md
