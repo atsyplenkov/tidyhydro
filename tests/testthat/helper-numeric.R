@@ -1,5 +1,5 @@
 # Imported from {yardstick} package
-# https://github.com/tidymodels/yardstick/blob/main/tests/testthat/helper-numeric.R
+# github.com/tidymodels/yardstick/blob/main/tests/testthat/helper-numeric.R
 
 generate_numeric_test_data <- function() {
   set.seed(1812)

@@ -24,8 +24,8 @@ requireNamespace("bench", quietly = TRUE)
 <p align="center">
     <a href="https://github.com/atsyplenkov/tidyhydro/releases">
         <img src="https://img.shields.io/github/v/release/atsyplenkov/tidyhydro?style=flat&labelColor=1C2C2E&color=198ce7&logo=GitHub&logoColor=white"></a>
-    <a href="https://cran.r-project.org/package=tidyhydro">
-        <img src="https://img.shields.io/cran/v/tidyhydro?style=flat&labelColor=1C2C2E&color=198ce7&logo=R&logoColor=white"></a>
+    <!-- <a href="https://cran.r-project.org/package=tidyhydro">
+        <img src="https://img.shields.io/cran/v/tidyhydro?style=flat&labelColor=1C2C2E&color=198ce7&logo=R&logoColor=white"></a> -->
     <a href="https://app.codecov.io/gh/atsyplenkov/tidyhydro">
         <img src="https://img.shields.io/codecov/c/gh/atsyplenkov/tidyhydro?style=flat&labelColor=1C2C2E&color=256bc0&logo=Codecov&logoColor=white"></a>
     <a href="https://github.com/atsyplenkov/tidyhydro/actions/workflows/check-r-pkg.yaml">

@@ -70,6 +70,11 @@ where:
 \item \eqn{obs} defines model observations at time step \eqn{i}
 }
 }
+\note{
+The $PRESS$ statistic is not appropriate for comparison of models having
+different transformations of response variable, e.g. linear regression and
+log-transformed linear regression (\emph{Helsel et al., 2020}).
+}
 \examples{
 library(tidyhydro)
 data(avacha)

@@ -25,7 +25,8 @@ test_that("na_rm works as expected", {
   expect_equal(
     pbias(ex_dat, truth = obs, estimate = pred_na, na_rm = TRUE)[[".estimate"]],
     #fmt:skip
-    100 * (sum(ex_dat$pred[not_na] - ex_dat$obs[not_na]) / sum(ex_dat$obs[not_na])),
+    100 * 
+      (sum(ex_dat$pred[not_na] - ex_dat$obs[not_na]) / sum(ex_dat$obs[not_na])),
     tolerance = 0.0001
   )
 })

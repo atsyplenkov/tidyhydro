@@ -29,6 +29,11 @@
 #'   \item \eqn{obs} defines model observations at time step \eqn{i}
 #' }
 #'
+#' @note
+#' The $PRESS$ statistic is not appropriate for comparison of models having
+#' different transformations of response variable, e.g. linear regression and
+#' log-transformed linear regression (*Helsel et al., 2020*).
+#'
 #' @family numeric metrics
 #' @family accuracy metrics
 #' @templateVar fn press
