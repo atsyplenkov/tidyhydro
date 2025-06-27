@@ -1,8 +1,9 @@
 pandoc: 3.1.11
 pkgdown: 2.1.3
 pkgdown_sha: ~
-articles: {}
-last_built: 2025-06-27T00:03Z
+articles:
+  articles/tidyhydro: tidyhydro.html
+last_built: 2025-06-27T00:20Z
 urls:
   reference: https://atsyplenkov.github.io/tidyhydro/reference
   article: https://atsyplenkov.github.io/tidyhydro/articles
