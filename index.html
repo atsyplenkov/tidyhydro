@@ -42,6 +42,12 @@
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="articles/tidyhydro.html">Get started</a></li>
 <li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
+<li><a class="dropdown-item" href="articles/benchmarks.html">Benchmarks</a></li>
+  </ul>
+</li>
 <li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
       </ul>
 <ul class="navbar-nav">
@@ -123,7 +129,7 @@
 <div class="section level2">
 <h2 id="benchmarking">Benchmarking<a class="anchor" aria-label="anchor" href="#benchmarking"></a>
 </h2>
-<p>Since the package uses <code>Rcpp</code> in the background, it performs slightly faster than base R and other R packages. This is particularly noticeable with large datasets:</p>
+<p>Since the package uses <code>Rcpp</code> in the background, it performs slightly faster than base R and other R packages (see <a href="https://atsyplenkov.github.io/tidyhydro/articles/benchmarks.html">benchmarks</a>). This is particularly noticeable with large datasets:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">12234</span><span class="op">)</span></span>
 <span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span><span class="op">(</span><span class="fl">10</span><span class="op">^</span><span class="fl">6</span><span class="op">)</span></span>
@@ -147,9 +153,9 @@
 <span><span class="co">#&gt; # A tibble: 3 × 6</span></span>
 <span><span class="co">#&gt;   expression   min median `itr/sec` mem_alloc `gc/sec`</span></span>
 <span><span class="co">#&gt;   &lt;bch:expr&gt; &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1 tidyhydro    1      1       30.3        NaN      NaN</span></span>
-<span><span class="co">#&gt; 2 hydroGOF    21.7   24.3      1          Inf      Inf</span></span>
-<span><span class="co">#&gt; 3 baseR       13.4   15.1      1.94       Inf      Inf</span></span></code></pre></div>
+<span><span class="co">#&gt; 1 tidyhydro   1       1       29.2        NaN      NaN</span></span>
+<span><span class="co">#&gt; 2 hydroGOF   15.8    21.2      1          Inf      Inf</span></span>
+<span><span class="co">#&gt; 3 baseR       8.54   10.6      2.32       Inf      Inf</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a>
