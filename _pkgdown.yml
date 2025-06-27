@@ -1,0 +1,4 @@
+url: https://atsyplenkov.github.io/tidyhydro/
+template:
+  bootstrap: 5
+  math-rendering: mathjax

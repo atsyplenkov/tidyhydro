@@ -12,6 +12,7 @@ Provides tidy tools for comparing simulated and observed hydrological time serie
 Useful links:
 \itemize{
   \item \url{https://github.com/atsyplenkov/tidyhydro}
+  \item \url{https://atsyplenkov.github.io/tidyhydro/}
   \item Report bugs at \url{https://github.com/atsyplenkov/tidyhydro/issues}
 }
 
