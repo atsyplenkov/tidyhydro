@@ -11,3 +11,6 @@
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
+^vignettes/articles/\.quarto$
+^vignettes/articles/*_files$
+^vignettes/articles$
