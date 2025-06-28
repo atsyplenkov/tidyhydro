@@ -76,7 +76,6 @@
 <p>The <code>tidyhydro</code> package follows the philosophy of <a href="https://github.com/tidymodels/yardstick/tree/main" class="external-link"><code>yardstick</code></a> and provides S3 class methods for vectors and data frames. For example, one can estimate <code>KGE</code>, <code>NSE</code> or <code>pBIAS</code> for a data frame like this:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/atsyplenkov/tidyhydro" class="external-link">tidyhydro</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">avacha</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">avacha</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Classes 'tbl_df', 'tbl' and 'data.frame':    365 obs. of  3 variables:</span></span>
 <span><span class="co">#&gt;  $ date: Date, format: "2022-01-01" "2022-01-02" ...</span></span>
@@ -142,9 +141,9 @@
 <span><span class="co">#&gt; # A tibble: 3 × 6</span></span>
 <span><span class="co">#&gt;   expression   min median `itr/sec` mem_alloc `gc/sec`</span></span>
 <span><span class="co">#&gt;   &lt;bch:expr&gt; &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1 tidyhydro   1       1       29.2        NaN      NaN</span></span>
-<span><span class="co">#&gt; 2 hydroGOF   15.1    19.1      1          Inf      Inf</span></span>
-<span><span class="co">#&gt; 3 baseR       8.47   10.4      2.42       Inf      Inf</span></span></code></pre></div>
+<span><span class="co">#&gt; 1 tidyhydro   1       1       22.7        NaN      NaN</span></span>
+<span><span class="co">#&gt; 2 hydroGOF   15.2    19.1      1          Inf      Inf</span></span>
+<span><span class="co">#&gt; 3 baseR       8.66   10.6      2.44       Inf      Inf</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>
