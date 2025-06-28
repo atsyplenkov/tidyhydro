@@ -99,6 +99,9 @@ mse_vec <- function(
   mse_cpp(truth, estimate, na_rm = na_rm, sqrt = FALSE)
 }
 
+# TODO:
+# Add description and details
+
 #' Root Mean Squared Error (RMSE)
 #' @keywords gof
 #'

@@ -52,6 +52,10 @@ Please note that the tidyhydro project is released with a [Contributor Code of C
 
 -[ ] KGE Score
 
+-[ ] MSDR - mean squared deviation ratio [@oliverTutorialGuideGeostatistics2014]
+
+-[x] RMSE
+
 ### Regression
 -[ ] PPCC - maximizes the probability plot correlation coefficient [@helselStatisticalMethodsWater2002, p.253]
 
@@ -61,6 +65,3 @@ Please note that the tidyhydro project is released with a [Contributor Code of C
 
 -[ ] MSPE - model standard percentage error log and nonlog [@rasmussenGuidelinesProceduresComputing2009, p. 13]
 
--[x] RMSE
-
--[ ] Coefficient of Variation
