@@ -1,7 +1,7 @@
 # Contributing to tidyhydro
 
 This outlines how to propose a change to tidyhydro.
-For a detailed discussion on contributing to this and other tidyverse packages, please see the [development contributing guide](https://rstd.io/tidy-contrib) and our [code review principles](https://code-review.tidyverse.org/).
+For a detailed discussion on contributing to this and other packages, please see the [development contributing guide](https://rstd.io/tidy-contrib) and our [code review principles](https://code-review.tidyverse.org/).
 
 ## Fixing typos
 
@@ -32,16 +32,16 @@ See our guide on [how to create a great issue](https://code-review.tidyverse.org
 
 ### Code style
 
-*   New code should follow the tidyverse [style guide](https://style.tidyverse.org). 
-    You can use the [styler](https://CRAN.R-project.org/package=styler) package to apply these styles, but please don't restyle code that has nothing to do with your PR.  
+*   New code should follow the tidyverse [style guide](https://style.tidyverse.org) and use [air](https://github.com/posit-dev/air) for formatting. Please don't restyle code that has nothing to do with your PR.  
 
 *  We use [roxygen2](https://cran.r-project.org/package=roxygen2), with [Markdown syntax](https://cran.r-project.org/web/packages/roxygen2/vignettes/rd-formatting.html), for documentation.  
 
-*  We use [testthat](https://cran.r-project.org/package=testthat) for unit tests. 
-   Contributions with test cases included are easier to accept.  
+*  We use [testthat](https://cran.r-project.org/package=testthat) for unit tests and [quickcheck](https://github.com/armcn/quickcheck) for property-based testing (see [this blogpost for details](https://www.etiennebacher.com/posts/2024-10-01-using-property-testing-in-r)). 
+
+## C++
+
+The package uses a lot of C++ code via the Rcpp package. Therefore, it is expected that every new function has a C++ implementation. After adding new C++ code, do not forget to compile attributes with `Rcpp::compileAttributes()` and rebuild documentation with `devtools::document()`. The `NAMESPACE` file should be updated manually.
 
 ## Code of Conduct
 
-Please note that the tidyhydro project is released with a
-[Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this
-project you agree to abide by its terms.
+Please note that the tidyhydro project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this project you agree to abide by its terms.
