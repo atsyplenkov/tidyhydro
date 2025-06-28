@@ -42,7 +42,6 @@ The `tidyhydro` package follows the philosophy of [`yardstick`](https://github.c
 
 ```{r example}
 library(tidyhydro)
-data(avacha)
 str(avacha)
 
 kge(avacha, obs, sim)

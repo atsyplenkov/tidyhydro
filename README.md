@@ -45,7 +45,6 @@ can estimate `KGE`, `NSE` or `pBIAS` for a data frame like this:
 
 ``` r
 library(tidyhydro)
-data(avacha)
 str(avacha)
 #> Classes 'tbl_df', 'tbl' and 'data.frame':    365 obs. of  3 variables:
 #>  $ date: Date, format: "2022-01-01" "2022-01-02" ...
@@ -129,9 +128,9 @@ bench::mark(
 #> # A tibble: 3 × 6
 #>   expression   min median `itr/sec` mem_alloc `gc/sec`
 #>   <bch:expr> <dbl>  <dbl>     <dbl>     <dbl>    <dbl>
-#> 1 tidyhydro   1       1       29.2        NaN      NaN
-#> 2 hydroGOF   15.1    19.1      1          Inf      Inf
-#> 3 baseR       8.47   10.4      2.42       Inf      Inf
+#> 1 tidyhydro   1       1       22.7        NaN      NaN
+#> 2 hydroGOF   15.2    19.1      1          Inf      Inf
+#> 3 baseR       8.66   10.6      2.44       Inf      Inf
 ```
 
 ## Code of Conduct

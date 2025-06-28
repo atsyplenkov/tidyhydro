@@ -45,3 +45,20 @@ The package uses a lot of C++ code via the Rcpp package. Therefore, it is expect
 ## Code of Conduct
 
 Please note that the tidyhydro project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this project you agree to abide by its terms.
+
+## Roadmap
+### GOF
+-[ ] KGE''
+
+-[ ] KGE Score
+
+### Regression
+-[ ] PPCC - maximizes the probability plot correlation coefficient [@helselStatisticalMethodsWater2002, p.253]
+
+-[ ] SSE - minimize sum of square errors [@helselStatisticalMethodsWater2002, p.253]
+
+-[ ] BCF - Duan's bias correction factor for log, log10 and log2 [@rasmussenGuidelinesProceduresComputing2009, p. 17]
+
+-[ ] MSPE - model standard percentage error log and nonlog [@rasmussenGuidelinesProceduresComputing2009, p. 13]
+
+-[ ] RMSE
