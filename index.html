@@ -15,7 +15,7 @@
 </script><script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/Roboto-0.4.10/font.css" rel="stylesheet">
-<link href="deps/Fira_Code-0.4.10/font.css" rel="stylesheet">
+<link href="deps/JetBrains_Mono-0.4.10/font.css" rel="stylesheet">
 <link href="deps/Inter_Tight-0.4.10/font.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
@@ -73,26 +73,15 @@
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
-<p>The <code>tidyhydro</code> package follows the philosophy of <a href="https://github.com/tidymodels/yardstick/tree/main" class="external-link"><code>yardstick</code></a> and provides S3 class methods for vectors and data frames. For example, one can estimate <code>NSE</code> and <code>pBIAS</code> for a data frame like this:</p>
+<p>The <code>tidyhydro</code> package follows the philosophy of <a href="https://github.com/tidymodels/yardstick/tree/main" class="external-link"><code>yardstick</code></a> and provides S3 class methods for vectors and data frames. For example, one can estimate <code>KGE</code>, <code>NSE</code> or <code>pBIAS</code> for a data frame like this:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/atsyplenkov/tidyhydro" class="external-link">tidyhydro</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">avacha</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">avacha</span></span>
-<span><span class="co">#&gt; # A data frame: 365 × 3</span></span>
-<span><span class="co">#&gt;    date         obs   sim</span></span>
-<span><span class="co">#&gt;    &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt;  1 2022-01-01  76.2  84.8</span></span>
-<span><span class="co">#&gt;  2 2022-01-02  76.2  84.3</span></span>
-<span><span class="co">#&gt;  3 2022-01-03  76.3  84.0</span></span>
-<span><span class="co">#&gt;  4 2022-01-04  76.3  83.7</span></span>
-<span><span class="co">#&gt;  5 2022-01-05  76.4  83.4</span></span>
-<span><span class="co">#&gt;  6 2022-01-06  76.4  83.1</span></span>
-<span><span class="co">#&gt;  7 2022-01-07  76.5  83.0</span></span>
-<span><span class="co">#&gt;  8 2022-01-08  76.5  82.9</span></span>
-<span><span class="co">#&gt;  9 2022-01-09  76.6  82.8</span></span>
-<span><span class="co">#&gt; 10 2022-01-10  76.6  82.7</span></span>
-<span><span class="co">#&gt; # ℹ 355 more rows</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">avacha</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Classes 'tbl_df', 'tbl' and 'data.frame':    365 obs. of  3 variables:</span></span>
+<span><span class="co">#&gt;  $ date: Date, format: "2022-01-01" "2022-01-02" ...</span></span>
+<span><span class="co">#&gt;  $ obs : num  76.2 76.2 76.3 76.3 76.4 76.4 76.5 76.5 76.6 76.6 ...</span></span>
+<span><span class="co">#&gt;  $ sim : num  84.8 84.3 84 83.7 83.4 ...</span></span>
 <span></span>
 <span><span class="fu"><a href="reference/kge.html">kge</a></span><span class="op">(</span><span class="va">avacha</span>, <span class="va">obs</span>, <span class="va">sim</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 1 × 3</span></span>
@@ -153,9 +142,9 @@
 <span><span class="co">#&gt; # A tibble: 3 × 6</span></span>
 <span><span class="co">#&gt;   expression   min median `itr/sec` mem_alloc `gc/sec`</span></span>
 <span><span class="co">#&gt;   &lt;bch:expr&gt; &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1 tidyhydro    1      1       52.8        NaN      NaN</span></span>
-<span><span class="co">#&gt; 2 hydroGOF    30.5   41.1      1          Inf      Inf</span></span>
-<span><span class="co">#&gt; 3 baseR       17.3   20.6      2.31       Inf      Inf</span></span></code></pre></div>
+<span><span class="co">#&gt; 1 tidyhydro   1       1       29.2        NaN      NaN</span></span>
+<span><span class="co">#&gt; 2 hydroGOF   15.1    19.1      1          Inf      Inf</span></span>
+<span><span class="co">#&gt; 3 baseR       8.47   10.4      2.42       Inf      Inf</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>

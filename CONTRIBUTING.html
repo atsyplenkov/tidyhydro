@@ -5,7 +5,7 @@
       fontURL: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2"
     }
   };
-</script><script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"><script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/Roboto-0.4.10/font.css" rel="stylesheet"><link href="deps/Fira_Code-0.4.10/font.css" rel="stylesheet"><link href="deps/Inter_Tight-0.4.10/font.css" rel="stylesheet"><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Contributing to tidyhydro"></head><body>
+</script><script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"><script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/Roboto-0.4.10/font.css" rel="stylesheet"><link href="deps/JetBrains_Mono-0.4.10/font.css" rel="stylesheet"><link href="deps/Inter_Tight-0.4.10/font.css" rel="stylesheet"><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet"><link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet"><script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Contributing to tidyhydro"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -45,7 +45,7 @@
 
 <div id="contributing-to-tidyhydro" class="section level1">
 
-<p>This outlines how to propose a change to tidyhydro. For a detailed discussion on contributing to this and other tidyverse packages, please see the <a href="https://rstd.io/tidy-contrib" class="external-link">development contributing guide</a> and our <a href="https://code-review.tidyverse.org/" class="external-link">code review principles</a>.</p>
+<p>This outlines how to propose a change to tidyhydro. For a detailed discussion on contributing to this and other packages, please see the <a href="https://rstd.io/tidy-contrib" class="external-link">development contributing guide</a> and our <a href="https://code-review.tidyverse.org/" class="external-link">code review principles</a>.</p>
 <div class="section level2">
 <h2 id="fixing-typos">Fixing typos<a class="anchor" aria-label="anchor" href="#fixing-typos"></a></h2>
 <p>You can fix typos, spelling mistakes, or grammatical errors in the documentation directly using the GitHub web interface, as long as the changes are made in the <em>source</em> file. This generally means you’ll need to edit <a href="https://roxygen2.r-lib.org/articles/roxygen2.html" class="external-link">roxygen2 comments</a> in an <code>.R</code>, not a <code>.Rd</code> file. You can find the <code>.R</code> file that generates the <code>.Rd</code> by reading the comment in the first line.</p>
@@ -63,10 +63,14 @@
 </ul></div>
 <div class="section level3">
 <h3 id="code-style">Code style<a class="anchor" aria-label="anchor" href="#code-style"></a></h3>
-<ul><li><p>New code should follow the tidyverse <a href="https://style.tidyverse.org" class="external-link">style guide</a>. You can use the <a href="https://CRAN.R-project.org/package=styler" class="external-link">styler</a> package to apply these styles, but please don’t restyle code that has nothing to do with your PR.</p></li>
+<ul><li><p>New code should follow the tidyverse <a href="https://style.tidyverse.org" class="external-link">style guide</a> and use <a href="https://github.com/posit-dev/air" class="external-link">air</a> for formatting. Please don’t restyle code that has nothing to do with your PR.</p></li>
 <li><p>We use <a href="https://cran.r-project.org/package=roxygen2" class="external-link">roxygen2</a>, with <a href="https://cran.r-project.org/web/packages/roxygen2/vignettes/rd-formatting.html" class="external-link">Markdown syntax</a>, for documentation.</p></li>
-<li><p>We use <a href="https://cran.r-project.org/package=testthat" class="external-link">testthat</a> for unit tests. Contributions with test cases included are easier to accept.</p></li>
+<li><p>We use <a href="https://cran.r-project.org/package=testthat" class="external-link">testthat</a> for unit tests and <a href="https://github.com/armcn/quickcheck" class="external-link">quickcheck</a> for property-based testing (see <a href="https://www.etiennebacher.com/posts/2024-10-01-using-property-testing-in-r" class="external-link">this blogpost for details</a>).</p></li>
 </ul></div>
+</div>
+<div class="section level2">
+<h2 id="c">C++<a class="anchor" aria-label="anchor" href="#c"></a></h2>
+<p>The package uses a lot of C++ code via the Rcpp package. Therefore, it is expected that every new function has a C++ implementation. After adding new C++ code, do not forget to compile attributes with <code><a href="https://rdrr.io/pkg/Rcpp/man/compileAttributes.html" class="external-link">Rcpp::compileAttributes()</a></code> and rebuild documentation with <code>devtools::document()</code>. The <code>NAMESPACE</code> file should be updated manually.</p>
 </div>
 <div class="section level2">
 <h2 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a></h2>
