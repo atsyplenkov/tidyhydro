@@ -1,4 +1,5 @@
 #' PRediction Error Sum of Squares (PRESS)
+#' @keywords regression
 #'
 #' @description
 #' \eqn{PRESS} is a measure of the quality of a regression model using

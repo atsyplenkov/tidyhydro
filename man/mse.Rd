@@ -99,3 +99,4 @@ Other accuracy metrics:
 }
 \concept{accuracy metrics}
 \concept{numeric metrics}
+\keyword{gof}

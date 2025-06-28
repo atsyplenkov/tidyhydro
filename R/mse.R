@@ -1,4 +1,5 @@
 #' Mean Squared Error (MSE)
+#' @keywords gof
 #'
 #' @description
 #' The MSE is a metric that evaluates the goodness of fit between model

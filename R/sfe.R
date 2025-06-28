@@ -1,4 +1,5 @@
 #' Standard Factorial Error (SFE)
+#' @keywords regression
 #'
 #' @description
 #' Prediction standard factorial error estimated
@@ -7,8 +8,8 @@
 #' @details
 #' The metric is widely used for assessing Sediment Rating Curves
 #' (e.g., Hicks et al. 2020). The model is usually considered 'unacceptable'
-#' if the \eqn{SFE > 2}, see Hicks et al. (2011). 
-#' 
+#' if the \eqn{SFE > 2}, see Hicks et al. (2011).
+#'
 #' It is estimated as follows:
 #' \deqn{SFE = \exp\left(\sqrt{\frac{1}{n} \sum_{i=1}^{n}
 #' \left( \log\left(\frac{obs_i}{sim_i} \right) \right)^2 }\right)}

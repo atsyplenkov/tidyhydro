@@ -12,7 +12,7 @@ template:
   bslib:
     base_font: {google: "Roboto"}
     heading_font: {google: "Inter Tight"}
-    code_font: {google: "Fira Code"}
+    code_font: {google: "JetBrains Mono"}
 
 footer:
   structure: 
@@ -21,3 +21,18 @@ footer:
   components:
     legal: "[MIT](https://opensource.org/license/mit) License | Copyright (c) 2025 tidyhydro authors"
     developed_by: Developed by [Anatolii Tsyplenkov](https://github.com/atsyplenkov)
+
+reference:
+- title: "Goodness-of-fit (GOF) criteria"
+  desc: "Commonly used GOF metrics in hydrological models"
+  contents:
+  - has_keyword("gof")
+
+- title: "Regression"
+  desc: "Metrics and coefficients recommended by USGS and NEMS for regression analysis of hydrological variables"
+  contents:
+  - has_keyword("regression")
+
+- title: "Example datasets"
+  contents:
+  - has_keyword("data")

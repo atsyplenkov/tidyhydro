@@ -1,12 +1,13 @@
 #' Percent BIAS (pBIAS)
+#' @keywords gof
 #'
 #' @description
-#' \eqn{pBIAS} is the deviation of data being evaluated, expressed as a 
-#' percentage. It measures the average tendency of the simulated data to be 
-#' larger or smaller than their observed counterparts (*Moriasi et al., 2015*). 
-#' The optimal value of \eqn{pBIAS} is 0.0, with low-magnitude values 
-#' indicating accurate mode simulation. Positive values indicate model 
-#' underestimation bias, and negative values indicate model overestimation 
+#' \eqn{pBIAS} is the deviation of data being evaluated, expressed as a
+#' percentage. It measures the average tendency of the simulated data to be
+#' larger or smaller than their observed counterparts (*Moriasi et al., 2015*).
+#' The optimal value of \eqn{pBIAS} is 0.0, with low-magnitude values
+#' indicating accurate mode simulation. Positive values indicate model
+#' underestimation bias, and negative values indicate model overestimation
 #' bias (*Gupta et al., 1999*).
 #'
 #' @details
@@ -16,13 +17,13 @@
 #'   pBIAS = 100 \times \frac{\sum_{i=1}^{n}{(sim_i - obs_i)}}
 #'                           {\sum_{i=1}^{n}{obs_i}}
 #' }
-#' 
+#'
 #' where:
 #' \itemize{
 #'   \item \eqn{sim} defines model simulations at time step \eqn{i}
 #'   \item \eqn{obs} defines model observations at time step \eqn{i}
 #' }
-#' 
+#'
 #' According to Moriasi et al. (2015) the metric interpretation can be as
 #' follows:
 #'

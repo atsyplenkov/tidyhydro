@@ -1,5 +1,6 @@
 #' Mean Daily Water Discharge At Avacha River (Elizovo City)
-#'
+#' @keywords data
+#' 
 #' @details These data contain the measured (`obs`) mean daily water discharge
 #' values (in \eqn{m^3/s}) at the Avacha River -- Elizovo City state gauging
 #' station for the 2022 calendar year. They are accompanied by the GloFAS v4.0

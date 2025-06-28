@@ -41,27 +41,16 @@ Error) and others. Based on the equations from *Helsel et al.*
 The `tidyhydro` package follows the philosophy of
 [`yardstick`](https://github.com/tidymodels/yardstick/tree/main) and
 provides S3 class methods for vectors and data frames. For example, one
-can estimate `NSE` and `pBIAS` for a data frame like this:
+can estimate `KGE`, `NSE` or `pBIAS` for a data frame like this:
 
 ``` r
 library(tidyhydro)
 data(avacha)
-
-avacha
-#> # A data frame: 365 × 3
-#>    date         obs   sim
-#>    <date>     <dbl> <dbl>
-#>  1 2022-01-01  76.2  84.8
-#>  2 2022-01-02  76.2  84.3
-#>  3 2022-01-03  76.3  84.0
-#>  4 2022-01-04  76.3  83.7
-#>  5 2022-01-05  76.4  83.4
-#>  6 2022-01-06  76.4  83.1
-#>  7 2022-01-07  76.5  83.0
-#>  8 2022-01-08  76.5  82.9
-#>  9 2022-01-09  76.6  82.8
-#> 10 2022-01-10  76.6  82.7
-#> # ℹ 355 more rows
+str(avacha)
+#> Classes 'tbl_df', 'tbl' and 'data.frame':    365 obs. of  3 variables:
+#>  $ date: Date, format: "2022-01-01" "2022-01-02" ...
+#>  $ obs : num  76.2 76.2 76.3 76.3 76.4 76.4 76.5 76.5 76.6 76.6 ...
+#>  $ sim : num  84.8 84.3 84 83.7 83.4 ...
 
 kge(avacha, obs, sim)
 #> # A tibble: 1 × 3
@@ -140,9 +129,9 @@ bench::mark(
 #> # A tibble: 3 × 6
 #>   expression   min median `itr/sec` mem_alloc `gc/sec`
 #>   <bch:expr> <dbl>  <dbl>     <dbl>     <dbl>    <dbl>
-#> 1 tidyhydro    1      1       52.8        NaN      NaN
-#> 2 hydroGOF    30.5   41.1      1          Inf      Inf
-#> 3 baseR       17.3   20.6      2.31       Inf      Inf
+#> 1 tidyhydro   1       1       29.2        NaN      NaN
+#> 2 hydroGOF   15.1    19.1      1          Inf      Inf
+#> 3 baseR       8.47   10.4      2.42       Inf      Inf
 ```
 
 ## Code of Conduct

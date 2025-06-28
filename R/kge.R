@@ -1,4 +1,5 @@
 #' Kling-Gupta Efficiency (KGE)
+#' @keywords gof
 #'
 #' @description
 #' Calculate the Kling-Gupta Efficiency (*Gupta et al., 2009*).
@@ -122,6 +123,7 @@ kge_vec <- function(
 }
 
 #' Modified Kling-Gupta Efficiency (KGE')
+#' @keywords gof
 #'
 #' @description
 #' Calculate the modified Kling-Gupta Efficiency (*Kling et al., 2012*),

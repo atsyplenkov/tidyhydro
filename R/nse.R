@@ -1,4 +1,5 @@
 #' Nash-Sutcliffe Efficiency (NSE)
+#' @keywords gof
 #'
 #' @description
 #' Calculate the Nash-Sutcliffe efficiency (*Nash & Sutcliffe, 1970*).

@@ -31,4 +31,5 @@ Read more about GloFAS Water Discharge reanalysis --
 data(avacha)
 str(avacha)
 }
+\keyword{data}
 \keyword{datasets}
