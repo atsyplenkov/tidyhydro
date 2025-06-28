@@ -264,3 +264,52 @@ test_that("mse", {
     }
   )
 })
+
+test_that("rmse", {
+  skip_if_not_installed("quickcheck")
+  skip_if_not_installed("hydroGOF")
+
+  # With NA
+  quickcheck::for_all(
+    obs = quickcheck::double_bounded(
+      left = -1000,
+      right = 1000,
+      len = 50,
+      any_na = TRUE
+    ),
+    sim = quickcheck::double_bounded(
+      left = -1000,
+      right = 1000,
+      len = 50,
+      any_na = TRUE
+    ),
+    property = function(obs, sim) {
+      new <- rmse_vec(truth = obs, estimate = sim, na_rm = TRUE)
+      old <- hydroGOF::rmse(sim = sim, obs = obs, na.rm = TRUE)
+
+      expect_equal(new, old)
+    }
+  )
+
+  # Without NA
+  quickcheck::for_all(
+    obs = quickcheck::double_bounded(
+      left = -1000,
+      right = 1000,
+      len = 50,
+      any_na = FALSE
+    ),
+    sim = quickcheck::double_bounded(
+      left = -1000,
+      right = 1000,
+      len = 50,
+      any_na = FALSE
+    ),
+    property = function(obs, sim) {
+      new <- rmse_vec(truth = obs, estimate = sim, na_rm = TRUE)
+      old <- hydroGOF::rmse(sim = sim, obs = obs, na.rm = TRUE)
+
+      expect_equal(new, old)
+    }
+  )
+})
