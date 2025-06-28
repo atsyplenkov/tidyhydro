@@ -5,7 +5,7 @@
 
 ## Miscellaneous
 
--   Added structure. Functions are now groupped into two categories: regression and GOF
+-   Added structure. Functions are now grouped into two categories: regression and GOF
 
 # tidyhydro 0.1.1
 
@@ -16,8 +16,8 @@
 
 ## Bug fixes
 
--   Improved documenation by switching from `\url` to `\doi`
--   Removed unicode characters α, β
+-   Improved documentation by switching from `\url` to `\doi`
+-   Removed unicode characters
 
 ## Miscellaneous
 

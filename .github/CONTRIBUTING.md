@@ -61,4 +61,6 @@ Please note that the tidyhydro project is released with a [Contributor Code of C
 
 -[ ] MSPE - model standard percentage error log and nonlog [@rasmussenGuidelinesProceduresComputing2009, p. 13]
 
--[ ] RMSE
+-[x] RMSE
+
+-[ ] Coefficient of Variation
