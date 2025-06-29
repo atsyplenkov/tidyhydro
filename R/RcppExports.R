@@ -5,8 +5,8 @@ kge_cpp <- function(obs, sim, na_rm = TRUE, version = "2012") {
     .Call(`_tidyhydro_kge_cpp`, obs, sim, na_rm, version)
 }
 
-mse_cpp <- function(truth, estimate, na_rm = TRUE) {
-    .Call(`_tidyhydro_mse_cpp`, truth, estimate, na_rm)
+mse_cpp <- function(truth, estimate, na_rm = TRUE, sqrt = TRUE) {
+    .Call(`_tidyhydro_mse_cpp`, truth, estimate, na_rm, sqrt)
 }
 
 nse_cpp <- function(truth, estimate, performance = FALSE, na_rm = TRUE) {

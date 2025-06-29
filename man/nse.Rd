@@ -106,6 +106,7 @@ Other numeric metrics:
 \code{\link{mse}()},
 \code{\link{pbias}()},
 \code{\link{press}()},
+\code{\link{rmse}()},
 \code{\link{sfe}()}
 
 Other accuracy metrics: 
@@ -114,6 +115,7 @@ Other accuracy metrics:
 \code{\link{mse}()},
 \code{\link{pbias}()},
 \code{\link{press}()},
+\code{\link{rmse}()},
 \code{\link{sfe}()}
 }
 \concept{accuracy metrics}

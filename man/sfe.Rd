@@ -92,7 +92,8 @@ Other numeric metrics:
 \code{\link{mse}()},
 \code{\link{nse}()},
 \code{\link{pbias}()},
-\code{\link{press}()}
+\code{\link{press}()},
+\code{\link{rmse}()}
 
 Other accuracy metrics: 
 \code{\link{kge}()},
@@ -100,7 +101,8 @@ Other accuracy metrics:
 \code{\link{mse}()},
 \code{\link{nse}()},
 \code{\link{pbias}()},
-\code{\link{press}()}
+\code{\link{press}()},
+\code{\link{rmse}()}
 }
 \concept{accuracy metrics}
 \concept{numeric metrics}

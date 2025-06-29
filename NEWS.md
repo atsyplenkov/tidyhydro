@@ -1,5 +1,12 @@
 # tidyhydro (development version)
 
+## New features
+-   Added RMSE
+
+## Miscellaneous
+
+-   Added structure. Functions are now grouped into two categories: regression and GOF
+
 # tidyhydro 0.1.1
 
 ## New features
@@ -9,10 +16,11 @@
 
 ## Bug fixes
 
--   Improved documenation by switching from `\url` to `\doi`
--   Removed unicode characters α, β
+-   Improved documentation by switching from `\url` to `\doi`
+-   Removed unicode characters
 
 ## Miscellaneous
+
 -   Created website with vignettes (https://atsyplenkov.github.io/tidyhydro)
 
 # tidyhydro 0.1.0

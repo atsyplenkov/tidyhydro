@@ -16,14 +16,14 @@ test_that("nse", {
   # same results as hydroGOF with both NA values present and without
   quickcheck::for_all(
     obs = quickcheck::double_bounded(
-      left = -1000,
-      right = 1000,
+      left = -2000,
+      right = 2000,
       len = 50,
       any_na = TRUE
     ),
     sim = quickcheck::double_bounded(
-      left = -1000,
-      right = 1000,
+      left = -2000,
+      right = 2000,
       len = 50,
       any_na = TRUE
     ),
@@ -38,14 +38,14 @@ test_that("nse", {
   # Without NA
   quickcheck::for_all(
     obs = quickcheck::double_bounded(
-      left = -1000,
-      right = 1000,
+      left = -2000,
+      right = 2000,
       len = 50,
       any_na = FALSE
     ),
     sim = quickcheck::double_bounded(
-      left = -1000,
-      right = 1000,
+      left = -2000,
+      right = 2000,
       len = 50,
       any_na = FALSE
     ),
@@ -65,14 +65,14 @@ test_that("kge", {
   # With NA
   quickcheck::for_all(
     obs = quickcheck::double_bounded(
-      left = -1000,
-      right = 1000,
+      left = -2000,
+      right = 2000,
       len = 50,
       any_na = TRUE
     ),
     sim = quickcheck::double_bounded(
-      left = -1000,
-      right = 1000,
+      left = -2000,
+      right = 2000,
       len = 50,
       any_na = TRUE
     ),
@@ -87,14 +87,14 @@ test_that("kge", {
   # Without NA
   quickcheck::for_all(
     obs = quickcheck::double_bounded(
-      left = -1000,
-      right = 1000,
+      left = -2000,
+      right = 2000,
       len = 50,
       any_na = FALSE
     ),
     sim = quickcheck::double_bounded(
-      left = -1000,
-      right = 1000,
+      left = -2000,
+      right = 2000,
       len = 50,
       any_na = FALSE
     ),
@@ -115,14 +115,14 @@ test_that("kge2012", {
   # With NA
   quickcheck::for_all(
     obs = quickcheck::double_bounded(
-      left = -1000,
-      right = 1000,
+      left = -2000,
+      right = 2000,
       len = 50,
       any_na = TRUE
     ),
     sim = quickcheck::double_bounded(
-      left = -1000,
-      right = 1000,
+      left = -2000,
+      right = 2000,
       len = 50,
       any_na = TRUE
     ),
@@ -142,14 +142,14 @@ test_that("kge2012", {
   # Without NA
   quickcheck::for_all(
     obs = quickcheck::double_bounded(
-      left = -1000,
-      right = 1000,
+      left = -2000,
+      right = 2000,
       len = 50,
       any_na = FALSE
     ),
     sim = quickcheck::double_bounded(
-      left = -1000,
-      right = 1000,
+      left = -2000,
+      right = 2000,
       len = 50,
       any_na = FALSE
     ),
@@ -174,14 +174,14 @@ test_that("pbias", {
   # With NA
   quickcheck::for_all(
     obs = quickcheck::double_bounded(
-      left = -1000,
-      right = 1000,
+      left = -2000,
+      right = 2000,
       len = 50,
       any_na = TRUE
     ),
     sim = quickcheck::double_bounded(
-      left = -1000,
-      right = 1000,
+      left = -2000,
+      right = 2000,
       len = 50,
       any_na = TRUE
     ),
@@ -196,14 +196,14 @@ test_that("pbias", {
   # Without NA
   quickcheck::for_all(
     obs = quickcheck::double_bounded(
-      left = -1000,
-      right = 1000,
+      left = -2000,
+      right = 2000,
       len = 50,
       any_na = FALSE
     ),
     sim = quickcheck::double_bounded(
-      left = -1000,
-      right = 1000,
+      left = -2000,
+      right = 2000,
       len = 50,
       any_na = FALSE
     ),
@@ -223,14 +223,14 @@ test_that("mse", {
   # With NA
   quickcheck::for_all(
     obs = quickcheck::double_bounded(
-      left = -1000,
-      right = 1000,
+      left = -2000,
+      right = 2000,
       len = 50,
       any_na = TRUE
     ),
     sim = quickcheck::double_bounded(
-      left = -1000,
-      right = 1000,
+      left = -2000,
+      right = 2000,
       len = 50,
       any_na = TRUE
     ),
@@ -245,20 +245,69 @@ test_that("mse", {
   # Without NA
   quickcheck::for_all(
     obs = quickcheck::double_bounded(
-      left = -1000,
-      right = 1000,
+      left = -2000,
+      right = 2000,
       len = 50,
       any_na = FALSE
     ),
     sim = quickcheck::double_bounded(
-      left = -1000,
-      right = 1000,
+      left = -2000,
+      right = 2000,
       len = 50,
       any_na = FALSE
     ),
     property = function(obs, sim) {
       new <- mse_vec(truth = obs, estimate = sim, na_rm = TRUE)
       old <- hydroGOF::mse(sim = sim, obs = obs, na.rm = TRUE)
+
+      expect_equal(new, old)
+    }
+  )
+})
+
+test_that("rmse", {
+  skip_if_not_installed("quickcheck")
+  skip_if_not_installed("hydroGOF")
+
+  # With NA
+  quickcheck::for_all(
+    obs = quickcheck::double_bounded(
+      left = -2000,
+      right = 2000,
+      len = 50,
+      any_na = TRUE
+    ),
+    sim = quickcheck::double_bounded(
+      left = -2000,
+      right = 2000,
+      len = 50,
+      any_na = TRUE
+    ),
+    property = function(obs, sim) {
+      new <- rmse_vec(truth = obs, estimate = sim, na_rm = TRUE)
+      old <- hydroGOF::rmse(sim = sim, obs = obs, na.rm = TRUE)
+
+      expect_equal(new, old)
+    }
+  )
+
+  # Without NA
+  quickcheck::for_all(
+    obs = quickcheck::double_bounded(
+      left = -2000,
+      right = 2000,
+      len = 50,
+      any_na = FALSE
+    ),
+    sim = quickcheck::double_bounded(
+      left = -2000,
+      right = 2000,
+      len = 50,
+      any_na = FALSE
+    ),
+    property = function(obs, sim) {
+      new <- rmse_vec(truth = obs, estimate = sim, na_rm = TRUE)
+      old <- hydroGOF::rmse(sim = sim, obs = obs, na.rm = TRUE)
 
       expect_equal(new, old)
     }

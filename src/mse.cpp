@@ -6,7 +6,7 @@
 using namespace Rcpp;
 
 // [[Rcpp::export]]
-SEXP mse_cpp(NumericVector truth, NumericVector estimate, bool na_rm = true) {
+SEXP mse_cpp(NumericVector truth, NumericVector estimate, bool na_rm = true, bool sqrt = true) {
   if (truth.size() != estimate.size()) {
     stop("'truth' and 'estimate' must have the same length");
   }
@@ -17,7 +17,6 @@ SEXP mse_cpp(NumericVector truth, NumericVector estimate, bool na_rm = true) {
   double num = 0.0;  // numerator
   double den = 0.0;  // denominator
   
-  // Second pass: calculate numerator and denominator
   if (na_rm) {
     #pragma omp parallel for reduction(+:num,den) schedule(static) if(n > 1000)
     for (int i = 0; i < n; i++) {
@@ -36,7 +35,15 @@ SEXP mse_cpp(NumericVector truth, NumericVector estimate, bool na_rm = true) {
     }
   }
   
-  double metric = num / den;
+  // Wheter to return MSE or RMSE 
+  double metric;
+  if (sqrt){
+    // Root Mean Squared Error
+    metric = std::sqrt(num / den); 
+  } else {
+    // Mean Squared Error
+    metric = num / den;
+  }
 
   return wrap(metric);
 }

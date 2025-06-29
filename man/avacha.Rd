@@ -3,23 +3,24 @@
 \docType{data}
 \name{avacha}
 \alias{avacha}
-\title{Mean Daily Water Discharge At Avacha River (Elizovo City)}
+\title{Mean daily water discharge at the Avacha River (Elizovo City)}
 \source{
 \itemize{
-\item \url{https://gmvo.skniivh.ru/}
-\item \url{https://ewds.climate.copernicus.eu/datasets/cems-glofas-historical}
+\item observed water discharge \url{https://gmvo.skniivh.ru/}
+\item simulated water discharge
+\url{https://ewds.climate.copernicus.eu/datasets/cems-glofas-historical}
 }
 }
 \value{
 \item{avacha}{a data frame}
 }
 \description{
-Mean Daily Water Discharge At Avacha River (Elizovo City)
+Mean daily water discharge at the Avacha River (Elizovo City)
 }
 \details{
 These data contain the measured (\code{obs}) mean daily water discharge
-values (in \eqn{m^3/s}) at the Avacha River -- Elizovo City state gauging
-station for the 2022 calendar year. They are accompanied by the GloFAS v4.0
+values (in \eqn{m^3/s}) at the Avacha River streamgage near Elizovo City,
+Russia, 2022 calendar year. They are accompanied by the GloFAS v4.0
 reanalysis water discharge values for the last 24 hours (\code{sim}), derived
 from
 \url{https://ewds.climate.copernicus.eu/datasets/cems-glofas-historical}.
