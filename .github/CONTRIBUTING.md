@@ -56,6 +56,8 @@ Please note that the tidyhydro project is released with a [Contributor Code of C
 
 -[x] RMSE
 
+-[ ] NRMSE - normalized root mean squared error
+
 ### Regression
 -[ ] PPCC - maximizes the probability plot correlation coefficient [@helselStatisticalMethodsWater2002, p.253]
 
