@@ -128,9 +128,9 @@ bench::mark(
 #> # A tibble: 3 × 6
 #>   expression   min median `itr/sec` mem_alloc `gc/sec`
 #>   <bch:expr> <dbl>  <dbl>     <dbl>     <dbl>    <dbl>
-#> 1 tidyhydro   1       1       28.9        NaN      NaN
-#> 2 hydroGOF   14.8    19.2      1          Inf      Inf
-#> 3 baseR       8.46   10.8      2.41       Inf      Inf
+#> 1 tidyhydro   1       1       28.7        NaN      NaN
+#> 2 hydroGOF   14.5    18.6      1          Inf      Inf
+#> 3 baseR       8.35   10.0      2.42       Inf      Inf
 ```
 
 ## Code of Conduct

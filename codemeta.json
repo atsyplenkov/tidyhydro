@@ -80,18 +80,6 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=quickcheck"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "quarto",
-      "name": "quarto",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=quarto"
     }
   ],
   "softwareRequirements": {
@@ -142,7 +130,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "103.052KB",
+  "fileSize": "7277.498KB",
   "releaseNotes": "https://github.com/atsyplenkov/tidyhydro/blob/master/NEWS.md",
   "readme": "https://github.com/atsyplenkov/tidyhydro/blob/master/README.md",
   "keywords": ["r", "r-package", "rstats"]
