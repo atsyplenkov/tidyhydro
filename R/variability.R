@@ -1,8 +1,7 @@
 #' Coefficient of Variation (Cv)
-#' @keywords summary
+#' @keywords summary_stats
 #'
-#' @family numeric metrics
-#' @family accuracy metrics
+#' @family descriptive statistics
 #' @templateVar fn cv
 #' @template return
 #'
@@ -25,14 +24,14 @@
 #' @export
 #'
 
+# TODO:
+# Add tests
+
 cv <- function(data, ...) {
   UseMethod("cv")
 }
 
-cv <- yardstick::new_numeric_metric(
-  cv,
-  direction = "minimize"
-)
+cv <- new_var_measure(cv)
 
 #' @rdname cv
 #' @export

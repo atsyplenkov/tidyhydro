@@ -77,7 +77,6 @@ log-transformed linear regression (\emph{Helsel et al., 2020}).
 }
 \examples{
 library(tidyhydro)
-data(avacha)
 
 # Supply truth and predictions as bare column names
 press(avacha, obs, sim)
@@ -97,26 +96,8 @@ Gilroy, E. J. Statistical Methods in Water Resources. 484 (2020)
 \doi{10.3133/tm4A3}.
 }
 \seealso{
-Other numeric metrics: 
-\code{\link{cv}()},
-\code{\link{kge}()},
-\code{\link{kge2012}()},
-\code{\link{mse}()},
-\code{\link{nse}()},
-\code{\link{pbias}()},
-\code{\link{rmse}()},
-\code{\link{sfe}()}
-
-Other accuracy metrics: 
-\code{\link{cv}()},
-\code{\link{kge}()},
-\code{\link{kge2012}()},
-\code{\link{mse}()},
-\code{\link{nse}()},
-\code{\link{pbias}()},
-\code{\link{rmse}()},
+Other regression metrics: 
 \code{\link{sfe}()}
 }
-\concept{accuracy metrics}
-\concept{numeric metrics}
+\concept{regression metrics}
 \keyword{regression}

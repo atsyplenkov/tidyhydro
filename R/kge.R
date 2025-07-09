@@ -42,8 +42,7 @@
 #' For further discussion, see Knoben et al. (2019), who caution against
 #' directly translating NSE-based interpretation thresholds to KGE.
 #'
-#' @family numeric metrics
-#' @family accuracy metrics
+#' @family KGE variants
 #' @templateVar fn kge
 #' @template return
 #'
@@ -170,8 +169,7 @@ kge_vec <- function(
 #' For further discussion, see Knoben et al. (2019), who caution against
 #' directly translating NSE-based interpretation thresholds to KGE.
 #'
-#' @family numeric metrics
-#' @family accuracy metrics
+#' @family KGE variants
 #' @templateVar fn kge2012
 #' @template return
 #'

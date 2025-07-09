@@ -41,35 +41,14 @@ Coefficient of Variation (Cv)
 }
 \examples{
 library(tidyhydro)
-data(avacha)
 
-# Supply truth and predictions as bare column names
+cv
+
+# Supply truth as bare column names
 cv(avacha, obs)
 
 # Or as numeric vectors
 cv_vec(avacha$obs)
 }
-\seealso{
-Other numeric metrics: 
-\code{\link{kge}()},
-\code{\link{kge2012}()},
-\code{\link{mse}()},
-\code{\link{nse}()},
-\code{\link{pbias}()},
-\code{\link{press}()},
-\code{\link{rmse}()},
-\code{\link{sfe}()}
-
-Other accuracy metrics: 
-\code{\link{kge}()},
-\code{\link{kge2012}()},
-\code{\link{mse}()},
-\code{\link{nse}()},
-\code{\link{pbias}()},
-\code{\link{press}()},
-\code{\link{rmse}()},
-\code{\link{sfe}()}
-}
-\concept{accuracy metrics}
-\concept{numeric metrics}
-\keyword{summary}
+\concept{descriptive statistics}
+\keyword{summary_stats}

@@ -61,7 +61,6 @@ where:
 }
 \examples{
 library(tidyhydro)
-data(avacha)
 
 # Supply truth and predictions as bare column names
 sfe(avacha, obs, sim)
@@ -86,26 +85,8 @@ Standards, p. 138).
 \url{https://www.nems.org.nz/documents/suspended-sediment}
 }
 \seealso{
-Other numeric metrics: 
-\code{\link{cv}()},
-\code{\link{kge}()},
-\code{\link{kge2012}()},
-\code{\link{mse}()},
-\code{\link{nse}()},
-\code{\link{pbias}()},
-\code{\link{press}()},
-\code{\link{rmse}()}
-
-Other accuracy metrics: 
-\code{\link{cv}()},
-\code{\link{kge}()},
-\code{\link{kge2012}()},
-\code{\link{mse}()},
-\code{\link{nse}()},
-\code{\link{pbias}()},
-\code{\link{press}()},
-\code{\link{rmse}()}
+Other regression metrics: 
+\code{\link{press}()}
 }
-\concept{accuracy metrics}
-\concept{numeric metrics}
+\concept{regression metrics}
 \keyword{regression}

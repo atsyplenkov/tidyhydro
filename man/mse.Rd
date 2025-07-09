@@ -60,7 +60,6 @@ where:
 }
 \examples{
 library(tidyhydro)
-data(avacha)
 
 # Supply truth and predictions as bare column names
 mse(avacha, obs, sim)
@@ -82,24 +81,11 @@ e2020WR029001. \doi{10.1029/2020WR029001}
 }
 \seealso{
 Other numeric metrics: 
-\code{\link{cv}()},
-\code{\link{kge}()},
-\code{\link{kge2012}()},
-\code{\link{nse}()},
 \code{\link{pbias}()},
-\code{\link{press}()},
-\code{\link{rmse}()},
-\code{\link{sfe}()}
+\code{\link{rmse}()}
 
 Other accuracy metrics: 
-\code{\link{cv}()},
-\code{\link{kge}()},
-\code{\link{kge2012}()},
-\code{\link{nse}()},
-\code{\link{pbias}()},
-\code{\link{press}()},
-\code{\link{rmse}()},
-\code{\link{sfe}()}
+\code{\link{rmse}()}
 }
 \concept{accuracy metrics}
 \concept{numeric metrics}
