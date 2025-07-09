@@ -20,8 +20,8 @@ new_sym_measure(fn)
 These functions provide convenient wrappers to create the three types of
 measure functions in \code{tidyhydro}: measures of central tendency, variability
 and symmetry. They add a measure-specific class to \code{fn} and
-mimic a behaviour of \code{\link[yardstick:metric_set]{yardstick::metric_set()}}. These features are used
-by \code{\link[=measure_set]{measure_set()}}.
+mimic a behaviour of \link[yardstick:metric_set]{metric_set}. These features
+are used by \link{measure_set}.
 
 See \href{https://www.tidymodels.org/learn/develop/metrics/}{Custom performance metrics} for more
 information about creating custom metrics.

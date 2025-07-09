@@ -1,9 +1,4 @@
-# File is named with `aaa-` so that it is loaded before any other files. We need
-# to call `new_*_metric()` internally from outside any function in the package,
-# so this file has to be sourced first. It is a bit of a hack, but works.
 # Modified after https://github.com/tidymodels/yardstick/blob/main/R/aaa-new.R
-
-# ------------------------------------------------------------------------------
 
 #' Construct a new measure function
 #' @keywords summary_stats
@@ -12,8 +7,8 @@
 #' These functions provide convenient wrappers to create the three types of
 #' measure functions in `tidyhydro`: measures of central tendency, variability
 #' and symmetry. They add a measure-specific class to `fn` and
-#' mimic a behaviour of [yardstick::metric_set()]. These features are used
-#' by [measure_set()].
+#' mimic a behaviour of [metric_set][yardstick::metric_set]. These features
+#' are used by [measure_set].
 #'
 #' See [Custom performance
 #' metrics](https://www.tidymodels.org/learn/develop/metrics/) for more
