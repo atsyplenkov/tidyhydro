@@ -1,5 +1,6 @@
 useDynLib(tidyhydro, .registration = TRUE)
 importFrom(Rcpp, evalCpp)
+import(rlang)
 # exportPattern("^[[:alpha:]]+")
 
 S3method(nse, data.frame)

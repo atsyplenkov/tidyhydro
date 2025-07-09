@@ -38,7 +38,7 @@ new_sym_measure <- function(fn) {
 }
 
 #' @include import-standalone-types-check.R
-new_measure <- function(fn, direction, class = NULL, call = caller_env()) {
+new_measure <- function(fn, class = NULL, call = caller_env()) {
   check_function(fn, call = call)
 
   class <- c(class, "measure", "function")
