@@ -8,7 +8,7 @@
 #' measure functions in `tidyhydro`: measures of central tendency, variability
 #' and symmetry. They add a measure-specific class to `fn` and
 #' mimic a behaviour of [metric_set][yardstick::metric_set]. These features
-#' are used by [measure_set].
+#' are used by measure_set.
 #'
 #' See [Custom performance
 #' metrics](https://www.tidymodels.org/learn/develop/metrics/) for more
@@ -37,9 +37,8 @@ new_sym_measure <- function(fn) {
   new_measure(fn, class = "sym_measure")
 }
 
-#' @include import-standalone-types-check.R
-new_measure <- function(fn, class = NULL, call = caller_env()) {
-  check_function(fn, call = call)
+new_measure <- function(fn, class = NULL) {
+  checkmate::assert_function(fn, args = "data")
 
   class <- c(class, "measure", "function")
 
@@ -70,7 +69,5 @@ format.measure <- function(x, ...) {
       "measure"
     )
 
-  cli::cli_format_method(
-    cli::cli_text(c("A {measure_type}"))
-  )
+  cat(paste("A", measure_type))
 }

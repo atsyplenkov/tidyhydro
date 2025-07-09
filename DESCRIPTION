@@ -12,7 +12,7 @@ Imports:
     Rcpp (>= 1.0.12),
     rlang (>= 1.1.0),
     yardstick (>= 1.3.1),
-    cli
+    checkmate (>= 2.3.1)
 LinkingTo: Rcpp
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
@@ -29,10 +29,9 @@ LazyData: true
 Config/Needs/website: bench, ggplot2, quarto, lubridate, dplyr
 Collate: 
     'RcppExports.R'
-    'import-standalone-types-check.R'
     'aaa-new.R'
+    'central-tendency.R'
     'data.R'
-    'import-standalone-obj-type.R'
     'kge.R'
     'mse.R'
     'nse.R'
