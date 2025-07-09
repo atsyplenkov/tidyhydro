@@ -19,8 +19,7 @@
 #'   \item \eqn{obs} defines model observations at time step \eqn{i}
 #' }
 #'
-#' @family numeric metrics
-#' @family accuracy metrics
+#' @family regression metrics
 #' @templateVar fn sfe
 #' @template return
 #'

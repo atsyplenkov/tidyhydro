@@ -35,8 +35,7 @@
 #' - **Satisfactory** -- 0.5 < `nse()` < 0.6
 #' - **Poor** -- `nse()` <= 0.5
 #'
-#' @family numeric metrics
-#' @family accuracy metrics
+#' @family NSE variants
 #' @templateVar fn nse
 #' @template return
 #'

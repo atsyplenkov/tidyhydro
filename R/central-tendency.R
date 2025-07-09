@@ -1,8 +1,8 @@
-#' Coefficient of Variation (Cv)
+#' Geometric Mean (GM)
 #' @keywords summary_stats
 #'
 #' @family descriptive statistics
-#' @templateVar fn cv
+#' @templateVar fn gm
 #' @template return
 #'
 #' @param data A `data.frame` containing the columns specified by the `truth`
@@ -27,23 +27,23 @@
 # TODO:
 # Add tests
 
-cv <- function(data, ...) {
-  UseMethod("cv")
+gm <- function(data, ...) {
+  UseMethod("gm")
 }
 
-cv <- new_var_measure(cv)
+gm <- new_tendency_measure(gm)
 
-#' @rdname cv
+#' @rdname gm
 #' @export
-cv.data.frame <- function(
+gm.data.frame <- function(
   data,
   truth,
   na_rm = TRUE,
   ...
 ) {
   yardstick::numeric_metric_summarizer(
-    name = "cv",
-    fn = cv_vec,
+    name = "gm",
+    fn = gm_vec,
     data = data,
     truth = !!rlang::enquo(truth),
     estimate = !!rlang::enquo(truth),
@@ -51,21 +51,16 @@ cv.data.frame <- function(
   )
 }
 
-#' @rdname cv
+#' @rdname gm
 #' @export
-cv_vec <- function(
+gm_vec <- function(
   truth,
   na_rm = TRUE,
   ...
 ) {
-  yardstick::check_numeric_metric(truth, truth, case_weights = NULL)
-
-  if (na_rm) {
-    truth <- truth[!is.na(truth)]
-  }
-
-  x0 <- mean(truth)
-  k <- truth / x0
-
-  sqrt(sum((k - 1)^2) / (length(truth) - 1))
+  checkmate::assert_numeric(
+    truth,
+    lower = 1e-323
+  )
+  exp(mean(log(truth), na.rm = na_rm))
 }

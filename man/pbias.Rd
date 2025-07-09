@@ -78,7 +78,6 @@ follows:
 }
 \examples{
 library(tidyhydro)
-data(avacha)
 
 # Supply truth and predictions as bare column names
 pbias(avacha, obs, sim)
@@ -99,25 +98,8 @@ multilevel expert calibration. J. Hydrologic Eng. 4(2): 135-143
 }
 \seealso{
 Other numeric metrics: 
-\code{\link{cv}()},
-\code{\link{kge}()},
-\code{\link{kge2012}()},
 \code{\link{mse}()},
-\code{\link{nse}()},
-\code{\link{press}()},
-\code{\link{rmse}()},
-\code{\link{sfe}()}
-
-Other accuracy metrics: 
-\code{\link{cv}()},
-\code{\link{kge}()},
-\code{\link{kge2012}()},
-\code{\link{mse}()},
-\code{\link{nse}()},
-\code{\link{press}()},
-\code{\link{rmse}()},
-\code{\link{sfe}()}
+\code{\link{rmse}()}
 }
-\concept{accuracy metrics}
 \concept{numeric metrics}
 \keyword{gof}

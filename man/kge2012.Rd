@@ -88,7 +88,6 @@ directly translating NSE-based interpretation thresholds to KGE.
 }
 \examples{
 library(tidyhydro)
-data(avacha)
 
 # Supply truth and predictions as bare column names
 kge2012(avacha, obs, sim)
@@ -108,26 +107,8 @@ Kling–Gupta efficiency scores. Hydrology and Earth System Sciences, 23,
 4323–4331. \doi{10.5194/hess-23-4323-2019}
 }
 \seealso{
-Other numeric metrics: 
-\code{\link{cv}()},
-\code{\link{kge}()},
-\code{\link{mse}()},
-\code{\link{nse}()},
-\code{\link{pbias}()},
-\code{\link{press}()},
-\code{\link{rmse}()},
-\code{\link{sfe}()}
-
-Other accuracy metrics: 
-\code{\link{cv}()},
-\code{\link{kge}()},
-\code{\link{mse}()},
-\code{\link{nse}()},
-\code{\link{pbias}()},
-\code{\link{press}()},
-\code{\link{rmse}()},
-\code{\link{sfe}()}
+Other KGE variants: 
+\code{\link{kge}()}
 }
-\concept{accuracy metrics}
-\concept{numeric metrics}
+\concept{KGE variants}
 \keyword{gof}
