@@ -87,6 +87,7 @@ Standards, p. 138).
 }
 \seealso{
 Other numeric metrics: 
+\code{\link{cv}()},
 \code{\link{kge}()},
 \code{\link{kge2012}()},
 \code{\link{mse}()},
@@ -96,6 +97,7 @@ Other numeric metrics:
 \code{\link{rmse}()}
 
 Other accuracy metrics: 
+\code{\link{cv}()},
 \code{\link{kge}()},
 \code{\link{kge2012}()},
 \code{\link{mse}()},

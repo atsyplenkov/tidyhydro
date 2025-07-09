@@ -98,6 +98,7 @@ Gilroy, E. J. Statistical Methods in Water Resources. 484 (2020)
 }
 \seealso{
 Other numeric metrics: 
+\code{\link{cv}()},
 \code{\link{kge}()},
 \code{\link{kge2012}()},
 \code{\link{mse}()},
@@ -107,6 +108,7 @@ Other numeric metrics:
 \code{\link{sfe}()}
 
 Other accuracy metrics: 
+\code{\link{cv}()},
 \code{\link{kge}()},
 \code{\link{kge2012}()},
 \code{\link{mse}()},

@@ -109,6 +109,7 @@ Kling–Gupta efficiency scores. Hydrology and Earth System Sciences, 23,
 }
 \seealso{
 Other numeric metrics: 
+\code{\link{cv}()},
 \code{\link{kge}()},
 \code{\link{mse}()},
 \code{\link{nse}()},
@@ -118,6 +119,7 @@ Other numeric metrics:
 \code{\link{sfe}()}
 
 Other accuracy metrics: 
+\code{\link{cv}()},
 \code{\link{kge}()},
 \code{\link{mse}()},
 \code{\link{nse}()},

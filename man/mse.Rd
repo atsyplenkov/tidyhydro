@@ -82,6 +82,7 @@ e2020WR029001. \doi{10.1029/2020WR029001}
 }
 \seealso{
 Other numeric metrics: 
+\code{\link{cv}()},
 \code{\link{kge}()},
 \code{\link{kge2012}()},
 \code{\link{nse}()},
@@ -91,6 +92,7 @@ Other numeric metrics:
 \code{\link{sfe}()}
 
 Other accuracy metrics: 
+\code{\link{cv}()},
 \code{\link{kge}()},
 \code{\link{kge2012}()},
 \code{\link{nse}()},

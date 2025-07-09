@@ -101,6 +101,7 @@ Transactions of the ASABE, 58(6), 1763–1785.
 }
 \seealso{
 Other numeric metrics: 
+\code{\link{cv}()},
 \code{\link{kge}()},
 \code{\link{kge2012}()},
 \code{\link{mse}()},
@@ -110,6 +111,7 @@ Other numeric metrics:
 \code{\link{sfe}()}
 
 Other accuracy metrics: 
+\code{\link{cv}()},
 \code{\link{kge}()},
 \code{\link{kge2012}()},
 \code{\link{mse}()},

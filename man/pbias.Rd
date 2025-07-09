@@ -99,6 +99,7 @@ multilevel expert calibration. J. Hydrologic Eng. 4(2): 135-143
 }
 \seealso{
 Other numeric metrics: 
+\code{\link{cv}()},
 \code{\link{kge}()},
 \code{\link{kge2012}()},
 \code{\link{mse}()},
@@ -108,6 +109,7 @@ Other numeric metrics:
 \code{\link{sfe}()}
 
 Other accuracy metrics: 
+\code{\link{cv}()},
 \code{\link{kge}()},
 \code{\link{kge2012}()},
 \code{\link{mse}()},
