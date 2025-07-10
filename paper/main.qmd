@@ -1,0 +1,72 @@
+---
+title: Bridging R and Whitebox Workflows
+subtitle: A proposal for the 2025 ISC Grant Program
+short-title: wbw
+code-repo: "Access the code, data, and analysis at <https://github.com/atsyplenkov/isc-proposal-wbw>"
+author: 
+  - name: Anatolii Tsyplenkov
+    email: tsyplenkova@landcareresearch.co.nz
+    orcid: 0000-0003-4144-8402
+    affiliations:
+      - "Manaaki Whenua – Landcare Research, 4410 Palmerston North, New Zealand"
+    
+date: today
+date-format: iso
+bibliography: references.bib
+
+fig-dpi: 500
+
+highlight-style: tango
+
+execute:
+  echo: false
+  output: true
+  warning: false
+
+format:
+  hikmah-pdf:
+    papersize: A4
+    linestretch: 1.1
+    # Font settings
+    sansfont: "Jost"
+    mainfont: "Inter"
+    monofont: "Fira Code"
+    # Page size
+    geometry: 
+      - top=0.5cm
+      - right=1cm
+      - bottom=1.5cm
+      - left=1.25cm
+    # Use biblatex-chicago
+    biblatex-chicago: true
+    biblio-style: authordate
+    biblatexoptions: 
+      - backend=biber
+      - autolang=hyphen
+      - isbn=false
+      - uniquename=false
+
+header-includes: |
+  \usepackage{xcolor}
+  \definecolor{codebg}{gray}{0.9}
+  \let\oldtexttt\texttt
+  \renewcommand{\texttt}[1]{\colorbox{codebg}{\oldtexttt{#1}}}
+
+---
+
+{{< include proposal/signatories.qmd >}}
+
+{{< include proposal/problemdefinition.qmd >}}
+
+{{< include proposal/proposal.qmd >}}
+
+{{< include proposal/timeline.qmd >}}
+
+{{< include proposal/requirements.qmd >}}
+
+{{< include proposal/success.qmd >}}
+
+# References
+
+::: refs
+:::

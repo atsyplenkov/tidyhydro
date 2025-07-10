@@ -1,5 +1,6 @@
 # TODO:
-# Add hyperlink to `measure_set`
+# - Add hyperlink to `measure_set`
+# - Add tests
 
 # Modified after https://github.com/tidymodels/yardstick/blob/main/R/aaa-new.R
 

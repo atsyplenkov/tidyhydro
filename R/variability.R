@@ -1,6 +1,6 @@
 # TODO:
-# Add tests
-# Add description
+# - Add tests
+# - Add description
 
 #' Coefficient of Variation (Cv)
 #' @keywords summary_stats

@@ -1,6 +1,6 @@
 # TODO:
-# Add tests
-# Add description
+# - Add tests
+# - Add description
 
 #' Geometric Mean (GM)
 #' @keywords summary_stats
