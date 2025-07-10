@@ -1,3 +1,7 @@
+# TODO:
+# Add tests
+# Add description
+
 #' Geometric Mean (GM)
 #' @keywords summary_stats
 #'
@@ -23,9 +27,6 @@
 #'
 #' @export
 #'
-
-# TODO:
-# Add tests
 
 gm <- function(data, ...) {
   UseMethod("gm")

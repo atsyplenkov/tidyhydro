@@ -1,3 +1,6 @@
+# TODO:
+# Add hyperlink to `measure_set`
+
 # Modified after https://github.com/tidymodels/yardstick/blob/main/R/aaa-new.R
 
 #' Construct a new measure function

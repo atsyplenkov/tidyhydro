@@ -1,3 +1,7 @@
+# TODO:
+# Add tests
+# Add description
+
 #' Coefficient of Variation (Cv)
 #' @keywords summary_stats
 #'
@@ -23,9 +27,6 @@
 #'
 #' @export
 #'
-
-# TODO:
-# Add tests
 
 cv <- function(data, ...) {
   UseMethod("cv")
