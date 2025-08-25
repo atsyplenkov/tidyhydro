@@ -247,3 +247,107 @@ kge2012_vec <- function(
 
   kge_cpp(truth, estimate, na_rm = na_rm, version = "2012")
 }
+
+
+#' Log-transformed Modified Kling-Gupta Efficiency
+#' @keywords gof
+#'
+#' @description
+#' Calculate the modified Kling-Gupta Efficiency (*Kling et al., 2012*),
+#' aka \eqn{KGE'}. Dimensionless (from \eqn{-\infty} to 1).
+#' `kge2012()` assesses the accuracy of
+#' simulated data by considering correlation, bias, and variability relative
+#' to observed data.
+#'
+#' @family KGE variants
+#' @templateVar fn kgelog_low
+#' @template return
+#'
+#' @param data A `data.frame` containing the columns specified by the `truth`
+#' and `estimate` arguments.
+#'
+#' @param truth The column identifier for the true results
+#' (that is `numeric`). This should be an unquoted column name although
+#' this argument is passed by expression and supports
+#' [quasiquotation][rlang::quasiquotation] (you can unquote column
+#' names). For `_vec()` functions, a `numeric` vector.
+#'
+#' @param estimate The column identifier for the predicted
+#' results (that is also `numeric`). As with `truth` this can be
+#' specified different ways but the primary method is to use an
+#' unquoted variable name. For `_vec()` functions, a `numeric` vector.
+#'
+#' @param ... Not currently used.
+#'
+#' @template examples-numeric
+#'
+#' @export
+#'
+kgelog_low <- function(data, ...) {
+  UseMethod("kgelog_low")
+}
+
+kgelog_low <- yardstick::new_numeric_metric(
+  kgelog_low,
+  direction = "maximize"
+)
+
+#' @rdname kgelog
+#' @export
+kgelog_low.data.frame <- function(
+  data,
+  truth,
+  estimate,
+  ...
+) {
+  yardstick::numeric_metric_summarizer(
+    name = "kgelog_low",
+    fn = kgelog_low_vec,
+    data = data,
+    truth = !!rlang::enquo(truth),
+    estimate = !!rlang::enquo(estimate),
+    na_rm = FALSE
+  )
+}
+
+#' @rdname kgelog
+#' @export
+kgelog_low_vec <- function(
+  truth,
+  estimate,
+  ...
+) {
+  # checks
+  checkmate::assert_numeric(
+    truth,
+    lower = 1e-323
+  )
+  checkmate::assert_numeric(
+    estimate,
+    lower = 1e-323
+  )
+
+  # Keep only low flows
+  min_q <- min(truth, na.rm = TRUE)
+  max_q <- max(truth, na.rm = TRUE)
+  threshold <- (min_q + 0.05 * (max_q - min_q))
+  checks <- truth <= threshold & !is.na(truth)
+
+  # Log-transform
+  truth_log <- log10(truth[checks])
+  estimate_log <- log10(estimate[checks])
+
+  # More checks
+  yardstick::check_numeric_metric(
+    truth_log,
+    estimate_log,
+    case_weights = NULL
+  )
+
+  kge_cpp(
+    truth_log,
+    estimate_log,
+    na_rm = FALSE,
+    version = "2012"
+  )
+}

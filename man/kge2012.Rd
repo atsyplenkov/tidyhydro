@@ -108,7 +108,8 @@ Kling–Gupta efficiency scores. Hydrology and Earth System Sciences, 23,
 }
 \seealso{
 Other KGE variants: 
-\code{\link{kge}()}
+\code{\link{kge}()},
+\code{\link{kgelog_low}()}
 }
 \concept{KGE variants}
 \keyword{gof}
