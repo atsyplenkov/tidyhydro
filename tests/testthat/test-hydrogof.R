@@ -1,6 +1,9 @@
 # Property-based testing
 # https://www.etiennebacher.com/posts/2024-10-01-using-property-testing-in-r
 
+# Tests to ensure an accordance in results between hydroGOF and
+# tidyhydro packages.
+
 options(
   quickcheck.tests = 20L,
   quickcheck.shrinks = 10L,
@@ -158,6 +161,65 @@ test_that("kge2012", {
       old <- hydroGOF::KGE(
         sim = sim,
         obs = obs,
+        na.rm = TRUE,
+        method = "2012"
+      )
+
+      expect_equal(new, old)
+    }
+  )
+})
+
+test_that("kgelog", {
+  skip_if_not_installed("quickcheck")
+  skip_if_not_installed("hydroGOF")
+
+  # With NA
+  quickcheck::for_all(
+    obs = quickcheck::double_bounded(
+      left = 1,
+      right = 2000,
+      len = 50,
+      any_na = TRUE
+    ),
+    sim = quickcheck::double_bounded(
+      left = 1,
+      right = 2000,
+      len = 50,
+      any_na = TRUE
+    ),
+    property = function(obs, sim) {
+      new <- kgelog_vec(truth = obs, estimate = sim, na_rm = TRUE)
+      old <- hydroGOF::KGE(
+        sim = log10(sim),
+        obs = log10(obs),
+        na.rm = TRUE,
+        method = "2012"
+      )
+
+      expect_equal(new, old)
+    }
+  )
+
+  # Without NA
+  quickcheck::for_all(
+    obs = quickcheck::double_bounded(
+      left = 1,
+      right = 2000,
+      len = 50,
+      any_na = FALSE
+    ),
+    sim = quickcheck::double_bounded(
+      left = 1,
+      right = 2000,
+      len = 50,
+      any_na = FALSE
+    ),
+    property = function(obs, sim) {
+      new <- kgelog_vec(truth = obs, estimate = sim, na_rm = TRUE)
+      old <- hydroGOF::KGE(
+        sim = log10(sim),
+        obs = log10(obs),
         na.rm = TRUE,
         method = "2012"
       )

@@ -4,7 +4,12 @@ test_that("na_rm works as expected", {
 
   # No missing data, na.rm = FALSE
   expect_equal(
-    kge_vec(truth = ex_dat$obs, estimate = ex_dat$pred, na_rm = FALSE),
+    kge_cpp(
+      obs = ex_dat$obs,
+      sim = ex_dat$pred,
+      na_rm = FALSE,
+      version = "2009"
+    ),
     #fmt: skip
     1 - sqrt(
           (cor(ex_dat$pred, ex_dat$obs) - 1)^2 +
@@ -15,7 +20,12 @@ test_that("na_rm works as expected", {
 
   # No missing data, na.rm = TRUE
   expect_equal(
-    kge_vec(truth = ex_dat$obs, estimate = ex_dat$pred, na_rm = TRUE),
+    kge_cpp(
+      obs = ex_dat$obs,
+      sim = ex_dat$pred,
+      na_rm = TRUE,
+      version = "2009"
+    ),
     #fmt: skip
     1 - sqrt(
           (cor(ex_dat$pred, ex_dat$obs) - 1)^2 +
@@ -26,13 +36,18 @@ test_that("na_rm works as expected", {
 
   # Missing data is present, na.rm = FALSE
   expect_equal(
-    kge_vec(truth = ex_dat$obs, estimate = ex_dat$pred_na, na_rm = FALSE),
+    kge_cpp(
+      obs = ex_dat$obs,
+      sim = ex_dat$pred_na,
+      na_rm = FALSE,
+      version = "2009"
+    ),
     NA_real_
   )
 
   # Missing data is present, na.rm = TRUE
   expect_equal(
-    kge(ex_dat, truth = obs, estimate = pred_na, na_rm = TRUE)[[".estimate"]],
+    kge_cpp(ex_dat$obs, ex_dat$pred_na, na_rm = TRUE, version = "2009"),
     #fmt: skip
     1 - sqrt(
           (cor(ex_dat$pred[not_na], ex_dat$obs[not_na]) - 1)^2 +
@@ -48,7 +63,7 @@ test_that("Integer columns are allowed", {
   ex_dat$obs <- as.integer(ex_dat$obs)
 
   expect_equal(
-    kge(ex_dat, truth = "obs", estimate = "pred", na_rm = FALSE)[[".estimate"]],
+    kge_cpp(ex_dat$obs, ex_dat$pred, na_rm = FALSE, version = "2009"),
     #fmt: skip
     1 - sqrt(
           (cor(ex_dat$pred, ex_dat$obs) - 1)^2 +

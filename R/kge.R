@@ -279,9 +279,74 @@ kge2012_vec <- function(
 #' unquoted variable name. For `_vec()` functions, a `numeric` vector.
 #'
 #' @param ... Not currently used.
-#'
+#' 
+#' @templateVar fn kgelog
 #' @template examples-numeric
 #'
+#' @export
+#'
+kgelog <- function(data, ...) {
+  UseMethod("kgelog")
+}
+
+kgelog <- yardstick::new_numeric_metric(
+  kgelog,
+  direction = "maximize"
+)
+
+#' @rdname kgelog
+#' @export
+kgelog.data.frame <- function(
+  data,
+  truth,
+  estimate,
+  na_rm = TRUE,
+  ...
+) {
+  yardstick::numeric_metric_summarizer(
+    name = "kgelog",
+    fn = kgelog_vec,
+    data = data,
+    truth = !!rlang::enquo(truth),
+    estimate = !!rlang::enquo(estimate),
+    na_rm = na_rm
+  )
+}
+
+#' @rdname kgelog
+#' @export
+kgelog_vec <- function(
+  truth,
+  estimate,
+  na_rm = TRUE,
+  ...
+) {
+  # checks
+  checkmate::assert_numeric(
+    truth,
+    lower = 1e-323
+  )
+  checkmate::assert_numeric(
+    estimate,
+    lower = 1e-323
+  )
+
+  # Log-transform
+  truth_log <- log10(truth)
+  estimate_log <- log10(estimate)
+
+  # More checks
+  yardstick::check_numeric_metric(
+    truth_log,
+    estimate_log,
+    case_weights = NULL
+  )
+
+  kge_cpp(truth_log, estimate_log, na_rm = na_rm, version = "2012")
+}
+
+#' @rdname kgelog
+#' @export
 kgelog_low <- function(data, ...) {
   UseMethod("kgelog_low")
 }
@@ -297,6 +362,7 @@ kgelog_low.data.frame <- function(
   data,
   truth,
   estimate,
+  na_rm = TRUE,
   ...
 ) {
   yardstick::numeric_metric_summarizer(
@@ -305,7 +371,7 @@ kgelog_low.data.frame <- function(
     data = data,
     truth = !!rlang::enquo(truth),
     estimate = !!rlang::enquo(estimate),
-    na_rm = FALSE
+    na_rm = na_rm
   )
 }
 
@@ -314,6 +380,7 @@ kgelog_low.data.frame <- function(
 kgelog_low_vec <- function(
   truth,
   estimate,
+  na_rm = TRUE,
   ...
 ) {
   # checks
@@ -330,7 +397,7 @@ kgelog_low_vec <- function(
   min_q <- min(truth, na.rm = TRUE)
   max_q <- max(truth, na.rm = TRUE)
   threshold <- (min_q + 0.05 * (max_q - min_q))
-  checks <- truth <= threshold & !is.na(truth)
+  checks <- truth <= threshold
 
   # Log-transform
   truth_log <- log10(truth[checks])
@@ -346,7 +413,7 @@ kgelog_low_vec <- function(
   kge_cpp(
     truth_log,
     estimate_log,
-    na_rm = FALSE,
+    na_rm = na_rm,
     version = "2012"
   )
 }
@@ -368,6 +435,7 @@ kgelog_hi.data.frame <- function(
   data,
   truth,
   estimate,
+  na_rm = TRUE,
   ...
 ) {
   yardstick::numeric_metric_summarizer(
@@ -376,7 +444,7 @@ kgelog_hi.data.frame <- function(
     data = data,
     truth = !!rlang::enquo(truth),
     estimate = !!rlang::enquo(estimate),
-    na_rm = FALSE
+    na_rm = na_rm
   )
 }
 
@@ -385,6 +453,7 @@ kgelog_hi.data.frame <- function(
 kgelog_hi_vec <- function(
   truth,
   estimate,
+  na_rm = TRUE,
   ...
 ) {
   # checks
@@ -401,7 +470,7 @@ kgelog_hi_vec <- function(
   min_q <- min(truth, na.rm = TRUE)
   max_q <- max(truth, na.rm = TRUE)
   threshold <- (min_q + 0.05 * (max_q - min_q))
-  checks <- truth > threshold & !is.na(truth)
+  checks <- truth > threshold
 
   # Log-transform
   truth_log <- log10(truth[checks])
@@ -417,7 +486,7 @@ kgelog_hi_vec <- function(
   kge_cpp(
     truth_log,
     estimate_log,
-    na_rm = FALSE,
+    na_rm = na_rm,
     version = "2012"
   )
 }
