@@ -2,9 +2,24 @@
 % Please edit documentation in R/kge.R
 \name{kgelog_low}
 \alias{kgelog_low}
+\alias{kgelog_low.data.frame}
+\alias{kgelog_low_vec}
+\alias{kgelog_hi}
+\alias{kgelog_hi.data.frame}
+\alias{kgelog_hi_vec}
 \title{Log-transformed Modified Kling-Gupta Efficiency}
 \usage{
 kgelog_low(data, ...)
+
+\method{kgelog_low}{data.frame}(data, truth, estimate, ...)
+
+kgelog_low_vec(truth, estimate, ...)
+
+kgelog_hi(data, ...)
+
+\method{kgelog_hi}{data.frame}(data, truth, estimate, ...)
+
+kgelog_hi_vec(truth, estimate, ...)
 }
 \arguments{
 \item{data}{A \code{data.frame} containing the columns specified by the \code{truth}
@@ -30,7 +45,7 @@ and \code{.estimate} and 1 row of values.
 For grouped data frames, the number of rows returned will be the same as
 the number of groups.
 
-For \code{kgelog_low_vec()}, a single \code{numeric} value (or \code{NA}).
+For \code{kgelog_vec()}, a single \code{numeric} value (or \code{NA}).
 }
 \description{
 Calculate the modified Kling-Gupta Efficiency (\emph{Kling et al., 2012}),
@@ -43,10 +58,10 @@ to observed data.
 library(tidyhydro)
 
 # Supply truth and predictions as bare column names
-kgelog_low(avacha, obs, sim)
+kgelog(avacha, obs, sim)
 
 # Or as numeric vectors
-kgelog_low_vec(avacha$obs, avacha$sim)
+kgelog_vec(avacha$obs, avacha$sim)
 }
 \seealso{
 Other KGE variants: 

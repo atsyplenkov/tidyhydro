@@ -250,6 +250,7 @@ kge2012_vec <- function(
 
 
 #' Log-transformed Modified Kling-Gupta Efficiency
+#' @rdname kgelog
 #' @keywords gof
 #'
 #' @description
@@ -260,7 +261,7 @@ kge2012_vec <- function(
 #' to observed data.
 #'
 #' @family KGE variants
-#' @templateVar fn kgelog_low
+#' @templateVar fn kgelog
 #' @template return
 #'
 #' @param data A `data.frame` containing the columns specified by the `truth`
@@ -280,8 +281,6 @@ kge2012_vec <- function(
 #' @param ... Not currently used.
 #'
 #' @template examples-numeric
-#'
-#' @export
 #'
 kgelog_low <- function(data, ...) {
   UseMethod("kgelog_low")
@@ -332,6 +331,77 @@ kgelog_low_vec <- function(
   max_q <- max(truth, na.rm = TRUE)
   threshold <- (min_q + 0.05 * (max_q - min_q))
   checks <- truth <= threshold & !is.na(truth)
+
+  # Log-transform
+  truth_log <- log10(truth[checks])
+  estimate_log <- log10(estimate[checks])
+
+  # More checks
+  yardstick::check_numeric_metric(
+    truth_log,
+    estimate_log,
+    case_weights = NULL
+  )
+
+  kge_cpp(
+    truth_log,
+    estimate_log,
+    na_rm = FALSE,
+    version = "2012"
+  )
+}
+
+#' @rdname kgelog
+#' @export
+kgelog_hi <- function(data, ...) {
+  UseMethod("kgelog_hi")
+}
+
+kgelog_hi <- yardstick::new_numeric_metric(
+  kgelog_hi,
+  direction = "maximize"
+)
+
+#' @rdname kgelog
+#' @export
+kgelog_hi.data.frame <- function(
+  data,
+  truth,
+  estimate,
+  ...
+) {
+  yardstick::numeric_metric_summarizer(
+    name = "kgelog_hi",
+    fn = kgelog_hi,
+    data = data,
+    truth = !!rlang::enquo(truth),
+    estimate = !!rlang::enquo(estimate),
+    na_rm = FALSE
+  )
+}
+
+#' @rdname kgelog
+#' @export
+kgelog_hi_vec <- function(
+  truth,
+  estimate,
+  ...
+) {
+  # checks
+  checkmate::assert_numeric(
+    truth,
+    lower = 1e-323
+  )
+  checkmate::assert_numeric(
+    estimate,
+    lower = 1e-323
+  )
+
+  # Keep only low flows
+  min_q <- min(truth, na.rm = TRUE)
+  max_q <- max(truth, na.rm = TRUE)
+  threshold <- (min_q + 0.05 * (max_q - min_q))
+  checks <- truth > threshold & !is.na(truth)
 
   # Log-transform
   truth_log <- log10(truth[checks])
