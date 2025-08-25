@@ -79,7 +79,7 @@ Instead, users are encouraged to examine the individual components
 to understand the nature of model performance and consider defining
 explicit benchmarks based on the study context.
 
-For further discussion, see Knoben et al. (2019), who caution against
+For further discussion, see \emph{Knoben et al.} (2019), who caution against
 directly translating NSE-based interpretation thresholds to KGE.
 }
 \examples{

@@ -46,6 +46,9 @@ names). For \verb{_vec()} functions, a \code{numeric} vector.}
 results (that is also \code{numeric}). As with \code{truth} this can be
 specified different ways but the primary method is to use an
 unquoted variable name. For \verb{_vec()} functions, a \code{numeric} vector.}
+
+\item{na_rm}{A \code{logical} value indicating whether \code{NA}
+values should be stripped before the computation proceeds.}
 }
 \value{
 A \code{tibble} with columns \code{.metric}, \code{.estimator},
@@ -54,37 +57,95 @@ and \code{.estimate} and 1 row of values.
 For grouped data frames, the number of rows returned will be the same as
 the number of groups.
 
-For \code{kgelog_hi_vec()}, a single \code{numeric} value (or \code{NA}).
+For \code{kgelog_vec()}, a single \code{numeric} value (or \code{NA}).
 }
 \description{
-Calculate the modified Kling-Gupta Efficiency (\emph{Kling et al., 2012}),
-aka \eqn{KGE'}. Dimensionless (from \eqn{-\infty} to 1).
-\code{kge2012()} assesses the accuracy of
-simulated data by considering correlation, bias, and variability relative
-to observed data.
+Calculate the modified Kling-Gupta Efficiency (\emph{Kling et al., 2012}) on
+\strong{log-transformed} data as proposed in \emph{Mai} (2023),
+namely \eqn{KGE_{log}}, \eqn{KGE_{logQ_{low}}} and \eqn{KGE_{logQ_{hi}}}.
+All are dimensionless (from \eqn{-\infty} to 1).
+
+This metric is recommended for emphasising low flows. By transforming the
+discharge data logarithmically, it gives more weight to smaller flow
+values, which is important for understanding drought conditions or
+baseflow behaviour (see \emph{Mai 2023}; \emph{Mizukami et al., 2019}).
+}
+\details{
+While the \code{kgelog()} function proposes the log-transformed version of the
+\link{kge2012}, functions such as \code{kgelog_low()} and \code{kgelog_hi()}
+also perform data subsetting according to conditions specified in
+\emph{Mai} (2023).
+
+The metrics \code{kgelog_low()} and \code{kgelog_hi()} are then the \eqn{KGE'}
+of the log-transformed observed and simulated streamflow considering
+only low-flow and high-flow time steps, respectively.
+
+A data point is considered in the derivation of \code{kgelog_low()} if the
+observed streamflow (\eqn{\text{obs}}) for that time step satisfies
+the following conditions:
+
+\deqn{
+0.0 < \text{obs} \le min(\text{obs}) + 0.05 \times
+(max(\text{obs}) - min(\text{obs}))
+}
+
+A data point is considered in the derivation of \code{kgelog_hi()} if the
+observed streamflow (\eqn{\text{obs}}) for that time step satisfies
+the following conditions:
+
+\deqn{
+\text{obs} > min(\text{obs}) + 0.05 \times
+(max(\text{obs}) - min(\text{obs}))
+}
+}
+\note{
+Please note that the decision if a time step is a low-flow or high-flow
+time step is solely based on the observations which means it is always
+the same time steps for a given basin and time period while being
+independent of the simulation (\emph{Mai}, 2023).
+
+Unlike the Nash–Sutcliffe Efficiency (\link{nse}), the KGE does not have an
+inherent benchmark such as "mean flow", and \eqn{KGE' = 0} does not
+correspond to a baseline performance.
+Therefore, \eqn{KGE_{log}} values should not be interpreted as "good"
+or "bad" based solely on their sign or magnitude.
+Instead, users are encouraged to examine the individual components
+(\eqn{r}, \eqn{\beta}, \eqn{\gamma})
+to understand the nature of model performance and consider defining
+explicit benchmarks based on the study context.
+
+For further discussion, see \emph{Knoben et al.} (2019), who caution against
+directly translating NSE-based interpretation thresholds to KGE.
 }
 \examples{
 library(tidyhydro)
 
 # Supply truth and predictions as bare column names
-kgelog_hi(avacha, obs, sim)
+kgelog(avacha, obs, sim)
 
 # Or as numeric vectors
-kgelog_hi_vec(avacha$obs, avacha$sim)
-library(tidyhydro)
+kgelog_vec(avacha$obs, avacha$sim)
+}
+\references{
+Kling, H., Fuchs, M., & Paulin, M. (2012). Runoff conditions in the upper
+Danube basin under an ensemble of climate change scenarios.
+Journal of Hydrology, 424–425, 264–277.
+\doi{10.1016/j.jhydrol.2012.01.011}
 
-# Supply truth and predictions as bare column names
-kgelog_hi(avacha, obs, sim)
+Knoben, W. J. M., Freer, J. E., & Woods, R. A. (2019).
+Technical note: Inherent benchmark or not? Comparing Nash–Sutcliffe and
+Kling–Gupta efficiency scores. Hydrology and Earth System Sciences, 23,
+4323–4331. \doi{10.5194/hess-23-4323-2019}
 
-# Or as numeric vectors
-kgelog_hi_vec(avacha$obs, avacha$sim)
-library(tidyhydro)
+Mai, J. (2023). Ten strategies towards successful calibration of
+environmental models. Journal of Hydrology, 620, 129414.
+\doi{10.1016/j.jhydrol.2023.129414}
 
-# Supply truth and predictions as bare column names
-kgelog_hi(avacha, obs, sim)
-
-# Or as numeric vectors
-kgelog_hi_vec(avacha$obs, avacha$sim)
+Mizukami, N., Rakovec, O., Newman, A. J., Clark, M. P., Wood, A. W.,
+Gupta, H. V., & Kumar, R. (2019). On the choice of calibration metrics
+for “high-flow” estimation using hydrologic models.
+Hydrology and Earth System Sciences, 23(6), 2601–2614.
+\doi{10.5194/hess-23-2601-2019}
 }
 \seealso{
 Other KGE variants: 
