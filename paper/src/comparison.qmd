@@ -1,0 +1,57 @@
+
+```{r}
+library(hydroGOF)
+library(ggplot2)
+devtools::load_all()
+
+theme_set(theme_minimal())
+```
+
+```{r}
+nse_base <- function(truth, estimate, na_rm = TRUE) {
+  #fmt: skip
+  1 - (sum((truth - estimate)^2, na.rm = na_rm) /
+        sum((truth - mean(truth, na.rm = na_rm))^2, na.rm = na_rm))
+}
+```
+
+```{r}
+# Benchmark
+numpoints <- seq(25, 10^4, by = 50)
+df <- list()
+
+for (i in seq_along(numpoints)) {
+  set.seed(1234)
+  x <- rnorm(n = numpoints[i], mean = 100, sd = 25)
+  y <- rnorm(n = numpoints[i], mean = 110, sd = 25)
+  df[[as.character(numpoints[i])]] <-
+    bench::mark(
+      tidyhydro = nse_vec(x, y),
+      hydroGOF = hydroGOF::NSE(y, x),
+      base = nse_base(x, y),
+      iterations = 9L,
+      check = TRUE,
+      time_unit = "us"
+    )
+}
+```
+
+
+```{r}
+dplyr::bind_rows(df, .id = "numpoints") |>
+  dplyr::mutate(numpoints = as.numeric(numpoints)) |>
+  ggplot(aes(x = numpoints, y = median, color = as.character(expression))) +
+  geom_point(alpha = 0.3) +
+  geom_smooth(se = FALSE) +
+  scale_y_continuous(
+    limits = c(0, 250),
+    expand = expansion(mult = c(0, 0)),
+    labels = scales::label_number(big.mark = ",")
+  ) +
+  scale_x_continuous(
+    limits = c(0, 10000),
+    expand = expansion(mult = c(0, 0)),
+    labels = scales::label_number(big.mark = ",")
+  )
+
+```

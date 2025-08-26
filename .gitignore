@@ -14,3 +14,5 @@ docs
 **/.quarto/
 *.o
 *.so
+src/tidyhydro.dll
+tidyhydro.md

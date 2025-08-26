@@ -4,7 +4,9 @@
 # tidyhydro
 
 <!-- badges: start -->
+
 <p align="center">
+
 <a href="https://github.com/atsyplenkov/tidyhydro/releases">
 <img src="https://img.shields.io/github/v/release/atsyplenkov/tidyhydro?style=flat&labelColor=1C2C2E&color=198ce7&logo=GitHub&logoColor=white"></a>
 <!-- <a href="https://cran.r-project.org/package=tidyhydro">
@@ -14,6 +16,7 @@
 <a href="https://github.com/atsyplenkov/tidyhydro/actions/workflows/check-r-pkg.yaml">
 <img src="https://img.shields.io/github/actions/workflow/status/atsyplenkov/tidyhydro/check-r-pkg.yaml?style=flat&labelColor=1C2C2E&color=256bc0&logo=GitHub%20Actions&logoColor=white"></a>
 </p>
+
 <!-- badges: end -->
 
 The `tidyhydro` package provides a set of commonly used metrics in
@@ -26,17 +29,18 @@ library is mainly written in C++ and provides a very quick estimation of
 desired goodness-of-fit criteria.
 
 Additionally, you’ll find here a C++ implementation of lesser-known yet
-powerful metrics used in reports from the United States Geological
-Survey (USGS) and the National Environmental Monitoring Standards (NEMS)
-guidelines. Examples include *PRESS* (Prediction Error Sum of Squares),
-*SFE* (Standard Factorial Error), and *MSPE* (Model Standard Percentage
-Error) and others. Based on the equations from *Helsel et al.*
+powerful metrics and descriptive statistics recommended in the United
+States Geological Survey (USGS) and the National Environmental
+Monitoring Standards (NEMS) guidelines. Examples include *PRESS*
+(Prediction Error Sum of Squares), *SFE* (Standard Factorial Error),
+*MSPE* (Model Standard Percentage Error) and others. Based on the
+equations from *Helsel et al.*
 ([2020](https://pubs.usgs.gov/publication/tm4A3)), *Rasmunsen et al.*
 ([2008](https://pubs.usgs.gov/tm/tm3c4/)), *Hicks et al.*
 ([2020](https://www.nems.org.nz/documents/suspended-sediment)) and etc.
 (see documentation for details).
 
-## Example
+## Performance metrics
 
 The `tidyhydro` package follows the philosophy of
 [`yardstick`](https://github.com/tidymodels/yardstick/tree/main) and
@@ -88,6 +92,27 @@ hydro_metrics(avacha, obs, sim, performance = TRUE)
 #> 2 pbias   standard   Excellent
 ```
 
+## Descriptive statistics
+
+In addition to `metric`, inherited from `yardstick`, the `tidyhydro`
+introduces the `measure` objects. It aims to calculate descriptive
+statistics of a single dataset, such as `cv()` — coefficient of
+variation (a measure of variability) or `gm()` — geometric mean (a
+measure of central tendency):
+
+``` r
+# Coefficient of Variation
+cv(avacha, obs)
+#> # A tibble: 1 × 3
+#>   .metric .estimator .estimate
+#>   <chr>   <chr>          <dbl>
+#> 1 cv      standard       0.533
+
+# Geometric mean
+gm_vec(avacha$obs)
+#> [1] 128.9476
+```
+
 ## Installation
 
 You can install the development version of `tidyhydro` from
@@ -128,9 +153,9 @@ bench::mark(
 #> # A tibble: 3 × 6
 #>   expression   min median `itr/sec` mem_alloc `gc/sec`
 #>   <bch:expr> <dbl>  <dbl>     <dbl>     <dbl>    <dbl>
-#> 1 tidyhydro   1       1       22.7        NaN      NaN
-#> 2 hydroGOF   15.2    19.1      1          Inf      Inf
-#> 3 baseR       8.66   10.6      2.44       Inf      Inf
+#> 1 tidyhydro   1      1        13.3        NaN      NaN
+#> 2 hydroGOF    9.69   8.63      1          Inf      Inf
+#> 3 baseR       5.80   5.54      2.27       Inf      Inf
 ```
 
 ## Code of Conduct
@@ -142,8 +167,8 @@ By contributing to this project, you agree to abide by its terms.
 
 ## See also
 
--   [`hydroGOF`](https://github.com/hzambran/hydroGOF) - Goodness-of-fit
-    functions for comparison of simulated and observed hydrological time
-    series.
--   [`yardstick`](https://github.com/tidymodels/yardstick/tree/main) -
-    tidy methods for models performance assessment.
+- [`hydroGOF`](https://github.com/hzambran/hydroGOF) - Goodness-of-fit
+  functions for comparison of simulated and observed hydrological time
+  series.
+- [`yardstick`](https://github.com/tidymodels/yardstick/tree/main) -
+  tidy methods for models performance assessment.

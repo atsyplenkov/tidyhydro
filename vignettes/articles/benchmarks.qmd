@@ -20,7 +20,7 @@ library(hydroGOF)
 ```{r}
 # NSE
 bench::mark(
-  tidyhydro = nse_vec(truth = avacha$obs, estimate = avacha$sim),
+  tidyhydro = tidyhydro::nse_vec(truth = avacha$obs, estimate = avacha$sim),
   hydroGOF = hydroGOF::NSE(sim = avacha$sim, obs = avacha$obs),
   relative = TRUE,
   check = TRUE,
@@ -30,7 +30,7 @@ bench::mark(
 
 # KGE
 bench::mark(
-  tidyhydro = kge_vec(truth = avacha$obs, estimate = avacha$sim),
+  tidyhydro = tidyhydro::kge_vec(truth = avacha$obs, estimate = avacha$sim),
   hydroGOF = hydroGOF::KGE(sim = avacha$sim, obs = avacha$obs, method = "2009"),
   relative = TRUE,
   check = TRUE,
@@ -40,7 +40,7 @@ bench::mark(
 
 # KGE'
 bench::mark(
-  tidyhydro = kge2012_vec(truth = avacha$obs, estimate = avacha$sim),
+  tidyhydro = tidyhydro::kge2012_vec(truth = avacha$obs, estimate = avacha$sim),
   hydroGOF = hydroGOF::KGE(sim = avacha$sim, obs = avacha$obs, method = "2012"),
   relative = TRUE,
   check = TRUE,
@@ -50,7 +50,7 @@ bench::mark(
 
 # pBIAS
 bench::mark(
-  tidyhydro = pbias_vec(truth = avacha$obs, estimate = avacha$sim),
+  tidyhydro = tidyhydro::pbias_vec(truth = avacha$obs, estimate = avacha$sim),
   hydroGOF = hydroGOF::pbias(sim = avacha$sim, obs = avacha$obs, dec = 9),
   relative = TRUE,
   check = TRUE,
@@ -60,11 +60,23 @@ bench::mark(
 
 # MSE
 bench::mark(
-  tidyhydro = mse_vec(truth = avacha$obs, estimate = avacha$sim),
+  tidyhydro = tidyhydro::mse_vec(truth = avacha$obs, estimate = avacha$sim),
   hydroGOF = hydroGOF::mse(sim = avacha$sim, obs = avacha$obs),
   relative = TRUE,
   check = TRUE,
   iterations = 25L,
   filter_gc = FALSE
 )
+
+# RMSE
+bench::mark(
+  tidyhydro = tidyhydro::rmse_vec(truth = avacha$obs, estimate = avacha$sim),
+  hydroGOF = hydroGOF::rmse(sim = avacha$sim, obs = avacha$obs),
+  yardstick = yardstick::rmse_vec(truth = avacha$obs, estimate = avacha$sim),
+  relative = TRUE,
+  check = TRUE,
+  iterations = 25L,
+  filter_gc = FALSE
+)
+
 ```

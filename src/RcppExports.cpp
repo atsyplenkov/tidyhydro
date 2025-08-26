@@ -25,15 +25,16 @@ BEGIN_RCPP
 END_RCPP
 }
 // mse_cpp
-SEXP mse_cpp(NumericVector truth, NumericVector estimate, bool na_rm);
-RcppExport SEXP _tidyhydro_mse_cpp(SEXP truthSEXP, SEXP estimateSEXP, SEXP na_rmSEXP) {
+SEXP mse_cpp(NumericVector truth, NumericVector estimate, bool na_rm, bool sqrt);
+RcppExport SEXP _tidyhydro_mse_cpp(SEXP truthSEXP, SEXP estimateSEXP, SEXP na_rmSEXP, SEXP sqrtSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< NumericVector >::type truth(truthSEXP);
     Rcpp::traits::input_parameter< NumericVector >::type estimate(estimateSEXP);
     Rcpp::traits::input_parameter< bool >::type na_rm(na_rmSEXP);
-    rcpp_result_gen = Rcpp::wrap(mse_cpp(truth, estimate, na_rm));
+    Rcpp::traits::input_parameter< bool >::type sqrt(sqrtSEXP);
+    rcpp_result_gen = Rcpp::wrap(mse_cpp(truth, estimate, na_rm, sqrt));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -94,7 +95,7 @@ END_RCPP
 
 static const R_CallMethodDef CallEntries[] = {
     {"_tidyhydro_kge_cpp", (DL_FUNC) &_tidyhydro_kge_cpp, 4},
-    {"_tidyhydro_mse_cpp", (DL_FUNC) &_tidyhydro_mse_cpp, 3},
+    {"_tidyhydro_mse_cpp", (DL_FUNC) &_tidyhydro_mse_cpp, 4},
     {"_tidyhydro_nse_cpp", (DL_FUNC) &_tidyhydro_nse_cpp, 4},
     {"_tidyhydro_pbias_cpp", (DL_FUNC) &_tidyhydro_pbias_cpp, 4},
     {"_tidyhydro_press_cpp", (DL_FUNC) &_tidyhydro_press_cpp, 3},

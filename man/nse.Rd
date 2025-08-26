@@ -81,7 +81,6 @@ as follows:
 }
 \examples{
 library(tidyhydro)
-data(avacha)
 
 # Supply truth and predictions as bare column names
 nse(avacha, obs, sim)
@@ -99,23 +98,5 @@ and Water Quality Models: Performance Measures and Evaluation Criteria.
 Transactions of the ASABE, 58(6), 1763–1785.
 \doi{10.13031/trans.58.10715}
 }
-\seealso{
-Other numeric metrics: 
-\code{\link{kge}()},
-\code{\link{kge2012}()},
-\code{\link{mse}()},
-\code{\link{pbias}()},
-\code{\link{press}()},
-\code{\link{sfe}()}
-
-Other accuracy metrics: 
-\code{\link{kge}()},
-\code{\link{kge2012}()},
-\code{\link{mse}()},
-\code{\link{pbias}()},
-\code{\link{press}()},
-\code{\link{sfe}()}
-}
-\concept{accuracy metrics}
-\concept{numeric metrics}
+\concept{NSE variants}
 \keyword{gof}

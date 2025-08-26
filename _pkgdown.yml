@@ -33,6 +33,10 @@ reference:
   contents:
   - has_keyword("regression")
 
+- title: "Summary statistics"
+  contents:
+  - has_keyword("summary_stats")
+
 - title: "Example datasets"
   contents:
   - has_keyword("data")

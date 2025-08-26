@@ -1,4 +1,13 @@
-# tidyhydro (development version)
+# tidyhydro 0.1.2
+
+## New features
+-   Added RMSE (`rmse`) and log-transformed KGE (`kgelog`, `kgelog_low` and `kgelog_hi`)
+-   Introduced descriptive statistics class — `measure`
+-   Added `cv`, `gm` measures
+
+## Miscellaneous
+
+-   Added structure. Functions are now grouped into two categories: regression and GOF
 
 # tidyhydro 0.1.1
 
@@ -9,10 +18,11 @@
 
 ## Bug fixes
 
--   Improved documenation by switching from `\url` to `\doi`
--   Removed unicode characters α, β
+-   Improved documentation by switching from `\url` to `\doi`
+-   Removed unicode characters
 
 ## Miscellaneous
+
 -   Created website with vignettes (https://atsyplenkov.github.io/tidyhydro)
 
 # tidyhydro 0.1.0

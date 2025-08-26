@@ -35,8 +35,7 @@
 #' different transformations of response variable, e.g. linear regression and
 #' log-transformed linear regression (*Helsel et al., 2020*).
 #'
-#' @family numeric metrics
-#' @family accuracy metrics
+#' @family regression metrics
 #' @templateVar fn press
 #' @template return
 #'

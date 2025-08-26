@@ -33,7 +33,6 @@
 #' - **Poor** -- `pbias()` >= ±15.0
 #'
 #' @family numeric metrics
-#' @family accuracy metrics
 #' @templateVar fn pbias
 #' @template return
 #'

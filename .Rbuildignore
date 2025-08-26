@@ -18,3 +18,5 @@
 ^codemeta\.json$
 ^CODE_OF_CONDUCT\.md$
 ^src/.*\.o$
+^dev\.R$
+^paper$

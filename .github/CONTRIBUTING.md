@@ -50,7 +50,15 @@ Please note that the tidyhydro project is released with a [Contributor Code of C
 ### GOF
 -[ ] KGE''
 
--[ ] KGE Score
+-[ ] KGE Score [@knobenTechnicalNoteInherent2019]
+
+-[ ] Weighted KGE [@mizukamiChoiceCalibrationMetrics2019]
+
+-[ ] MSDR - mean squared deviation ratio [@oliverTutorialGuideGeostatistics2014]
+
+-[x] RMSE
+
+-[ ] NRMSE - normalized root mean squared error
 
 ### Regression
 -[ ] PPCC - maximizes the probability plot correlation coefficient [@helselStatisticalMethodsWater2002, p.253]
@@ -61,4 +69,13 @@ Please note that the tidyhydro project is released with a [Contributor Code of C
 
 -[ ] MSPE - model standard percentage error log and nonlog [@rasmussenGuidelinesProceduresComputing2009, p. 13]
 
--[ ] RMSE
+### Stats
+-[ ] MAD
+
+-[x] Geometric Mean (GM)
+
+-[x] Coefficient of Variation (Cv)
+
+-[ ] Coefficient of Skewness (g or Cs)
+
+-[ ] Others measures of descriptive stats mentioned in Helsel et al. (2020)

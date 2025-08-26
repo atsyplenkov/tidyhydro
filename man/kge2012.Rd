@@ -83,12 +83,11 @@ Instead, users are encouraged to examine the individual components
 to understand the nature of model performance and consider defining
 explicit benchmarks based on the study context.
 
-For further discussion, see Knoben et al. (2019), who caution against
+For further discussion, see \emph{Knoben et al.} (2019), who caution against
 directly translating NSE-based interpretation thresholds to KGE.
 }
 \examples{
 library(tidyhydro)
-data(avacha)
 
 # Supply truth and predictions as bare column names
 kge2012(avacha, obs, sim)
@@ -108,22 +107,9 @@ Kling–Gupta efficiency scores. Hydrology and Earth System Sciences, 23,
 4323–4331. \doi{10.5194/hess-23-4323-2019}
 }
 \seealso{
-Other numeric metrics: 
+Other KGE variants: 
 \code{\link{kge}()},
-\code{\link{mse}()},
-\code{\link{nse}()},
-\code{\link{pbias}()},
-\code{\link{press}()},
-\code{\link{sfe}()}
-
-Other accuracy metrics: 
-\code{\link{kge}()},
-\code{\link{mse}()},
-\code{\link{nse}()},
-\code{\link{pbias}()},
-\code{\link{press}()},
-\code{\link{sfe}()}
+\code{\link{kgelog}()}
 }
-\concept{accuracy metrics}
-\concept{numeric metrics}
+\concept{KGE variants}
 \keyword{gof}

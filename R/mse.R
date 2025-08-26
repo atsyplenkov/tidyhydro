@@ -96,5 +96,91 @@ mse_vec <- function(
 ) {
   yardstick::check_numeric_metric(truth, estimate, case_weights = NULL)
 
-  mse_cpp(truth, estimate, na_rm = na_rm)
+  mse_cpp(truth, estimate, na_rm = na_rm, sqrt = FALSE)
+}
+
+# TODO:
+# Add description and details
+
+#' Root Mean Squared Error (RMSE)
+#' @keywords gof
+#'
+#' @details
+#' The RMSE is estimated as follows:
+#' \deqn{
+#' RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^{n}{(sim_i - obs_i)^2}}
+#' }
+#' where:
+#' \itemize{
+#'   \item \eqn{sim} defines model simulations at time step \eqn{i}
+#'   \item \eqn{obs} defines model observations at time step \eqn{i}
+#' }
+#'
+#' @family numeric metrics
+#' @family accuracy metrics
+#' @templateVar fn rmse
+#' @template return
+#'
+#' @param data A `data.frame` containing the columns specified by the `truth`
+#' and `estimate` arguments.
+#'
+#' @param truth The column identifier for the true results
+#' (that is `numeric`). This should be an unquoted column name although
+#' this argument is passed by expression and supports
+#' [quasiquotation][rlang::quasiquotation] (you can unquote column
+#' names). For `_vec()` functions, a `numeric` vector.
+#'
+#' @param estimate The column identifier for the predicted
+#' results (that is also `numeric`). As with `truth` this can be
+#' specified different ways but the primary method is to use an
+#' unquoted variable name. For `_vec()` functions, a `numeric` vector.
+#'
+#' @param na_rm A `logical` value indicating whether `NA`
+#' values should be stripped before the computation proceeds.
+#'
+#' @param ... Not currently used.
+#'
+#' @template examples-numeric
+#'
+#' @export
+#'
+rmse <- function(data, ...) {
+  UseMethod("rmse")
+}
+
+rmse <- yardstick::new_numeric_metric(
+  rmse,
+  direction = "minimize"
+)
+
+#' @rdname rmse
+#' @export
+rmse.data.frame <- function(
+  data,
+  truth,
+  estimate,
+  na_rm = TRUE,
+  ...
+) {
+  yardstick::numeric_metric_summarizer(
+    name = "rmse",
+    fn = rmse_vec,
+    data = data,
+    truth = !!rlang::enquo(truth),
+    estimate = !!rlang::enquo(estimate),
+    na_rm = na_rm
+  )
+}
+
+#' @rdname rmse
+#' @export
+rmse_vec <- function(
+  truth,
+  estimate,
+  na_rm = TRUE,
+  ...
+) {
+  yardstick::check_numeric_metric(truth, estimate, case_weights = NULL)
+
+  mse_cpp(truth, estimate, na_rm = na_rm, sqrt = TRUE)
 }
