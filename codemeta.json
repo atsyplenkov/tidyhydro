@@ -8,13 +8,13 @@
   "codeRepository": "https://github.com/atsyplenkov/tidyhydro",
   "issueTracker": "https://github.com/atsyplenkov/tidyhydro/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.1.1.9000",
+  "version": "0.1.2",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.5.1 Patched (2025-06-14 r88315)",
+  "runtimePlatform": "R version 4.5.1 Patched (2025-06-20 r88332 ucrt)",
   "author": [
     {
       "@type": "Person",
@@ -128,9 +128,22 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=yardstick"
     },
+    "5": {
+      "@type": "SoftwareApplication",
+      "identifier": "checkmate",
+      "name": "checkmate",
+      "version": ">= 2.3.1",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=checkmate"
+    },
     "SystemRequirements": null
   },
-  "fileSize": "7277.498KB",
+  "fileSize": "7300.242KB",
   "releaseNotes": "https://github.com/atsyplenkov/tidyhydro/blob/master/NEWS.md",
   "readme": "https://github.com/atsyplenkov/tidyhydro/blob/master/README.md",
   "keywords": ["r", "r-package", "rstats"]

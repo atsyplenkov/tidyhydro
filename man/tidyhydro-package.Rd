@@ -6,7 +6,7 @@
 \alias{tidyhydro-package}
 \title{tidyhydro: Tidy Metrics for Assessing Hydrological Models Performance}
 \description{
-Provides tidy tools for comparing simulated and observed hydrological time series. Includes compatibility with the 'yardstick' package for model performance evaluation using commonly used metrics such as the Nash–Sutcliffe Efficiency (NSE), Kling–Gupta Efficiency (KGE), percent bias (pBIAS) and etc.
+Provides tidy tools to measure the characteristics of hydrological time series and to assess the performance of hydrological models. Includes compatibility with the 'yardstick' package for model performance evaluation using commonly used metrics such as the Nash–Sutcliffe Efficiency (NSE), Kling–Gupta Efficiency (KGE), percent bias (pBIAS) and etc. Additionally provides a set of measures to calculate the descriptive statistics of a single dataset in accordance with Helsel et al. (2020). Helsel DR, Hirsch RM, Ryberg KR, Archfield SA, Gilroy EJ. Statistical methods in water resources. Reston, VA: 2020. \url{https://doi.org/10.3133/tm4A3}.
 }
 \seealso{
 Useful links:

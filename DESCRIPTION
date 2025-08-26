@@ -1,11 +1,11 @@
 Package: tidyhydro
 Type: Package
 Title: Tidy Metrics for Assessing Hydrological Models Performance
-Version: 0.1.1.9000
+Version: 0.1.2
 Authors@R:
     person(given = "Anatoly", family = "Tsyplenkov", email = "atsyplenkov@fastmail.com", role = c("cre", "aut", "cph"), comment = c(ORCID = "0000-0003-4144-8402"))
 Maintainer: Anatoly Tsyplenkov <atsyplenkov@fastmail.com>
-Description: Provides tidy tools for comparing simulated and observed hydrological time series. Includes compatibility with the 'yardstick' package for model performance evaluation using commonly used metrics such as the Nash–Sutcliffe Efficiency (NSE), Kling–Gupta Efficiency (KGE), percent bias (pBIAS) and etc.
+Description: Provides tidy tools to measure the characteristics of hydrological time series and to assess the performance of hydrological models. Includes compatibility with the 'yardstick' package for model performance evaluation using commonly used metrics such as the Nash–Sutcliffe Efficiency (NSE), Kling–Gupta Efficiency (KGE), percent bias (pBIAS) and etc. Additionally provides a set of measures to calculate the descriptive statistics of a single dataset in accordance with Helsel et al. (2020). Helsel DR, Hirsch RM, Ryberg KR, Archfield SA, Gilroy EJ. Statistical methods in water resources. Reston, VA: 2020. <https://doi.org/10.3133/tm4A3>.
 License: MIT + file LICENSE
 Depends: R (>= 4.1.0)
 Imports:

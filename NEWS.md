@@ -1,7 +1,9 @@
-# tidyhydro (development version)
+# tidyhydro 0.1.2
 
 ## New features
--   Added RMSE
+-   Added RMSE (`rmse`) and log-transformed KGE (`kgelog`, `kgelog_low` and `kgelog_hi`)
+-   Introduced descriptive statistics class — `measure`
+-   Added `cv`, `gm` measures
 
 ## Miscellaneous
 
