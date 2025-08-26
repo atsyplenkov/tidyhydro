@@ -9,6 +9,8 @@ knitr:
 
 Since `tidyhydro` uses C++ under the hood, it performs slightly faster than similar R packages (like `hydroGOF`). The results are particularly noticeable in large datasets with $N$ observations exceeding 1000.
 
+Below are benchmarking results ran during CI process. See machine specs [below](#machine-specs).
+
 ```{r}
 #| label: setup
 library(tidyhydro)
@@ -79,4 +81,11 @@ bench::mark(
   filter_gc = FALSE
 )
 
+```
+
+# Machine specs
+
+```{r}
+system("lscpu | grep -v '^Flags'")
+system("lsmem")
 ```

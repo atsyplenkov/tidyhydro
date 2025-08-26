@@ -1,0 +1,26 @@
+---
+title: "Available metrics"
+format:
+  html:
+    toc: false
+knitr:
+  opts_chunk:
+    collapse: true
+    comment: '#>'
+    message: false
+---
+
+# Goodness-of-fit criteria
+
+| Name | Abbr. | Function calls | Reference |
+|----------------|--------|--------|-------------|
+| Kling-Gupta Efficiency | $KGE$ | `kge` | <span style="font-size: 0.8em;">Gupta, H.V.; Kling, H.; Yilmaz, K.K.; Martinez, G.F. (2009). *Journal of Hydrology*, 377(1–2), 80–91.</span> |
+| Modified Kling-Gupta Efficiency | $KGE'$ | `kge2012` | <span style="font-size: 0.8em;">Kling, H., Fuchs, M., & Paulin, M. (2012). *Journal of Hydrology*, 424–425, 264–277.</span> |
+| Log-transformed Kling-Gupta Efficiency | $KGE_{log}$ | `kgelog`, `kgelog_low`, `kgelog_hi` | <span style="font-size: 0.8em;">Kling, J. (2023). *Journal of Hydrology*, 620, 129414.</span> |
+| Nash-Sutcliffe Efficiency | $NSE$ | `nse` | <span style="font-size: 0.8em;">Nash, J. E., & Sutcliffe, J. V. (1970). *Journal of Hydrology*, 10(3), 282–290.</span> |
+| Mean Squared Error | $MSE$ | `mse` | <span style="font-size: 0.8em;">Clark, M. P., Vogel, R. M., Lamontagne, J. R., Mizukami, N., Knoben, W. J. M., Tang, G., Gharari, S., Freer, J. E., Whitfield, P. H., Shook, K. R., & Papalexiou, S. M. (2021). The Abuse of Popular Performance Metrics in Hydrologic Modeling. Water Resources Research, 57(9), e2020WR029001.</span> |
+| Percent BIAS | $pBIAS$ | `pbias` | <span style="font-size: 0.8em;">Gupta, H. V., S. Sorooshian, and P. O. Yapo. (1999). Status of automatic calibration for hydrologic models: Comparison with multilevel expert calibration. J. Hydrologic Eng. 4(2): 135-143 </span> |
+| PRediction Error Sum of Squares | $PRESS$ | `press` | <span style="font-size: 0.8em;"> Rasmussen, P. P., Gray, J. R., Glysson, G. D. & Ziegler, A. C. Guidelines and procedures for computing time-series suspended-sediment concentrations and loads from in-stream turbidity-sensor and streamflow data. in U.S. Geological Survey Techniques and Methods book 3, chap. C4 53 (2009)</span> |
+| Standard Factorial Error | $SFE$ | `sfe` | <span style="font-size: 0.8em;"> Herschy, R.W. 1978: Accuracy. Chapter 10 In: Herschy, R.W. (ed.) Hydrometry - principles and practices. John Wiley and Sons, Chichester, 511 p.</span> |
+
+: Metrics currently implemented in `tidyhydro` v`r packageVersion("tidyhydro")`
