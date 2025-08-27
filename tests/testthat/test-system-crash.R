@@ -1,6 +1,8 @@
 # Property-based testing
 # https://www.etiennebacher.com/posts/2024-10-01-using-property-testing-in-r
 
+# Tests to ensure that the C++ code wouldn't crash the system
+
 options(
   quickcheck.tests = 20L,
   quickcheck.shrinks = 10L,
@@ -208,6 +210,42 @@ test_that("press", {
       suppressWarnings(
         try(
           press_vec(truth = obs, estimate = sim, na_rm = na_flag),
+          silent = TRUE
+        )
+      )
+      expect_true(TRUE)
+    }
+  )
+})
+
+test_that("CV", {
+  skip_if_not_installed("quickcheck")
+
+  quickcheck::for_all(
+    obs = quickcheck::any_atomic(any_na = TRUE),
+    na_flag = quickcheck::logical_(any_na = FALSE),
+    property = function(obs, na_flag) {
+      suppressWarnings(
+        try(
+          cv_vec(truth = obs, na_rm = na_flag),
+          silent = TRUE
+        )
+      )
+      expect_true(TRUE)
+    }
+  )
+})
+
+test_that("GM", {
+  skip_if_not_installed("quickcheck")
+
+  quickcheck::for_all(
+    obs = quickcheck::any_atomic(any_na = TRUE),
+    na_flag = quickcheck::logical_(any_na = FALSE),
+    property = function(obs, na_flag) {
+      suppressWarnings(
+        try(
+          gm_vec(truth = obs, na_rm = na_flag),
           silent = TRUE
         )
       )

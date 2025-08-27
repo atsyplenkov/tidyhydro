@@ -81,3 +81,12 @@ test_that("Internal function works as expected", {
       kge_cpp(ex_dat$obs, ex_dat$pred, na_rm = TRUE, version = "2012")
   )
 })
+
+test_that("Negative values are not allowed in kgelog", {
+  x <- rnorm(100)
+  y <- rnorm(100)
+
+  expect_error(kgelog_vec(x, y))
+  expect_error(kgelog_hi_vec(x, y))
+  expect_error(kgelog_low_vec(x, y))
+})
