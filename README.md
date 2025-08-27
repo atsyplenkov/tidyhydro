@@ -30,11 +30,11 @@ desired goodness-of-fit criteria.
 
 Additionally, you’ll find here a C++ implementation of lesser-known yet
 powerful metrics and descriptive statistics recommended in the United
-States Geological Survey (USGS) and the National Environmental
-Monitoring Standards (NEMS) guidelines. Examples include *PRESS*
-(Prediction Error Sum of Squares), *SFE* (Standard Factorial Error),
-*MSPE* (Model Standard Percentage Error) and others. Based on the
-equations from *Helsel et al.*
+States Geological Survey (USGS) and the New Zealand National
+Environmental Monitoring Standards (NEMS) guidelines. Examples include
+*PRESS* (Prediction Error Sum of Squares), *SFE* (Standard Factorial
+Error), *MSPE* (Model Standard Percentage Error) and others. Based on
+the equations from *Helsel et al.*
 ([2020](https://pubs.usgs.gov/publication/tm4A3)), *Rasmunsen et al.*
 ([2008](https://pubs.usgs.gov/tm/tm3c4/)), *Hicks et al.*
 ([2020](https://www.nems.org.nz/documents/suspended-sediment)) and etc.
@@ -153,9 +153,9 @@ bench::mark(
 #> # A tibble: 3 × 6
 #>   expression   min median `itr/sec` mem_alloc `gc/sec`
 #>   <bch:expr> <dbl>  <dbl>     <dbl>     <dbl>    <dbl>
-#> 1 tidyhydro   1      1        13.3        NaN      NaN
-#> 2 hydroGOF    9.69   8.63      1          Inf      Inf
-#> 3 baseR       5.80   5.54      2.27       Inf      Inf
+#> 1 tidyhydro   1      1        16.5        NaN      NaN
+#> 2 hydroGOF    9.74  11.5       1          Inf      Inf
+#> 3 baseR       6.40   7.92      2.09       Inf      Inf
 ```
 
 ## Code of Conduct
