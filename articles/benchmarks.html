@@ -45,7 +45,8 @@
 <li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="../articles/benchmarks.html">Benchmarks</a></li>
+<li><a class="dropdown-item" href="../articles/available_metrics.html">Available metrics</a></li>
+    <li><a class="dropdown-item" href="../articles/benchmarks.html">Benchmarks</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
@@ -79,6 +80,7 @@
 
 
     <p>Since <code>tidyhydro</code> uses C++ under the hood, it performs slightly faster than similar R packages (like <code>hydroGOF</code>). The results are particularly noticeable in large datasets with <span class="math inline">\(N\)</span> observations exceeding 1000.</p>
+<p>Below are benchmarking results ran during CI process. See machine specs <a href="#machine-specs">below</a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/atsyplenkov/tidyhydro" class="external-link">tidyhydro</a></span><span class="op">)</span></span>
@@ -101,8 +103,8 @@
 <span><span class="co">#&gt; # A tibble: 2 × 6</span></span>
 <span><span class="co">#&gt;   expression   min median `itr/sec` mem_alloc `gc/sec`</span></span>
 <span><span class="co">#&gt;   &lt;bch:expr&gt; &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1 tidyhydro   1      1         3.45      40.9      NaN</span></span>
-<span><span class="co">#&gt; 2 hydroGOF    3.47   3.59      1          1        NaN</span></span>
+<span><span class="co">#&gt; 1 tidyhydro   1      1         3.18      40.9      NaN</span></span>
+<span><span class="co">#&gt; 2 hydroGOF    3.29   3.59      1          1        NaN</span></span>
 <span></span>
 <span><span class="co"># KGE</span></span>
 <span><span class="fu">bench</span><span class="fu">::</span><span class="fu"><a href="https://bench.r-lib.org/reference/mark.html" class="external-link">mark</a></span><span class="op">(</span></span>
@@ -116,8 +118,8 @@
 <span><span class="co">#&gt; # A tibble: 2 × 6</span></span>
 <span><span class="co">#&gt;   expression   min median `itr/sec` mem_alloc `gc/sec`</span></span>
 <span><span class="co">#&gt;   &lt;bch:expr&gt; &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1 tidyhydro   1      1         9.64       1        NaN</span></span>
-<span><span class="co">#&gt; 2 hydroGOF    9.90   9.87      1         30.0      NaN</span></span>
+<span><span class="co">#&gt; 1 tidyhydro   1      1         9.13       1        NaN</span></span>
+<span><span class="co">#&gt; 2 hydroGOF    9.73   9.62      1         30.0      NaN</span></span>
 <span></span>
 <span><span class="co"># KGE'</span></span>
 <span><span class="fu">bench</span><span class="fu">::</span><span class="fu"><a href="https://bench.r-lib.org/reference/mark.html" class="external-link">mark</a></span><span class="op">(</span></span>
@@ -131,8 +133,8 @@
 <span><span class="co">#&gt; # A tibble: 2 × 6</span></span>
 <span><span class="co">#&gt;   expression   min median `itr/sec` mem_alloc `gc/sec`</span></span>
 <span><span class="co">#&gt;   &lt;bch:expr&gt; &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1 tidyhydro   1      1         18.7      1         NaN</span></span>
-<span><span class="co">#&gt; 2 hydroGOF    7.76   7.77       1        8.92      Inf</span></span>
+<span><span class="co">#&gt; 1 tidyhydro   1      1         19.5      1         NaN</span></span>
+<span><span class="co">#&gt; 2 hydroGOF    8.19   8.13       1        8.92      Inf</span></span>
 <span></span>
 <span><span class="co"># pBIAS</span></span>
 <span><span class="fu">bench</span><span class="fu">::</span><span class="fu"><a href="https://bench.r-lib.org/reference/mark.html" class="external-link">mark</a></span><span class="op">(</span></span>
@@ -146,8 +148,8 @@
 <span><span class="co">#&gt; # A tibble: 2 × 6</span></span>
 <span><span class="co">#&gt;   expression   min median `itr/sec` mem_alloc `gc/sec`</span></span>
 <span><span class="co">#&gt;   &lt;bch:expr&gt; &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1 tidyhydro   1      1         2.41      1         NaN</span></span>
-<span><span class="co">#&gt; 2 hydroGOF    2.63   2.59      1         5.24      NaN</span></span>
+<span><span class="co">#&gt; 1 tidyhydro   1      1         2.67      1         NaN</span></span>
+<span><span class="co">#&gt; 2 hydroGOF    2.58   2.58      1         5.24      NaN</span></span>
 <span></span>
 <span><span class="co"># MSE</span></span>
 <span><span class="fu">bench</span><span class="fu">::</span><span class="fu"><a href="https://bench.r-lib.org/reference/mark.html" class="external-link">mark</a></span><span class="op">(</span></span>
@@ -161,8 +163,8 @@
 <span><span class="co">#&gt; # A tibble: 2 × 6</span></span>
 <span><span class="co">#&gt;   expression   min median `itr/sec` mem_alloc `gc/sec`</span></span>
 <span><span class="co">#&gt;   &lt;bch:expr&gt; &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1 tidyhydro   1      1         2.81      1         NaN</span></span>
-<span><span class="co">#&gt; 2 hydroGOF    3.14   3.09      1         5.97      NaN</span></span>
+<span><span class="co">#&gt; 1 tidyhydro   1      1         3.19      1         NaN</span></span>
+<span><span class="co">#&gt; 2 hydroGOF    3.11   3.11      1         5.97      NaN</span></span>
 <span></span>
 <span><span class="co"># RMSE</span></span>
 <span><span class="fu">bench</span><span class="fu">::</span><span class="fu"><a href="https://bench.r-lib.org/reference/mark.html" class="external-link">mark</a></span><span class="op">(</span></span>
@@ -177,9 +179,16 @@
 <span><span class="co">#&gt; # A tibble: 3 × 6</span></span>
 <span><span class="co">#&gt;   expression   min median `itr/sec` mem_alloc `gc/sec`</span></span>
 <span><span class="co">#&gt;   &lt;bch:expr&gt; &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1 tidyhydro   1      1        12.7       1         NaN</span></span>
-<span><span class="co">#&gt; 2 hydroGOF    3.02   3.02      4.24      9.14      NaN</span></span>
-<span><span class="co">#&gt; 3 yardstick   3.12   3.17      1        10.9       Inf</span></span></code></pre></div>
+<span><span class="co">#&gt; 1 tidyhydro   1      1        10.6       1         NaN</span></span>
+<span><span class="co">#&gt; 2 hydroGOF    3.06   3.02      4.09      9.14      NaN</span></span>
+<span><span class="co">#&gt; 3 yardstick   3.07   3.09      1        10.9       Inf</span></span></code></pre></div>
+</div>
+</section><section class="section level2"><h2 id="machine-specs">Machine specs<a class="anchor" aria-label="anchor" href="#machine-specs"></a>
+</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/system.html" class="external-link">system</a></span><span class="op">(</span><span class="st">"lscpu | grep -v '^Flags'"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/system.html" class="external-link">system</a></span><span class="op">(</span><span class="st">"lsmem"</span><span class="op">)</span></span></code></pre></div>
 </div>
 </section><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {

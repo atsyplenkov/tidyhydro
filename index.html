@@ -45,7 +45,8 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="articles/benchmarks.html">Benchmarks</a></li>
+<li><a class="dropdown-item" href="articles/available_metrics.html">Available metrics</a></li>
+    <li><a class="dropdown-item" href="articles/benchmarks.html">Benchmarks</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
@@ -69,7 +70,7 @@
 
 <!-- badges: end -->
 <p>The <code>tidyhydro</code> package provides a set of commonly used metrics in hydrology (such as <em>NSE</em>, <em>KGE</em>, <em>pBIAS</em>) for use within a <a href="https://www.tidymodels.org/" class="external-link"><code>tidymodels</code></a> infrastructure. Originally inspired by the <a href="https://github.com/tidymodels/yardstick/tree/main" class="external-link"><code>yardstick</code></a> and <a href="https://github.com/hzambran/hydroGOF" class="external-link"><code>hydroGOF</code></a> packages, this library is mainly written in C++ and provides a very quick estimation of desired goodness-of-fit criteria.</p>
-<p>Additionally, you’ll find here a C++ implementation of lesser-known yet powerful metrics and descriptive statistics recommended in the United States Geological Survey (USGS) and the National Environmental Monitoring Standards (NEMS) guidelines. Examples include <em>PRESS</em> (Prediction Error Sum of Squares), <em>SFE</em> (Standard Factorial Error), <em>MSPE</em> (Model Standard Percentage Error) and others. Based on the equations from <em>Helsel et al.</em> (<a href="https://pubs.usgs.gov/publication/tm4A3" class="external-link">2020</a>), <em>Rasmunsen et al.</em> (<a href="https://pubs.usgs.gov/tm/tm3c4/" class="external-link">2008</a>), <em>Hicks et al.</em> (<a href="https://www.nems.org.nz/documents/suspended-sediment" class="external-link">2020</a>) and etc. (see documentation for details).</p>
+<p>Additionally, you’ll find here a C++ implementation of lesser-known yet powerful metrics and descriptive statistics recommended in the United States Geological Survey (USGS) and the New Zealand National Environmental Monitoring Standards (NEMS) guidelines. Examples include <em>PRESS</em> (Prediction Error Sum of Squares), <em>SFE</em> (Standard Factorial Error), <em>MSPE</em> (Model Standard Percentage Error) and others. Based on the equations from <em>Helsel et al.</em> (<a href="https://pubs.usgs.gov/publication/tm4A3" class="external-link">2020</a>), <em>Rasmunsen et al.</em> (<a href="https://pubs.usgs.gov/tm/tm3c4/" class="external-link">2008</a>), <em>Hicks et al.</em> (<a href="https://www.nems.org.nz/documents/suspended-sediment" class="external-link">2020</a>) and etc. (see documentation for details).</p>
 <div class="section level2">
 <h2 id="performance-metrics">Performance metrics<a class="anchor" aria-label="anchor" href="#performance-metrics"></a>
 </h2>
@@ -157,9 +158,9 @@
 <span><span class="co">#&gt; # A tibble: 3 × 6</span></span>
 <span><span class="co">#&gt;   expression   min median `itr/sec` mem_alloc `gc/sec`</span></span>
 <span><span class="co">#&gt;   &lt;bch:expr&gt; &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1 tidyhydro   1      1        13.3        NaN      NaN</span></span>
-<span><span class="co">#&gt; 2 hydroGOF    9.69   8.63      1          Inf      Inf</span></span>
-<span><span class="co">#&gt; 3 baseR       5.80   5.54      2.27       Inf      Inf</span></span></code></pre></div>
+<span><span class="co">#&gt; 1 tidyhydro   1      1        16.5        NaN      NaN</span></span>
+<span><span class="co">#&gt; 2 hydroGOF    9.74  11.5       1          Inf      Inf</span></span>
+<span><span class="co">#&gt; 3 baseR       6.40   7.92      2.09       Inf      Inf</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>

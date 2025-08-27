@@ -45,7 +45,8 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="../articles/benchmarks.html">Benchmarks</a></li>
+<li><a class="dropdown-item" href="../articles/available_metrics.html">Available metrics</a></li>
+    <li><a class="dropdown-item" href="../articles/benchmarks.html">Benchmarks</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
@@ -78,85 +79,7 @@
 
 
 
-    <section class="section level2"><h2 id="available-metrics">Available metrics<a class="anchor" aria-label="anchor" href="#available-metrics"></a>
-</h2>
-<p>In <code>tidyhydro</code> v0.1.2, 13 metrics are implemented.</p>
-<table class="table caption-top">
-<caption>Metrics currently implemented in <code>tidyhydro</code> v0.1.2</caption>
-<colgroup>
-<col style="width: 35%">
-<col style="width: 17%">
-<col style="width: 17%">
-<col style="width: 28%">
-</colgroup>
-<thead><tr class="header">
-<th>Name</th>
-<th>Abbr.</th>
-<th>Function calls</th>
-<th>Reference</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td>Kling-Gupta Efficiency</td>
-<td><span class="math inline">\(KGE\)</span></td>
-<td>
-<code>kge</code>, <code>kge_vec</code>
-</td>
-<td><span style="font-size: 0.8em;">Gupta, H.V.; Kling, H.; Yilmaz, K.K.; Martinez, G.F. (2009). <em>Journal of Hydrology</em>, 377(1–2), 80–91.</span></td>
-</tr>
-<tr class="even">
-<td>Modified Kling-Gupta Efficiency</td>
-<td><span class="math inline">\(KGE'\)</span></td>
-<td>
-<code>kge2012</code>, <code>kge_vec</code>
-</td>
-<td><span style="font-size: 0.8em;">Kling, H., Fuchs, M., &amp; Paulin, M. (2012). <em>Journal of Hydrology</em>, 424–425, 264–277.</span></td>
-</tr>
-<tr class="odd">
-<td>Nash-Sutcliffe Efficiency</td>
-<td><span class="math inline">\(NSE\)</span></td>
-<td>
-<code>nse</code>, <code>nse_vec</code>
-</td>
-<td><span style="font-size: 0.8em;">Nash, J. E., &amp; Sutcliffe, J. V. (1970). <em>Journal of Hydrology</em>, 10(3), 282–290.</span></td>
-</tr>
-<tr class="even">
-<td>Mean Squared Error</td>
-<td><span class="math inline">\(MSE\)</span></td>
-<td>
-<code>mse</code>, <code>mse_vec</code>
-</td>
-<td><span style="font-size: 0.8em;">Clark, M. P., Vogel, R. M., Lamontagne, J. R., Mizukami, N., Knoben, W. J. M., Tang, G., Gharari, S., Freer, J. E., Whitfield, P. H., Shook, K. R., &amp; Papalexiou, S. M. (2021). The Abuse of Popular Performance Metrics in Hydrologic Modeling. Water Resources Research, 57(9), e2020WR029001.</span></td>
-</tr>
-<tr class="odd">
-<td>Percent BIAS</td>
-<td><span class="math inline">\(pBIAS\)</span></td>
-<td>
-<code>pbias</code>, <code>pbias_vec</code>
-</td>
-<td><span style="font-size: 0.8em;">Gupta, H. V., S. Sorooshian, and P. O. Yapo. (1999). Status of automatic calibration for hydrologic models: Comparison with multilevel expert calibration. J. Hydrologic Eng. 4(2): 135-143 </span></td>
-</tr>
-<tr class="even">
-<td>PRediction Error Sum of Squares</td>
-<td><span class="math inline">\(PRESS\)</span></td>
-<td>
-<code>press</code>, <code>press_vec</code>
-</td>
-<td><span style="font-size: 0.8em;"> Rasmussen, P. P., Gray, J. R., Glysson, G. D. &amp; Ziegler, A. C. Guidelines and procedures for computing time-series suspended-sediment concentrations and loads from in-stream turbidity-sensor and streamflow data. in U.S. Geological Survey Techniques and Methods book 3, chap. C4 53 (2009)</span></td>
-</tr>
-<tr class="odd">
-<td>Standard Factorial Error</td>
-<td><span class="math inline">\(SFE\)</span></td>
-<td>
-<code>sfe</code>, <code>sfe_vec</code>
-</td>
-<td><span style="font-size: 0.8em;"> Herschy, R.W. 1978: Accuracy. Chapter 10 In: Herschy, R.W. (ed.) Hydrometry - principles and practices. John Wiley and Sons, Chichester, 511 p.</span></td>
-</tr>
-</tbody>
-</table></section><section class="section level2"><h2 id="avacha-dataset">
-<code>avacha</code> dataset<a class="anchor" aria-label="anchor" href="#avacha-dataset"></a>
-</h2>
-<p>The package includes the mean daily water discharge values (<code>obs</code> in m³/s) measured at the state gauging station Avacha River — Elizovo City (site No. 2090). Alongside the measured water discharge, the mean water discharge in the last 24 hours derived from the <a href="https://confluence.ecmwf.int/display/CEMS/GloFAS+v4.0" class="external-link">GloFAS-ERA5 v4.0</a> reanalysis is provided (<code>sim</code>).</p>
+    <p>The package includes the mean daily water discharge values (<code>obs</code> in m³/s) measured at the state gauging station <a href="https://www.openstreetmap.org/#map=18/53.183111/158.393269" class="external-link">Avacha River — Elizovo City</a> (site No. 2090). Alongside the measured water discharge, the mean water discharge in the last 24 hours derived from the <a href="https://confluence.ecmwf.int/display/CEMS/GloFAS+v4.0" class="external-link">GloFAS-ERA5 v4.0</a> reanalysis is provided (<code>sim</code>).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
@@ -176,7 +99,7 @@
 </div>
 </div>
 </div>
-</section><section class="section level2"><h2 id="example-usage">Example usage<a class="anchor" aria-label="anchor" href="#example-usage"></a>
+<section class="section level2"><h2 id="example-usage">Example usage<a class="anchor" aria-label="anchor" href="#example-usage"></a>
 </h2>
 <p>One can estimate the desired metrics using the <code>tidyverse</code> <a href="https://style.tidyverse.org/" class="external-link">syntax</a>. For example, to get the Nash-Sutcliffe Efficiency (<span class="math inline">\(NSE\)</span>) or Modified Kling-Gupta Efficiency (<span class="math inline">\(KGE'\)</span>) for the <code>avacha</code> dataset, one can run:</p>
 <div class="cell">
