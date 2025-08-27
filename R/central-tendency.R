@@ -1,5 +1,4 @@
 # TODO:
-# - Add tests
 # - Add description
 
 #' Geometric Mean (GM)

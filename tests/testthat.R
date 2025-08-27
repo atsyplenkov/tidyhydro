@@ -7,6 +7,7 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
+library(checkmate)
 library(tidyhydro)
 
 test_check("tidyhydro")

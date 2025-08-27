@@ -1,5 +1,4 @@
 # TODO:
-# - Add tests
 # - Add description
 
 #' Coefficient of Variation (Cv)
@@ -52,6 +51,9 @@ cv.data.frame <- function(
   )
 }
 
+# TODO:
+# Rewrite in C++
+
 #' @rdname cv
 #' @export
 cv_vec <- function(
@@ -59,6 +61,7 @@ cv_vec <- function(
   na_rm = TRUE,
   ...
 ) {
+  # ugly, might not need
   yardstick::check_numeric_metric(truth, truth, case_weights = NULL)
 
   if (na_rm) {
