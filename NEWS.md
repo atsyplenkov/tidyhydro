@@ -7,7 +7,8 @@
 
 ## Miscellaneous
 
--   Added structure. Functions are now grouped into two categories: regression and GOF
+-   Added structure. Functions are now grouped into three categories: GOF, regression and descriptive statistics
+-   Improved parameter testing via `quickcheck`
 
 # tidyhydro 0.1.1
 
